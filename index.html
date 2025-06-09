@@ -16,6 +16,10 @@
         header {
             padding: 20px;
             background-color: #fff;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
         header img {
             max-width: 900px;
@@ -23,6 +27,10 @@
         nav {
             background-color: #f4f4f4;
             padding: 10px;
+            position: fixed;
+            top: 90px; /* Ajustado para ficar logo abaixo do header */
+            width: 100%;
+            z-index: 1000;
         }
         nav a {
             color: #d32f2f;
@@ -31,7 +39,7 @@
             font-weight: bold;
         }
         section {
-            padding: 20px;
+            padding: 120px 20px 20px; /* Ajustado padding-top para evitar sobreposição com o nav fixo */
             max-width: 800px;
             margin: 0 auto;
             border-bottom: 1px solid #ddd;
@@ -62,15 +70,21 @@
                 margin: 5px 0;
             }
             section {
-                padding: 10px;
+                padding: 130px 10px 20px; /* Ajustado para telas menores */
+            }
+            header img {
+                max-width: 300px; /* Reduzido para melhor visualização em mobile */
+            }
+            nav {
+                top: 80px; /* Ajuste para mobile */
             }
         }
     </style>
 </head>
 <body>
     <header>
-    <img src="assets/logotipo2.png" alt="Logo Município D'Itália" width="400" height="auto">
-</header>
+        <img src="assets/logotipo2.png" alt="Logo Município D'Itália" width="400" height="auto">
+    </header>
     <nav>
         <a href="#portugues">Português</a>
         <a href="#ingles">English</a>
