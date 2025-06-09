@@ -1,347 +1,1921 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-    <title>Menu do Restaurante</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Município D'Itália - Menu</title>
     <style>
-        body {
-            font-family: 'Georgia', serif;
-            margin: 20px;
-            background-color: #f8f9fa;
-            color: #2c3e50;
-            line-height: 1.6;
+        :root {
+            --primary-red: #d32f2f;
+            --text-dark: #333;
+            --background-light: #f9f9f9;
+            --border-light: #e0e0e0;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: white;
+        }
+
         .container {
             max-width: 900px;
-            margin: auto;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin: 0 auto;
+            background: white;
+            box-shadow: var(--shadow);
         }
-        h1 {
-            color: #34495e;
-            font-size: 2.2em;
-            margin-bottom: 30px;
+
+        header {
             text-align: center;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 15px;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fff 0%, var(--background-light) 100%);
+            border-bottom: 3px solid var(--primary-red);
         }
-        h2 {
-            color: #2c3e50;
-            font-size: 1.5em;
-            margin: 30px 0 20px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 300;
+
+        .logo {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
         }
+
+        nav {
+            background: var(--primary-red);
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-shadow: var(--shadow);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.1);
+            border-bottom-color: white;
+        }
+
         .menu-section {
-            margin-bottom: 40px;
-            display: none;
+            padding: 2.5rem;
+            border-bottom: 1px solid var(--border-light);
         }
-        .menu-section:target {
-            display: block;
-        }
-        #pt {
-            display: block;
-        }
-        .menu-item {
-            margin-bottom: 25px;
-            padding: 20px 0;
-            border-bottom: 1px solid #ecf0f1;
-        }
-        .menu-item:last-child {
+
+        .menu-section:last-child {
             border-bottom: none;
         }
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
-        }
-        .item-name {
-            font-weight: 600;
-            font-size: 1.1em;
-            color: #2c3e50;
-            flex: 1;
-        }
-        .item-price {
-            font-weight: 700;
-            color: #e74c3c;
-            font-size: 1.1em;
-            margin-left: 20px;
-        }
-        .item-description {
-            font-size: 0.95em;
-            color: #5d6d7e;
-            margin-top: 8px;
-            font-style: italic;
-            text-align: justify;
-        }
-        .language-switcher {
-            margin-bottom: 30px;
+
+        h1 {
+            font-size: 2.5rem;
             text-align: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #ecf0f1;
+            color: var(--primary-red);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
-        .language-switcher a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #3498db;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 20px;
+
+        h2 {
+            color: var(--primary-red);
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--primary-red);
+            padding-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 600;
+        }
+
+        .menu-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-item {
+            margin: 0.8rem 0;
+            padding: 0.8rem;
+            background: var(--background-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-red);
             transition: all 0.3s ease;
         }
-        .language-switcher a:hover {
-            background-color: #3498db;
+
+        .menu-item:hover {
+            background: #f5f5f5;
+            transform: translateX(5px);
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .item-price {
+            color: var(--primary-red);
+            font-weight: 700;
+            float: right;
+        }
+
+        .item-description {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .day-menu {
+            background: #fff8f0;
+            border: 1px solid #f0c674;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .day-name {
+            font-weight: 700;
+            color: var(--primary-red);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .veg-label {
+            background: #4caf50;
             color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .notes {
+            background: var(--background-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .notes h3 {
+            color: #ff9800;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            background: var(--text-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+
+        .contact-info a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                box-shadow: none;
+            }
+
+            header {
+                padding: 1.5rem;
+            }
+
+            .logo {
+                max-width: 300px;
+            }
+
+            nav a {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .menu-section {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .item-price {
+                float: none;
+                display: block;
+                margin-top: 0.3rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="language-switcher">
-            <a href="#pt">Português</a>
-            <a href="#en">English</a>
-            <a href="#es">Español</a>
-            <a href="#fr">Français</a>
-        </div>
+        <header>
+            <img src="https://images.pexels.com/photos/1579739/pexels-photo-1579739.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Logo Município D'Itália" class="logo">
+            <h1 style="color: var(--primary-red); margin: 0; font-size: 1.8rem;">Município D'Itália</h1>
+        </header>
 
-        <div id="pt" class="menu-section">
-            <h1>Menu (Português)</h1>
+        <nav>
+            <a href="#portugues">Português</a>
+            <a href="#ingles">English</a>
+            <a href="#espanhol">Español</a>
+            <a href="#frances">Français</a>
+        </nav>
+
+        <section id="portugues" class="menu-section">
+            <h1>Cardápio - Português</h1>
+
+            <h2>Pratos do Dia (Almoço)</h2>
             
+            <div class="day-menu">
+                <div class="day-name">SEGUNDA-FEIRA</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Sopa: Canja com Cenoura e Massinha</span>
+                        <span class="item-price">1,5€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Filet de Peixe Panado, Arroz e Legumes Salteados</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Macarrão ao Molho de Queijo com Cogumelos e Frango</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">TERÇA-FEIRA</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Sopa: Caldo de Peixe com Tomates e Massinha</span>
+                        <span class="item-price">1,5€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Carne de Porco Alentejana com Batatas, Picles e Amêijoas</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Macarrão à Bolonhesa com Queijo Parmesão</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">QUARTA-FEIRA</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Sopa: Caldinho de Feijão com Feijões Verdes</span>
+                        <span class="item-price">1,5€</span>
+                        <span class="veg-label">Veg</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Perninhas de Frango ao Forno, Arroz, Batatas Fritas e Salada</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Massa Linguini Negra à Mariscada</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">QUINTA-FEIRA</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Sopa: Creme de Cenouras com Espinafres</span>
+                        <span class="item-price">1,5€</span>
+                        <span class="veg-label">Veg</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Bacalhau à Brás</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Macarrão à Stracciatella com molho de tomates, massa de pimentos e parmesão fundido</span>
+                        <span class="item-price">5,9€</span>
+                        <span class="veg-label">Veg</span>
+                        <div class="item-description">Mussarela Fresca com Natas</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">SEXTA-FEIRA</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Sopa: Creme de Ervilhas</span>
+                        <span class="item-price">1,5€</span>
+                        <span class="veg-label">Veg</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Feijoada Brasileira com Arroz, Vinagrete, Torresmo, Couve, Farinha de Mandioca e Fatia de Laranja</span>
+                        <span class="item-price">6,9€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Macarrão à Pietro com queijo Parmesão</span>
+                        <span class="item-price">6,9€</span>
+                        <div class="item-description">Salsicha fresca picante, cebolas, e molho de tomate</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">SÁBADOS E FERIADOS</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Lasanha à Bolonhesa com Massa Fresca, Molho à Bolonhesa, Molho Bechamel e queijo gratinado</span>
+                        <span class="item-price">9,9€</span>
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Todos os Dias</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Bife de Frango</span>
+                    <span class="item-price">6,9€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Filet de Peixe Panado</span>
+                    <span class="item-price">7,9€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Bifanas</span>
+                    <span class="item-price">6,9€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Strogonoff de Frango</span>
+                    <span class="item-price">7,9€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Bife de Vitela</span>
+                    <span class="item-price">8,9€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Parmegiana de Frango</span>
+                    <span class="item-price">8,9€</span>
+                </li>
+            </ul>
+
+            <div class="notes">
+                <h3>Acompanhamentos</h3>
+                <p><strong>Escolha 2 Acompanhamentos:</strong> Arroz, Batata Frita, Batata Palha, Salada, Legumes</p>
+                <p><strong>Acompanhamento Extra:</strong> 0,5€</p>
+            </div>
+
             <h2>Entradas</h2>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Salada Fresca do Campo</span>
-                    <span class="item-price">R$ 28,00</span>
-                </div>
-                <p class="item-description">Uma seleção vibrante de folhas verdes orgânicas, tomates cereja, pepino crocante e rabanetes fatiados, regados com nosso vinagrete de ervas frescas. Uma explosão de frescor e sabor.</p>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Salgados</span>
+                    <span class="item-price">1,3€</span>
+                    <div class="item-description">Rissóis de Carne, Rissóis de Camarão, Empadas de Frango, Coxinhas de Frango, Bolas de Queijo (Veg)</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Pequeno Antepasto</span>
+                    <span class="item-price">1,5€</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Pão (4 fatias), manteiga e azeitonas | Com Creme Queijo da Serra +0,8€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Salada Simples</span>
+                    <span class="item-price">2,5€</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Alface, Tomates e Cebolas | Com Atum +2€</div>
+                </li>
+            </ul>
+
+            <h2>Lasanhas</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Lasanha à Bolonhesa</span>
+                    <span class="item-price">11,5€</span>
+                    <div class="item-description">Massa fresca, molho à Bolonhesa, molho Bechamel e queijo gratinado</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Lasanha de Bacalhau</span>
+                    <span class="item-price">11,5€</span>
+                    <div class="item-description">Massa fresca, bacalhau salteado com cebolas, salsas e azeite, molho Bechamel e queijo gratinado</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Lasanha de Berinjela</span>
+                    <span class="item-price">11,5€</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Fatias de berinjela grelhadas, molho de tomates com azeitonas e cebolas, camadas de queijo parmesão e queijo gratinado</div>
+                </li>
+            </ul>
+
+            <h2>Risotos</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Limão e Alho Francês</span>
+                    <span class="item-price">7,9€</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Com manteiga e queijo parmesão. Cítrico, aromático e crocante | Com Camarões +3€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Cogumelos</span>
+                    <span class="item-price">8,7€</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Com manteiga e queijo parmesão | Com Frango +2€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Frango com Tomates</span>
+                    <span class="item-price">8,7€</span>
+                    <div class="item-description">Com manteiga e queijo parmesão</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Camarões com Tomates</span>
+                    <span class="item-price">11,7€</span>
+                    <div class="item-description">Com manteiga e queijo parmesão</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Mariscos ao Limão</span>
+                    <span class="item-price">10,7€</span>
+                    <div class="item-description">Camarões, miolo de amêijoas, mini lulas e mexilhões, sumo de limão, manteiga e queijo parmesão</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Polvo Crocante</span>
+                    <span class="item-price">13,7€</span>
+                    <div class="item-description">Cubos de polvo ao vinho tinto finalizado com tentáculos de polvo crocantes, manteiga e queijo parmesão</div>
+                </li>
+            </ul>
+
+            <h2>Pastas</h2>
+            <div class="notes">
+                <h3>Escolha uma Pasta</h3>
+                <p><strong>Seca:</strong> Macarrão Penne | <strong>Fresca/Caseira:</strong> Tagliatelle (+1€)</p>
             </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Bruschetta de Tomate e Manjericão</span>
-                    <span class="item-price">R$ 32,00</span>
-                </div>
-                <p class="item-description">Fatias de pão artesanal tostado, cobertas com tomates maduros picados, manjericão fresco, alho e um fio de azeite extra virgem. Um clássico italiano que encanta o paladar.</p>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">À Pomodori</span>
+                    <span class="item-price">6,9€</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Molho de tomate, manjericão, tomates em pedaços | Com Camarões +3€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Cacio e Pepe</span>
+                    <span class="item-price">6,9€</span>
+                    <div class="item-description">Pimentas pretas tostadas e creme de queijo parmesão</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Ao Limone</span>
+                    <span class="item-price">6,9€</span>
+                    <div class="item-description">Molho de queijo, suco e raspas de limão, muito perfumado | Com Camarões +3€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Stracciatella</span>
+                    <span class="item-price">7,9€</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Molho de tomate, massa de pimentos e queijo parmesão fundido, servido com stracciatella (mozzarella fresca enriquecida com natas) | Com Frango +2€ | Com Camarões +3€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Pietro (Salsicha Fresca Picante)</span>
+                    <span class="item-price">8,7€</span>
+                    <div class="item-description">Salsicha fresca picante em pedaços com cebola e molho de tomate</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Bolonhesa</span>
+                    <span class="item-price">8,7€</span>
+                    <div class="item-description">Carne de vitela picada ao molho de tomate</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Cogumelos ao Queijo</span>
+                    <span class="item-price">8,7€</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Cogumelos frescos salteados no azeite e molho de queijo | Com Frango +2€ | Com Camarões +3€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Frango ao Queijo</span>
+                    <span class="item-price">8,7€</span>
+                    <div class="item-description">Tirinhas de frango alouradas e molho de queijo</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">A Putanesca</span>
+                    <span class="item-price">8,7€</span>
+                    <div class="item-description">Anchovas derretidas no molho de tomates com azeite, pimenta calabresa, tomates em pedaços e azeitonas pretas</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Melanzane</span>
+                    <span class="item-price">8,7€</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Berinjela Grelhada em pedaços ao molho de tomates</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Ao Pesto de Manjericão</span>
+                    <span class="item-price">8,7€</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Creme de manjericão com azeite, castanhas de caju e queijo parmesão</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">A Carbonara</span>
+                    <span class="item-price">9,3€</span>
+                    <div class="item-description">Bacons Fritos ao creme de gemas de ovos e queijo parmesão</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Matriciana</span>
+                    <span class="item-price">9,3€</span>
+                    <div class="item-description">Bacon Fritos, molho de tomate com queijo parmesão</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Ao Mare</span>
+                    <span class="item-price">11,9€</span>
+                    <div class="item-description">Pasta Linguini Negra com camarões grandes e pequenos, miolo de ameijoas, mini lulas e mexilhões salteados na manteiga com alho, sumo e raspas de limão</div>
+                </li>
+            </ul>
+
+            <h2>Bebidas</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Água sem gás 330ml</span>
+                    <span class="item-price">0,7€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Água sem gás 1000ml</span>
+                    <span class="item-price">1,7€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Água Pedras 250ml</span>
+                    <span class="item-price">1,2€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Água Pedras com Sabores 250ml</span>
+                    <span class="item-price">1,5€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Refrigerantes/Sumol lata 330ml</span>
+                    <span class="item-price">1,5€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Compal Sabores 200ml</span>
+                    <span class="item-price">1,5€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Ice Tea Sabores 330ml</span>
+                    <span class="item-price">1,5€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Mini Super Bock / Sagres 200ml</span>
+                    <span class="item-price">1€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Heineken 250ml ou Corona 210ml</span>
+                    <span class="item-price">1,5€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Franciscana 500ml</span>
+                    <span class="item-price">3,5€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Somersby 200ml</span>
+                    <span class="item-price">1,5€</span>
+                </li>
+            </ul>
+
+            <h2>Drinks</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Aperol Spritz</span>
+                    <span class="item-price">4,5€</span>
+                    <div class="item-description">Licor Italiano de Laranja, vinho branco frizante e água gasosa. Refrescante, levemente adocicado e um toque de amargor da laranja</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Limoncello (Digestivo) Shot</span>
+                    <span class="item-price">3€</span>
+                    <div class="item-description">Um shot de Licor Italiano de Limão retirado da arca frigorifica na hora de servir</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Caipirinha de Limão</span>
+                    <span class="item-price">4,5€</span>
+                    <div class="item-description">Cachaça Brasileira, açúcar, limão e muito gelo</div>
+                </li>
+            </ul>
+
+            <h2>Nossos Vinhos</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Branco Maduro: Favaios</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Branco Frisante: Faisão</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Tintos: Mestre Silva (Douro)</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Dom Manuel (Pinhel)</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Cruzeiro (Poço do Canto)</span>
+                </li>
+            </ul>
+            <div class="notes">
+                <p><strong>Taça pequena:</strong> 0,7€ | <strong>Taça Grande:</strong> 1,4€ | <strong>Jarro 500ml:</strong> 2,9€</p>
             </div>
 
-            <h2>Pratos Principais</h2>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Filé Mignon Grelhado com Risoto de Cogumelos</span>
-                    <span class="item-price">R$ 85,00</span>
-                </div>
-                <p class="item-description">Tenro filé mignon grelhado no ponto perfeito, acompanhado de um cremoso risoto arbóreo com uma seleção de cogumelos frescos e um toque de queijo parmesão. Uma combinação sublime de texturas e sabores.</p>
+            <div class="notes">
+                <h3>Observações</h3>
+                <p>1. Take Away - Alumínio 0,35€ - Cx Papel 0,20€ - Embal. Sopa peq 0,25€ / gr 0,35€</p>
+                <p>2. Os valores aplicados nesta ementa já estão com os devidos IVAs incluídos</p>
             </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Salmão ao Molho de Maracujá com Purê de Batatas Doces</span>
-                    <span class="item-price">R$ 78,00</span>
-                </div>
-                <p class="item-description">Suculento filé de salmão assado, servido com um exótico molho de maracujá e um suave purê de batatas doces. Uma opção leve e cheia de personalidade.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Lasanha à Bolonhesa Artesanal</span>
-                    <span class="item-price">R$ 62,00</span>
-                </div>
-                <p class="item-description">Camadas de massa fresca, molho bolonhesa rico e saboroso, bechamel cremoso e queijo mussarela gratinado. Preparada com carinho, como a da nonna.</p>
-            </div>
+        </section>
 
-            <h2>Sobremesas</h2>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Torta de Limão Siciliano com Merengue Suíço</span>
-                    <span class="item-price">R$ 25,00</span>
-                </div>
-                <p class="item-description">Uma base crocante, recheio cítrico e refrescante de limão siciliano, coberta com um merengue suíço levemente tostado. O equilíbrio perfeito entre doçura e acidez.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Brownie de Chocolate com Sorvete de Baunilha e Calda de Caramelo</span>
-                    <span class="item-price">R$ 29,00</span>
-                </div>
-                <p class="item-description">Nosso famoso brownie de chocolate, denso e úmido, servido quente com uma bola de sorvete de baunilha e finalizado com calda de caramelo caseira. Uma tentação irresistível.</p>
-            </div>
-        </div>
+        <section id="ingles" class="menu-section">
+            <h1>Menu - English</h1>
 
-        <div id="en" class="menu-section">
-            <h1>Menu (English)</h1>
+            <h2>Dishes of the Day (Lunch)</h2>
             
-            <h2>Appetizers</h2>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Fresh Field Salad</span>
-                    <span class="item-price">$28.00</span>
-                </div>
-                <p class="item-description">A vibrant selection of organic green leaves, cherry tomatoes, crispy cucumber, and sliced radishes, drizzled with our fresh herb vinaigrette. An explosion of freshness and flavor.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Tomato and Basil Bruschetta</span>
-                    <span class="item-price">$32.00</span>
-                </div>
-                <p class="item-description">Toasted slices of artisanal bread, topped with diced ripe tomatoes, fresh basil, garlic, and a drizzle of extra virgin olive oil. A classic Italian delight.</p>
-            </div>
-
-            <h2>Main Courses</h2>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Grilled Filet Mignon with Mushroom Risotto</span>
-                    <span class="item-price">$85.00</span>
-                </div>
-                <p class="item-description">Tender filet mignon grilled to perfection, accompanied by a creamy arborio risotto with a selection of fresh mushrooms and a touch of Parmesan cheese. A sublime combination of textures and flavors.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Salmon with Passion Fruit Sauce and Sweet Potato Puree</span>
-                    <span class="item-price">$78.00</span>
-                </div>
-                <p class="item-description">Succulent baked salmon fillet, served with an exotic passion fruit sauce and a smooth sweet potato puree. A light option full of character.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Handmade Bolognese Lasagna</span>
-                    <span class="item-price">$62.00</span>
-                </div>
-                <p class="item-description">Layers of fresh pasta, rich and flavorful Bolognese sauce, creamy béchamel, and gratinated mozzarella cheese. Prepared with love, just like grandma's.</p>
+            <div class="day-menu">
+                <div class="day-name">MONDAY</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Soup: Chicken soup with carrots and pasta</span>
+                        <span class="item-price">€1.50</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Breaded fish fillet, rice and sautéed vegetables</span>
+                        <span class="item-price">€5.90</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Macaroni in cheese sauce with mushrooms and chicken</span>
+                        <span class="item-price">€5.90</span>
+                    </li>
+                </ul>
             </div>
 
-            <h2>Desserts</h2>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Sicilian Lemon Tart with Swiss Meringue</span>
-                    <span class="item-price">$25.00</span>
-                </div>
-                <p class="item-description">A crispy base, a zesty and refreshing Sicilian lemon filling, topped with lightly toasted Swiss meringue. The perfect balance of sweetness and acidity.</p>
+            <div class="day-menu">
+                <div class="day-name">TUESDAY</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Soup: Fish broth with tomatoes and pasta</span>
+                        <span class="item-price">€1.50</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Alentejo pork with potatoes, pickles and clams</span>
+                        <span class="item-price">€5.90</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Macaroni Bolognese with parmesan cheese</span>
+                        <span class="item-price">€5.90</span>
+                    </li>
+                </ul>
             </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Chocolate Brownie with Vanilla Ice Cream and Caramel Sauce</span>
-                    <span class="item-price">$29.00</span>
-                </div>
-                <p class="item-description">Our famous dense and moist chocolate brownie, served warm with a scoop of vanilla ice cream and finished with homemade caramel sauce. An irresistible temptation.</p>
-            </div>
-        </div>
 
-        <div id="es" class="menu-section">
-            <h1>Menú (Español)</h1>
+            <div class="day-menu">
+                <div class="day-name">WEDNESDAY</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Soup: Bean soup with green beans</span>
+                        <span class="item-price">€1.50</span>
+                        <span class="veg-label">Veg</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Baked chicken legs, rice, chips and salad</span>
+                        <span class="item-price">€5.90</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Black Linguini Pasta with Seafood</span>
+                        <span class="item-price">€5.90</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">THURSDAY</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Soup: Cream of Carrots with Spinach</span>
+                        <span class="item-price">€1.50</span>
+                        <span class="veg-label">Veg</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Bacalhau à Brás</span>
+                        <span class="item-price">€5.90</span>
+                        <div class="item-description">Shredded cod with straw potatoes, fried onions, scrambled eggs, olives and parsley</div>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Pasta à Stracciatella with tomato sauce, pepper paste and melted parmesan</span>
+                        <span class="item-price">€5.90</span>
+                        <span class="veg-label">Veg</span>
+                        <div class="item-description">Fresh Mozzarella with Cream</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">FRIDAY</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Soup: Cream of Peas</span>
+                        <span class="item-price">€1.50</span>
+                        <span class="veg-label">Veg</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Brazilian Feijoada with Rice, Vinaigrette, Pork Crackling, Kale, Cassava Flour and Orange Slice</span>
+                        <span class="item-price">€6.90</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Pasta à Pietro with Parmesan cheese</span>
+                        <span class="item-price">€6.90</span>
+                        <div class="item-description">Spicy fresh sausage, onions and tomato sauce</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">SATURDAYS AND HOLIDAYS</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Lasagna Bolognese with Fresh Pasta, Bolognese Sauce, Bechamel Sauce and Cheese Gratin</span>
+                        <span class="item-price">€9.90</span>
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Every Day</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Chicken Steak</span>
+                    <span class="item-price">€6.90</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Breaded Fish Fillet</span>
+                    <span class="item-price">€7.90</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Bifanas (Portuguese pork sandwiches)</span>
+                    <span class="item-price">€6.90</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Chicken Stroganoff</span>
+                    <span class="item-price">€7.90</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Veal Steak</span>
+                    <span class="item-price">€8.90</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Chicken Parmigiana</span>
+                    <span class="item-price">€8.90</span>
+                </li>
+            </ul>
+
+            <div class="notes">
+                <h3>Sides</h3>
+                <p><strong>Choose 2 Sides:</strong> Rice, French Fries, Straw Potatoes, Salad, Vegetables</p>
+                <p><strong>Extra Side with any dish:</strong> €0.50</p>
+            </div>
+
+            <h2>Starters</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Savory Snacks</span>
+                    <span class="item-price">€1.30</span>
+                    <div class="item-description">Meat Rissoles, Shrimp Rissoles, Chicken Pies, Chicken Croquettes, Cheese Balls (Veg)</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Small Antipasto</span>
+                    <span class="item-price">€1.50</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Bread (4 slices), butter and olives | With Serra Cheese Cream +€0.80</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Simple Salad</span>
+                    <span class="item-price">€2.50</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Lettuce, tomatoes and onions | With Tuna +€2.00</div>
+                </li>
+            </ul>
+
+            <h2>Lasagnas</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Bolognese Lasagna</span>
+                    <span class="item-price">€11.50</span>
+                    <div class="item-description">Fresh pasta, Bolognese sauce, Bechamel sauce and grated cheese</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Cod Lasagna</span>
+                    <span class="item-price">€11.50</span>
+                    <div class="item-description">Fresh pasta, sautéed cod with onions, parsley and olive oil, Bechamel sauce and grated cheese</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Eggplant Lasagna</span>
+                    <span class="item-price">€11.50</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Grilled eggplant slices, tomato sauce with olives and onions, layers of parmesan cheese and grated cheese</div>
+                </li>
+            </ul>
+
+            <h2>Risottos</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Lemon and Leek</span>
+                    <span class="item-price">€7.90</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">With butter and parmesan cheese. Citrusy, aromatic and crunchy | With Prawns +€3.00</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Mushrooms</span>
+                    <span class="item-price">€8.70</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">With butter and parmesan cheese | With Chicken +€2.00</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Chicken with Tomatoes</span>
+                    <span class="item-price">€8.70</span>
+                    <div class="item-description">With butter and parmesan cheese</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Prawns with Tomatoes</span>
+                    <span class="item-price">€11.70</span>
+                    <div class="item-description">With butter and parmesan cheese</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Seafood with Lemon</span>
+                    <span class="item-price">€10.70</span>
+                    <div class="item-description">Prawns, clam meat, mini squid and mussels, lemon juice, butter and parmesan cheese</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Crispy Octopus</span>
+                    <span class="item-price">€13.70</span>
+                    <div class="item-description">Octopus cubes in red wine topped with crispy octopus tentacles, butter and parmesan cheese</div>
+                </li>
+            </ul>
+
+            <h2>Pastas</h2>
+            <div class="notes">
+                <h3>Choose a Pasta</h3>
+                <p><strong>Dry:</strong> Penne Pasta | <strong>Fresh/Homemade:</strong> Tagliatelle (+€1.00)</p>
+            </div>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">À Pomodori</span>
+                    <span class="item-price">€6.90</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Tomato sauce, basil, diced tomatoes | With Prawns +€3.00</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Cacio e Pepe</span>
+                    <span class="item-price">€6.90</span>
+                    <div class="item-description">Toasted black peppers and parmesan cheese cream</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Ao Limone</span>
+                    <span class="item-price">€6.90</span>
+                    <div class="item-description">Cheese sauce, lemon juice and zest, very fragrant | With Prawns +€3.00</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Stracciatella</span>
+                    <span class="item-price">€7.90</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Tomato sauce, pepper paste and melted parmesan cheese, served with stracciatella (fresh mozzarella enriched with cream) | With Chicken +€2.00 | With Prawns +€3.00</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Pietro (Spicy Fresh Sausage)</span>
+                    <span class="item-price">€8.70</span>
+                    <div class="item-description">Spicy fresh sausage in pieces with onion and tomato sauce</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Bolognese</span>
+                    <span class="item-price">€8.70</span>
+                    <div class="item-description">Minced veal in tomato sauce</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Mushrooms with Cheese</span>
+                    <span class="item-price">€8.70</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Fresh mushrooms sautéed in olive oil and cheese sauce | With Chicken +€2.00 | With Prawns +€3.00</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Chicken with Cheese</span>
+                    <span class="item-price">€8.70</span>
+                    <div class="item-description">Golden chicken strips and cheese sauce</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">A Puttanesca</span>
+                    <span class="item-price">€8.70</span>
+                    <div class="item-description">Anchovies melted in tomato sauce with olive oil, Calabrian pepper, diced tomatoes and black olives</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Melanzane</span>
+                    <span class="item-price">€8.70</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Grilled Eggplant in pieces with tomato sauce</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">With Basil Pesto</span>
+                    <span class="item-price">€8.70</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Basil cream with olive oil, cashew nuts and parmesan cheese</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">A Carbonara</span>
+                    <span class="item-price">€9.30</span>
+                    <div class="item-description">Fried bacon with egg yolk cream and parmesan cheese</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Matriciana</span>
+                    <span class="item-price">€9.30</span>
+                    <div class="item-description">Fried bacon, tomato sauce with parmesan cheese</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Ao Mare</span>
+                    <span class="item-price">€11.90</span>
+                    <div class="item-description">Black Linguini Pasta with large and small prawns, clams, mini squid and mussels sautéed in butter with garlic, lemon juice and zest</div>
+                </li>
+            </ul>
+
+            <h2>Beverages</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Still water 330ml</span>
+                    <span class="item-price">€0.70</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Still water 1000ml</span>
+                    <span class="item-price">€1.70</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Pedras water 250ml</span>
+                    <span class="item-price">€1.20</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Flavored Pedras water 250ml</span>
+                    <span class="item-price">€1.50</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Soft drinks/Sumol can 330ml</span>
+                    <span class="item-price">€1.50</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Compal Flavors 200ml</span>
+                    <span class="item-price">€1.50</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Flavored Ice Tea 330ml</span>
+                    <span class="item-price">€1.50</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Mini Super Bock / Sagres 200ml</span>
+                    <span class="item-price">€1.00</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Heineken 250ml or Corona 210ml</span>
+                    <span class="item-price">€1.50</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Franciscana 500ml</span>
+                    <span class="item-price">€3.50</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Somersby 200ml</span>
+                    <span class="item-price">€1.50</span>
+                </li>
+            </ul>
+
+            <h2>Cocktails</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Aperol Spritz</span>
+                    <span class="item-price">€4.50</span>
+                    <div class="item-description">Italian Orange Liqueur, sparkling white wine and sparkling water. Refreshing, slightly sweet with a touch of orange bitterness</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Limoncello (Digestive) Shot</span>
+                    <span class="item-price">€3.00</span>
+                    <div class="item-description">A shot of Italian Lemon Liqueur taken from the fridge at serving time</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Lemon Caipirinha</span>
+                    <span class="item-price">€4.50</span>
+                    <div class="item-description">Brazilian Cachaça, sugar, lemon and lots of ice</div>
+                </li>
+            </ul>
+
+            <h2>Our Wines</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Mature White: Favaios</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Sparkling White: Faisão</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Reds: Mestre Silva (Douro)</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Dom Manuel (Pinhel)</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Cruzeiro (Poço do Canto)</span>
+                </li>
+            </ul>
+            <div class="notes">
+                <p><strong>Small glass:</strong> €0.70 | <strong>Large glass:</strong> €1.40 | <strong>Jug 500ml:</strong> €2.90</p>
+            </div>
+
+            <div class="notes">
+                <h3>Notes</h3>
+                <p>1. Take Away - Aluminum €0.35 - Paper Box €0.20 - Small Soup Pack €0.25 / Large €0.35</p>
+                <p>2. All prices shown on this menu include VAT</p>
+            </div>
+        </section>
+
+        <section id="espanhol" class="menu-section">
+            <h1>Menú - Español</h1>
+
+            <h2>Platos del Día (Almuerzo)</h2>
             
-            <h2>Entradas</h2>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Ensalada Fresca del Campo</span>
-                    <span class="item-price">€28,00</span>
-                </div>
-                <p class="item-description">Una vibrante selección de hojas verdes orgánicas, tomates cherry, pepino crujiente y rábanos en rodajas, aderezada con nuestra vinagreta de hierbas frescas. Una explosión de frescura y sabor.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Bruschetta de Tomate y Albahaca</span>
-                    <span class="item-price">€32,00</span>
-                </div>
-                <p class="item-description">Rebanadas de pan artesanal tostado, cubiertas con tomates maduros picados, albahaca fresca, ajo y un chorrito de aceite de oliva virgen extra. Un clásico italiano que deleita el paladar.</p>
-            </div>
-
-            <h2>Platos Principales</h2>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Filete Mignon a la Parrilla con Risotto de Champiñones</span>
-                    <span class="item-price">€85,00</span>
-                </div>
-                <p class="item-description">Tierno filete mignon a la parrilla en su punto perfecto, acompañado de un cremoso risotto arbóreo con una selección de champiñones frescos y un toque de queso parmesano. Una combinación sublime de texturas y sabores.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Salmón con Salsa de Maracuyá y Puré de Batatas Dulces</span>
-                    <span class="item-price">€78,00</span>
-                </div>
-                <p class="item-description">Suculento filete de salmón asado, servido con una exótica salsa de maracuyá y un suave puré de batatas dulces. Una opción ligera y llena de personalidad.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Lasaña Boloñesa Artesanal</span>
-                    <span class="item-price">€62,00</span>
-                </div>
-                <p class="item-description">Capas de pasta fresca, salsa boloñesa rica y sabrosa, bechamel cremosa y queso mozzarella gratinado. Preparada con cariño, como la de la nonna.</p>
+            <div class="day-menu">
+                <div class="day-name">LUNES</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Sopa: Sopa de pollo con zanahorias y pasta</span>
+                        <span class="item-price">€1,50</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Filete de pescado empanado, arroz y verduras salteadas</span>
+                        <span class="item-price">€5,90</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Macarrones con salsa de queso, champiñones y pollo</span>
+                        <span class="item-price">€5,90</span>
+                    </li>
+                </ul>
             </div>
 
-            <h2>Postres</h2>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Tarta de Limón Siciliano con Merengue Suizo</span>
-                    <span class="item-price">€25,00</span>
-                </div>
-                <p class="item-description">Una base crujiente, relleno cítrico y refrescante de limón siciliano, cubierto con un merengue suizo ligeramente tostado. El equilibrio perfecto entre dulzura y acidez.</p>
+            <div class="day-menu">
+                <div class="day-name">MARTES</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Sopa: Caldo de pescado con tomates y pasta</span>
+                        <span class="item-price">€1,50</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Cerdo alentejano con patatas, pepinillos y almejas</span>
+                        <span class="item-price">€5,90</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Macarrones a la boloñesa con queso parmesano</span>
+                        <span class="item-price">€5,90</span>
+                    </li>
+                </ul>
             </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Brownie de Chocolate con Helado de Vainilla y Salsa de Caramelo</span>
-                    <span class="item-price">€29,00</span>
-                </div>
-                <p class="item-description">Nuestro famoso brownie de chocolate, denso y húmedo, servido caliente con una bola de helado de vainilla y terminado con salsa de caramelo casera. Una tentación irresistible.</p>
-            </div>
-        </div>
 
-        <div id="fr" class="menu-section">
-            <h1>Menu (Français)</h1>
+            <div class="day-menu">
+                <div class="day-name">MIÉRCOLES</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Sopa: Sopa de judías con judías verdes</span>
+                        <span class="item-price">€1,50</span>
+                        <span class="veg-label">Veg</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Muslos de pollo al horno, arroz, patatas fritas y ensalada</span>
+                        <span class="item-price">€5,90</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Linguini negro con mariscos</span>
+                        <span class="item-price">€5,90</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">JUEVES</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Sopa: Crema de zanahorias con espinacas</span>
+                        <span class="item-price">€1,50</span>
+                        <span class="veg-label">Veg</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Bacalhau à Brás</span>
+                        <span class="item-price">€5,90</span>
+                        <div class="item-description">Bacalao desmenuzado con patatas paja, cebollas fritas, huevos revueltos, aceitunas y perejil</div>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Pasta a la Stracciatella con salsa de tomate, pasta de pimientos y parmesano fundido</span>
+                        <span class="item-price">€5,90</span>
+                        <span class="veg-label">Veg</span>
+                        <div class="item-description">Mozzarella fresca con nata</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">VIERNES</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Sopa: Crema de guisantes</span>
+                        <span class="item-price">€1,50</span>
+                        <span class="veg-label">Veg</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Feijoada brasileña con arroz, vinagreta, chicharrones, col rizada, harina de mandioca y rodaja de naranja</span>
+                        <span class="item-price">€6,90</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Pasta a la Pietro con queso parmesano</span>
+                        <span class="item-price">€6,90</span>
+                        <div class="item-description">Salchicha fresca picante, cebolla y salsa de tomate</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">SÁBADOS Y FESTIVOS</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Lasaña a la boloñesa con pasta fresca, salsa boloñesa, salsa bechamel y queso gratinado</span>
+                        <span class="item-price">€9,90</span>
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Todos los Días</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Filete de pollo</span>
+                    <span class="item-price">€6,90</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Filete de pescado empanado</span>
+                    <span class="item-price">€7,90</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Bifanas (bocadillos portugueses de cerdo)</span>
+                    <span class="item-price">€6,90</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Pollo Stroganoff</span>
+                    <span class="item-price">€7,90</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Filete de ternera</span>
+                    <span class="item-price">€8,90</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Pollo a la parmesana</span>
+                    <span class="item-price">€8,90</span>
+                </li>
+            </ul>
+
+            <div class="notes">
+                <h3>Guarniciones</h3>
+                <p><strong>Elige 2 guarniciones:</strong> Arroz, Patatas fritas, Patatas paja, Ensalada, Verduras</p>
+                <p><strong>Guarnición extra con cualquier plato:</strong> €0,50</p>
+            </div>
+
+            <h2>Entrantes</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Aperitivos salados</span>
+                    <span class="item-price">€1,30</span>
+                    <div class="item-description">Croquetas de carne, Croquetas de gambas, Empanadas de pollo, Coxinhas de pollo, Bolitas de queso (Veg)</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Antipasto pequeño</span>
+                    <span class="item-price">€1,50</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Pan (4 rebanadas), mantequilla y aceitunas | Con crema de queso Serra +€0,80</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Ensalada sencilla</span>
+                    <span class="item-price">€2,50</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Lechuga, tomates y cebollas | Con atún +€2,00</div>
+                </li>
+            </ul>
+
+            <h2>Lasañas</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Lasaña boloñesa</span>
+                    <span class="item-price">€11,50</span>
+                    <div class="item-description">Pasta fresca, salsa boloñesa, salsa bechamel y queso rallado</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Lasaña de bacalao</span>
+                    <span class="item-price">€11,50</span>
+                    <div class="item-description">Pasta fresca, bacalao salteado con cebollas, perejil y aceite de oliva, salsa bechamel y queso rallado</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Lasaña de berenjena</span>
+                    <span class="item-price">€11,50</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Rodajas de berenjena a la plancha, salsa de tomate con aceitunas y cebollas, capas de queso parmesano y queso rallado</div>
+                </li>
+            </ul>
+
+            <h2>Risotos</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Limón y puerro</span>
+                    <span class="item-price">€7,90</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Con mantequilla y queso parmesano. Cítrico, aromático y crujiente | Con gambas +€3,00</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Champiñones</span>
+                    <span class="item-price">€8,70</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Con mantequilla y queso parmesano | Con pollo +€2,00</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Pollo con tomates</span>
+                    <span class="item-price">€8,70</span>
+                    <div class="item-description">Con mantequilla y queso parmesano</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Gambas con tomates</span>
+                    <span class="item-price">€11,70</span>
+                    <div class="item-description">Con mantequilla y queso parmesano</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Mariscos al limón</span>
+                    <span class="item-price">€10,70</span>
+                    <div class="item-description">Gambas, carne de almeja, calamares mini y mejillones, zumo de limón, mantequilla y queso parmesano</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Pulpo crujiente</span>
+                    <span class="item-price">€13,70</span>
+                    <div class="item-description">Dados de pulpo al vino tinto coronados con tentáculos de pulpo crujientes, mantequilla y queso parmesano</div>
+                </li>
+            </ul>
+
+            <h2>Pastas</h2>
+            <div class="notes">
+                <h3>Elige una pasta</h3>
+                <p><strong>Seca:</strong> Macarrones Penne | <strong>Fresca/Casera:</strong> Tagliatelle (+€1,00)</p>
+            </div>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">À Pomodori</span>
+                    <span class="item-price">€6,90</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Salsa de tomate, albahaca, tomates en dados | Con gambas +€3,00</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Cacio e Pepe</span>
+                    <span class="item-price">€6,90</span>
+                    <div class="item-description">Pimientos negros tostados y crema de parmesano</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Ao Limone</span>
+                    <span class="item-price">€6,90</span>
+                    <div class="item-description">Salsa de queso, zumo y ralladura de limón, muy aromática | Con gambas +€3,00</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Stracciatella</span>
+                    <span class="item-price">€7,90</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Salsa de tomate, pasta de pimientos y queso parmesano fundido, servida con stracciatella (mozzarella fresca enriquecida con nata) | Con pollo +€2,00 | Con gambas +€3,00</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Pietro (Salchicha fresca picante)</span>
+                    <span class="item-price">€8,70</span>
+                    <div class="item-description">Salchicha fresca picante en trozos con cebolla y salsa de tomate</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Bolognese</span>
+                    <span class="item-price">€8,70</span>
+                    <div class="item-description">Ternera picada en salsa de tomate</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Champiñones con queso</span>
+                    <span class="item-price">€8,70</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Champiñones frescos salteados en aceite de oliva y salsa de queso | Con pollo +€2,00 | Con gambas +€3,00</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Pollo con queso</span>
+                    <span class="item-price">€8,70</span>
+                    <div class="item-description">Tiras de pollo doradas y salsa de queso</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">A Puttanesca</span>
+                    <span class="item-price">€8,70</span>
+                    <div class="item-description">Anchoas fundidas en salsa de tomate con aceite de oliva, pimiento de Calabria, tomates en dados y aceitunas negras</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Melanzane</span>
+                    <span class="item-price">€8,70</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Berenjena a la plancha en trozos con salsa de tomate</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Con pesto de albahaca</span>
+                    <span class="item-price">€8,70</span>
+                    <span class="veg-label">Veg</span>
+                    <div class="item-description">Crema de albahaca con aceite de oliva, anacardos y queso parmesano</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">A Carbonara</span>
+                    <span class="item-price">€9,30</span>
+                    <div class="item-description">Tocino frito con crema de yema de huevo y queso parmesano</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À Matriciana</span>
+                    <span class="item-price">€9,30</span>
+                    <div class="item-description">Tocino frito, salsa de tomate con queso parmesano</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Ao Mare</span>
+                    <span class="item-price">€11,90</span>
+                    <div class="item-description">Linguini negro con gambas grandes y pequeñas, almejas, calamares mini y mejillones salteados en mantequilla con ajo, zumo y ralladura de limón</div>
+                </li>
+            </ul>
+
+            <h2>Bebidas</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Agua sin gas 330ml</span>
+                    <span class="item-price">€0,70</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Agua sin gas 1000ml</span>
+                    <span class="item-price">€1,70</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Agua Pedras 250ml</span>
+                    <span class="item-price">€1,20</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Agua Pedras con sabores 250ml</span>
+                    <span class="item-price">€1,50</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Refrescos/Sumol lata 330ml</span>
+                    <span class="item-price">€1,50</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Compal Sabores 200ml</span>
+                    <span class="item-price">€1,50</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Té helado con sabores 330ml</span>
+                    <span class="item-price">€1,50</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Mini Super Bock / Sagres 200ml</span>
+                    <span class="item-price">€1,00</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Heineken 250ml o Corona 210ml</span>
+                    <span class="item-price">€1,50</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Franciscana 500ml</span>
+                    <span class="item-price">€3,50</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Somersby 200ml</span>
+                    <span class="item-price">€1,50</span>
+                </li>
+            </ul>
+
+            <h2>Cócteles</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Aperol Spritz</span>
+                    <span class="item-price">€4,50</span>
+                    <div class="item-description">Licor italiano de naranja, vino blanco espumoso y agua con gas. Refrescante, ligeramente dulce con un toque de amargura de naranja</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Chupito de Limoncello (Digestivo)</span>
+                    <span class="item-price">€3,00</span>
+                    <div class="item-description">Un chupito de licor de limón italiano sacado de la nevera al servir</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Caipiriña de limón</span>
+                    <span class="item-price">€4,50</span>
+                    <div class="item-description">Cachaça brasileña, azúcar, limón y mucho hielo</div>
+                </li>
+            </ul>
+
+            <h2>Nuestros Vinos</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Blanco Maduro: Favaios</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Blanco Espumoso: Faisão</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Tintos: Mestre Silva (Douro)</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Dom Manuel (Pinhel)</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Cruzeiro (Poço do Canto)</span>
+                </li>
+            </ul>
+            <div class="notes">
+                <p><strong>Copa pequeña:</strong> €0,70 | <strong>Copa grande:</strong> €1,40 | <strong>Jarra 500ml:</strong> €2,90</p>
+            </div>
+
+            <div class="notes">
+                <h3>Notas</h3>
+                <p>1. Para llevar - Aluminio €0,35 - Caja de cartón €0,20 - Sopa pequeña €0,25 / Grande €0,35</p>
+                <p>2. Los precios de este menú ya incluyen IVA</p>
+            </div>
+        </section>
+
+        <section id="frances" class="menu-section">
+            <h1>Menu - Français</h1>
+
+            <h2>Plats du Jour (Déjeuner)</h2>
             
+            <div class="day-menu">
+                <div class="day-name">LUNDI</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Soupe : Bouillon de poule aux carottes et petites pâtes</span>
+                        <span class="item-price">1,5€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Filet de poisson pané, riz et légumes sautés</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Macaronis à la sauce au fromage avec champignons et poulet</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">MARDI</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Soupe : Bouillon de poisson aux tomates et petites pâtes</span>
+                        <span class="item-price">1,5€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Porc à l'Alentejana avec pommes de terre, cornichons et palourdes</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Macaronis à la bolognaise avec parmesan</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">MERCREDI</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Soupe : Bouillon de haricots aux haricots verts</span>
+                        <span class="item-price">1,5€</span>
+                        <span class="veg-label">Vég</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Cuisses de poulet au four, riz, frites et salade</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Pâtes linguine noires aux fruits de mer</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">JEUDI</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Soupe : Crème de carottes aux épinards</span>
+                        <span class="item-price">1,5€</span>
+                        <span class="veg-label">Vég</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Morue à la Brás</span>
+                        <span class="item-price">5,9€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Macaronis à la Stracciatella, sauce tomate, purée de poivrons et parmesan fondu</span>
+                        <span class="item-price">5,9€</span>
+                        <span class="veg-label">Vég</span>
+                        <div class="item-description">Mozzarella fraîche à la crème</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">VENDREDI</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Soupe : Crème de petits pois</span>
+                        <span class="item-price">1,5€</span>
+                        <span class="veg-label">Vég</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Feijoada brésilienne avec riz, vinaigrette, lard grillé, chou, farine de manioc et tranche d'orange</span>
+                        <span class="item-price">6,9€</span>
+                    </li>
+                    <li class="menu-item">
+                        <span class="item-name">Macaronis à la Pietro avec parmesan</span>
+                        <span class="item-price">6,9€</span>
+                        <div class="item-description">Saucisse fraîche piquante, oignons et sauce tomate</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="day-menu">
+                <div class="day-name">SAMEDIS ET JOURS FÉRIÉS</div>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <span class="item-name">Lasagnes à la bolognaise avec pâtes fraîches, sauce bolognaise, béchamel et fromage gratiné</span>
+                        <span class="item-price">9,9€</span>
+                    </li>
+                </ul>
+            </div>
+
+            <h2>Tous les Jours</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Escalope de poulet</span>
+                    <span class="item-price">6,9€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Filet de poisson pané</span>
+                    <span class="item-price">7,9€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Bifanas</span>
+                    <span class="item-price">6,9€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Stroganoff de poulet</span>
+                    <span class="item-price">7,9€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Escalope de veau</span>
+                    <span class="item-price">8,9€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Parmigiana de poulet</span>
+                    <span class="item-price">8,9€</span>
+                </li>
+            </ul>
+
+            <div class="notes">
+                <h3>Accompagnements</h3>
+                <p><strong>Choisissez 2 accompagnements :</strong> Riz - Frites - Pommes paille - Salade - Légumes</p>
+                <p><strong>Accompagnement supplémentaire pour tout plat :</strong> 0,5€</p>
+            </div>
+
             <h2>Entrées</h2>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Salade Fraîche des Champs</span>
-                    <span class="item-price">€28,00</span>
-                </div>
-                <p class="item-description">Une sélection vibrante de feuilles vertes biologiques, tomates cerises, concombre croquant et radis tranchés, arrosée de notre vinaigrette aux herbes fraîches. Une explosion de fraîcheur et de saveur.</p>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Amuse-bouches salés</span>
+                    <span class="item-price">1,3€</span>
+                    <div class="item-description">Rissoles de viande, rissoles de crevettes, petits pâtés de poulet, coxinhas de poulet, boulettes de fromage (Vég)</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Petit antipasto</span>
+                    <span class="item-price">1,5€</span>
+                    <span class="veg-label">Vég</span>
+                    <div class="item-description">Pain (4 tranches), beurre et olives | Avec crème de fromage de montagne +0,8€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Salade simple</span>
+                    <span class="item-price">2,5€</span>
+                    <span class="veg-label">Vég</span>
+                    <div class="item-description">Laitue, tomates et oignons | Avec thon +2€</div>
+                </li>
+            </ul>
+
+            <h2>Lasagnes</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Lasagnes à la bolognaise</span>
+                    <span class="item-price">11,5€</span>
+                    <div class="item-description">Pâtes fraîches, sauce bolognaise, béchamel et fromage gratiné</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Lasagnes de morue</span>
+                    <span class="item-price">11,5€</span>
+                    <div class="item-description">Pâtes fraîches, morue sautée aux oignons, persil et huile d'olive, béchamel et fromage gratiné</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Lasagnes d'aubergines</span>
+                    <span class="item-price">11,5€</span>
+                    <span class="veg-label">Vég</span>
+                    <div class="item-description">Tranches d'aubergines grillées, sauce tomate aux olives et oignons, couches de parmesan et fromage gratiné</div>
+                </li>
+            </ul>
+
+            <h2>Risottos</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Citron et poireau</span>
+                    <span class="item-price">7,9€</span>
+                    <span class="veg-label">Vég</span>
+                    <div class="item-description">Au beurre et parmesan. Citronné, aromatique et croquant | Avec crevettes +3€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Champignons</span>
+                    <span class="item-price">8,7€</span>
+                    <span class="veg-label">Vég</span>
+                    <div class="item-description">Au beurre et parmesan | Avec poulet +2€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Poulet aux tomates</span>
+                    <span class="item-price">8,7€</span>
+                    <div class="item-description">Au beurre et parmesan</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Crevettes aux tomates</span>
+                    <span class="item-price">11,7€</span>
+                    <div class="item-description">Au beurre et parmesan</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Fruits de mer au citron</span>
+                    <span class="item-price">10,7€</span>
+                    <div class="item-description">Crevettes, chair de palourdes, mini-calmars et moules, jus de citron, beurre et parmesan</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Poulpe croustillant</span>
+                    <span class="item-price">13,7€</span>
+                    <div class="item-description">Dés de poulpe au vin rouge fini avec tentacules de poulpe croustillants, beurre et parmesan</div>
+                </li>
+            </ul>
+
+            <h2>Pâtes</h2>
+            <div class="notes">
+                <h3>Choisissez une pâte</h3>
+                <p><strong>Sèche :</strong> Macaronis penne | <strong>Fraîche/Maison :</strong> Tagliatelles (+1€)</p>
             </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Bruschetta Tomate et Basilic</span>
-                    <span class="item-price">€32,00</span>
-                </div>
-                <p class="item-description">Tranches de pain artisanal grillé, garnies de tomates mûres coupées en dés, de basilic frais, d'ail et d'un filet d'huile d'olive extra vierge. Un classique italien qui enchante le palais.</p>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">À la Pomodori</span>
+                    <span class="item-price">6,9€</span>
+                    <span class="veg-label">Vég</span>
+                    <div class="item-description">Sauce tomate, basilic, tomates en morceaux | Avec crevettes +3€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Cacio e Pepe</span>
+                    <span class="item-price">6,9€</span>
+                    <div class="item-description">Poivre noir grillé et crème de parmesan</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Au Limone</span>
+                    <span class="item-price">6,9€</span>
+                    <div class="item-description">Sauce au fromage, jus et zestes de citron, très parfumé | Avec crevettes +3€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À la Stracciatella</span>
+                    <span class="item-price">7,9€</span>
+                    <span class="veg-label">Vég</span>
+                    <div class="item-description">Sauce tomate, purée de poivrons et parmesan fondu, servi avec stracciatella (mozzarella fraîche enrichie à la crème) | Avec poulet +2€ | Avec crevettes +3€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À la Pietro (Saucisse fraîche piquante)</span>
+                    <span class="item-price">8,7€</span>
+                    <div class="item-description">Saucisse fraîche piquante en morceaux avec oignon et sauce tomate</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À la bolognaise</span>
+                    <span class="item-price">8,7€</span>
+                    <div class="item-description">Viande de veau hachée à la sauce tomate</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Champignons au fromage</span>
+                    <span class="item-price">8,7€</span>
+                    <span class="veg-label">Vég</span>
+                    <div class="item-description">Champignons frais sautés à l'huile d'olive et sauce au fromage | Avec poulet +2€ | Avec crevettes +3€</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Poulet au fromage</span>
+                    <span class="item-price">8,7€</span>
+                    <div class="item-description">Lamelles de poulet dorées et sauce au fromage</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À la Puttanesca</span>
+                    <span class="item-price">8,7€</span>
+                    <div class="item-description">Anchois fondus dans la sauce tomate avec huile d'olive, piment de Calabre, tomates en morceaux et olives noires</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Aux Melanzane</span>
+                    <span class="item-price">8,7€</span>
+                    <span class="veg-label">Vég</span>
+                    <div class="item-description">Aubergines grillées en morceaux à la sauce tomate</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Au pesto de basilic</span>
+                    <span class="item-price">8,7€</span>
+                    <span class="veg-label">Vég</span>
+                    <div class="item-description">Crème de basilic à l'huile d'olive, noix de cajou et parmesan</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À la Carbonara</span>
+                    <span class="item-price">9,3€</span>
+                    <div class="item-description">Lardons frits à la crème de jaunes d'œufs et parmesan</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">À l'Amatriciana</span>
+                    <span class="item-price">9,3€</span>
+                    <div class="item-description">Lardons frits, sauce tomate avec parmesan</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Au Mare</span>
+                    <span class="item-price">11,9€</span>
+                    <div class="item-description">Pâtes linguine noires avec grosses et petites crevettes, chair de palourdes, mini-calmars et moules sautés au beurre avec ail, jus et zestes de citron</div>
+                </li>
+            </ul>
+
+            <h2>Boissons</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Eau plate 330ml</span>
+                    <span class="item-price">0,7€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Eau plate 1000ml</span>
+                    <span class="item-price">1,7€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Eau Pedras 250ml</span>
+                    <span class="item-price">1,2€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Eau Pedras aromatisée 250ml</span>
+                    <span class="item-price">1,5€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Sodas/Sumol canette 330ml</span>
+                    <span class="item-price">1,5€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Compal saveurs 200ml</span>
+                    <span class="item-price">1,5€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Ice Tea saveurs 330ml</span>
+                    <span class="item-price">1,5€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Mini Super Bock / Sagres 200ml</span>
+                    <span class="item-price">1€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Heineken 250ml ou Corona 210ml</span>
+                    <span class="item-price">1,5€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Franciscana 500ml</span>
+                    <span class="item-price">3,5€</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Somersby 200ml</span>
+                    <span class="item-price">1,5€</span>
+                </li>
+            </ul>
+
+            <h2>Cocktails</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Aperol Spritz</span>
+                    <span class="item-price">4,5€</span>
+                    <div class="item-description">Liqueur italienne d'orange, vin blanc pétillant et eau gazeuse. Rafraîchissant, légèrement sucré avec une pointe d'amertume d'orange</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Limoncello (Digestif) Shot</span>
+                    <span class="item-price">3€</span>
+                    <div class="item-description">Un shot de liqueur italienne de citron sortie du congélateur au moment de servir</div>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Caipirinha de citron</span>
+                    <span class="item-price">4,5€</span>
+                    <div class="item-description">Cachaça brésilienne, sucre, citron et beaucoup de glace</div>
+                </li>
+            </ul>
+
+            <h2>Nos Vins</h2>
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="item-name">Blanc mature : Favaios</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Blanc pétillant : Faisão</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Rouges : Mestre Silva (Douro)</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Dom Manuel (Pinhel)</span>
+                </li>
+                <li class="menu-item">
+                    <span class="item-name">Cruzeiro (Poço do Canto)</span>
+                </li>
+            </ul>
+            <div class="notes">
+                <p><strong>Petit verre :</strong> 0,7€ | <strong>Grand verre :</strong> 1,4€ | <strong>Pichet 500ml :</strong> 2,9€</p>
             </div>
 
-            <h2>Plats Principaux</h2>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Filet Mignon Grillé avec Risotto aux Champignons</span>
-                    <span class="item-price">€85,00</span>
-                </div>
-                <p class="item-description">Tendre filet mignon grillé à la perfection, accompagné d'un risotto crémeux à l'arborio avec une sélection de champignons frais et une touche de parmesan. Une combinaison sublime de textures et de saveurs.</p>
+            <div class="notes">
+                <h3>Observations</h3>
+                <p>1. À emporter - Aluminium 0,35€ - Boîte carton 0,20€ - Emb. soupe petite 0,25€ / grande 0,35€</p>
+                <p>2. Les prix indiqués sur ce menu incluent déjà la TVA</p>
             </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Saumon Sauce Fruit de la Passion et Purée de Patates Douces</span>
-                    <span class="item-price">€78,00</span>
-                </div>
-                <p class="item-description">Succulent filet de saumon rôti, servi avec une sauce exotique au fruit de la passion et une purée onctueuse de patates douces. Une option légère et pleine de caractère.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Lasagne Bolognaise Artisanale</span>
-                    <span class="item-price">€62,00</span>
-                </div>
-                <p class="item-description">Couches de pâtes fraîches, sauce bolognaise riche et savoureuse, béchamel crémeuse et fromage mozzarella gratiné. Préparée avec amour, comme celle de la nonna.</p>
-            </div>
+        </section>
 
-            <h2>Desserts</h2>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Tarte au Citron Sicilien avec Meringue Suisse</span>
-                    <span class="item-price">€25,00</span>
-                </div>
-                <p class="item-description">Une base croustillante, une garniture citronnée et rafraîchissante au citron sicilien, recouverte d'une meringue suisse légèrement dorée. L'équilibre parfait entre douceur et acidité.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Brownie au Chocolat avec Glace Vanille et Sauce Caramel</span>
-                    <span class="item-price">€29,00</span>
-                </div>
-                <p class="item-description">Notre célèbre brownie au chocolat, dense et moelleux, servi chaud avec une boule de glace vanille et une sauce caramel maison. Une tentation irrésistible.</p>
-            </div>
+        <div class="contact-info">
+            <h3>Contato e Localização</h3>
+            <p><strong>Endereço:</strong> Rua Balha e Melo, Guarda (em frente à Câmara Municipal)</p>
+            <p><strong>Telefone:</strong> 960 033 554</p>
+            <p><strong>Horários:</strong> Segunda à Sexta das 8h às 18:30h / Sábado das 11:30h às 14:30h</p>
+            <p><strong>Domingo:</strong> Encerrado</p>
+            <p><strong>Redes sociais:</strong> 
+                <a href="https://facebook.com/profile.php?id=61551017726503">Facebook</a> | 
+                <a href="https://instagram.com/municipioditalia">Instagram</a>
+            </p>
         </div>
     </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.menu-section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.borderBottomColor = 'transparent';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.borderBottomColor = 'white';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
