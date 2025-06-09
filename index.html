@@ -9,11 +9,11 @@
             --logo-width: 400px; /* Altere esse valor para modificar o tamanho da imagem do topo */
         }
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: white;
-            color: #333;
+            background-color: #fff;
+            color: #222;
             text-align: center;
         }
         header {
@@ -44,33 +44,28 @@
             max-width: 900px;
             margin: 0 auto;
             border-bottom: 1px solid #ddd;
+            text-align: left;
         }
-        h1 { font-size: 2em; }
-        h2 { color: #d32f2f; text-transform: uppercase; font-size: 1.5em; }
+        h1 { font-size: 2em; text-align: center; }
+        h2 { color: #d32f2f; text-transform: uppercase; font-size: 1.5em; margin-top: 32px; }
         h3 { font-size: 1.2em; }
         ul {
             list-style-type: none;
             padding: 0;
-            text-align: left;
-            display: inline-block;
         }
         li {
-            margin: 10px 0;
+            margin: 8px 0;
         }
         .preco {
             float: right;
             font-weight: bold;
             margin-left: 10px;
         }
-        .descricao {
-            font-style: italic;
-            font-size: 0.97em;
-            color: #444;
-        }
         .subtitulo {
             font-weight: bold;
             color: #222;
             margin-top: 18px;
+            margin-bottom: 2px;
         }
         .observacao {
             font-size: 0.95em;
@@ -78,11 +73,17 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
+        .acompanhamentos {
+            font-size: 0.98em;
+            color: #444;
+            margin: 6px 0 12px 0;
+        }
         footer {
             background-color: #333;
             color: white;
             padding: 10px;
             margin-top: 20px;
+            text-align: center;
         }
         footer a { color: white; text-decoration: none; }
         @media (max-width: 600px) {
@@ -95,9 +96,6 @@
             }
             section {
                 padding: 10px;
-            }
-            ul {
-                display: block;
             }
         }
     </style>
@@ -116,12 +114,11 @@
     <!-- PORTUGUÊS -->
     <section id="portugues">
         <h1>Cardápio</h1>
-
         <h2>Pratos do Dia (Almoço)</h2>
         <div class="subtitulo">SEGUNDA-FEIRA</div>
         <ul>
             <li>Sopa: Canja com Cenoura e Massinha <span class="preco">1,5€</span></li>
-            <li>Filé de Peixe Panado, Arroz e Legumes Salteados <span class="preco">5,9€</span></li>
+            <li>Filet de Peixe Panado, Arroz e Legumes Salteados <span class="preco">5,9€</span></li>
             <li>Macarrão ao Molho de Queijo com Cogumelos e Frango <span class="preco">5,9€</span></li>
         </ul>
         <div class="subtitulo">TERÇA-FEIRA</div>
@@ -132,114 +129,171 @@
         </ul>
         <div class="subtitulo">QUARTA-FEIRA</div>
         <ul>
-            <li>Sopa: Caldo de Feijão com Feijão Verde <span class="preco">1,5€</span></li>
-            <li>Panfletos de Frango ao Forno, Arroz, Batatas Fritas e Salada <span class="preco">5,9€</span></li>
+            <li>Sopa: Caldinho de Feijão com Feijões Verdes <span class="preco">1,5€</span></li>
+            <li>Perninhas de Frango ao Forno, Arroz, Batatas Fritas e Salada <span class="preco">5,9€</span></li>
             <li>Massa Linguini Negra à Mariscada <span class="preco">5,9€</span></li>
         </ul>
         <div class="subtitulo">QUINTA-FEIRA</div>
         <ul>
-            <li>Sopa: Creme de Cenoura com Espinafres <span class="preco">1,5€</span></li>
+            <li>Sopa: Creme de Cenouras com Espinafres <span class="preco">1,5€</span></li>
             <li>Bacalhau à Brás <span class="preco">5,9€</span></li>
-            <li>Macarrão à Stracciatelli (Mussarela Fresca com Natas), com molho de limão, massa ao pesto e parmesão fundido <span class="preco">5,9€</span></li>
+            <li>Macarrão à Stracciatella (Mussarela Fresca com Natas), com molho de tomates, massa de pimentos e parmesão fundido <span class="preco">5,9€</span></li>
         </ul>
         <div class="subtitulo">SEXTA-FEIRA</div>
         <ul>
             <li>Sopa: Creme de Ervilhas <span class="preco">1,5€</span></li>
-            <li>Feijoada Brasileira com Arroz, Vinagrete, Torremo, Couve, Farinha de Mandioca e Fatia de Laranja <span class="preco">5,9€</span></li>
-            <li>Macarrão à Pollo (Salsicha fresca picante, cebolas, molho de tomate), com queijo parmesão <span class="preco">5,9€</span></li>
+            <li>Feijoada Brasileira com Arroz, Vinagrete, Torresmo, Couve, Farinha de Mandioca e Fatia de Laranja <span class="preco">6,9€</span></li>
+            <li>Macarrão à Pietro (Salsicha fresca picante, cebolas, e molho de tomate) com queijo Parmesão <span class="preco">6,9€</span></li>
         </ul>
         <div class="subtitulo">SÁBADOS E FERIADOS</div>
         <ul>
-            <li>Lasanha à Bolonhesa com Massa Fresca, Molho à Bolonhesa, Molho Bechamel e queijo gratinado <span class="preco">11,5€</span></li>
+            <li>Lasanha à Bolonhesa com Massa Fresca, Molho à Bolonhesa, Molho Bechamel e queijo gratinado <span class="preco">9,9€</span></li>
         </ul>
         <div class="subtitulo">TODOS OS DIAS</div>
         <ul>
-            <li>Bife de Frango <span class="preco">7,9€</span></li>
-            <li>Bifanas <span class="preco">7,9€</span></li>
+            <li>Bife de Frango <span class="preco">6,9€</span></li>
+            <li>Bifanas <span class="preco">6,9€</span></li>
             <li>Bife de Vitela <span class="preco">8,9€</span></li>
-            <li>Filé de Peixe Panado <span class="preco">7,9€</span></li>
+            <li>Filet de Peixe Panado <span class="preco">7,9€</span></li>
             <li>Strogonoff de Frango <span class="preco">7,9€</span></li>
-            <li>Parmigiana de Frango <span class="preco">7,9€</span></li>
-            <li>Batata Frita <span class="preco">2€</span></li>
-            <li>Salada <span class="preco">2€</span></li>
-            <li><span class="observacao">* Almoço executivo inclui sopa e prato do dia.</span></li>
+            <li>Parmegiana de Frango <span class="preco">8,9€</span></li>
         </ul>
+        <div class="acompanhamentos">
+            Escolha 2 Acompanhamentos: Arroz, Batata Frita, Batata Palha, Salada, Legumes<br>
+            (Acompanhamento Extra em qualquer prato - 0,5€)
+        </div>
+        <div class="observacao">
+            1- Take Away - Alumínio 0,35€ | Cx Papel 0,20€ | Embal. Sopa peq 0,25€ / gr 0,35€<br>
+            2- Os valores aplicados nesta ementa já estão com os devidos IVAs incluídos
+        </div>
 
         <h2>Entradas</h2>
         <ul>
-            <li>Salgados <span class="preco">1,5€</span></li>
-            <li>Rissóis de Carne, Rissóis de Camarão, Empadas de Frango, Coxinhas de Frango, Bolas de Queijo <span class="preco">1,5€</span></li>
-            <li>Pão Fatiado, manteiga e azeite/olivas <span class="preco">1,5€</span></li>
-            <li>Salada Simples <span class="preco">2€</span></li>
-            <li>Salada com Atum <span class="preco">3€</span></li>
-            <li>Salada com Tomates e Cebolas <span class="preco">3€</span></li>
+            <li>Salgados <span class="preco">1,3€</span></li>
+            <li>Rissóis de Carne, Rissóis de Camarão, Empadas de Frango, Coxinhas de Frango, Bolas de Queijo</li>
+            <li>Pequeno Antepasto <span class="preco">1,5€</span> / Com Creme Queijo da Serra + 0,8€<br>
+                Pão (4 fatias), manteiga e azeitonas
+            </li>
+            <li>Salada Simples <span class="preco">2,5€</span> / Com Atum +2€<br>
+                Alface, Tomates e Cebolas
+            </li>
         </ul>
 
         <h2>Lasanhas</h2>
         <ul>
-            <li>Lasanha à Bolonhesa <span class="preco">11,5€</span></li>
-            <li>Lasanha de Bacalhau <span class="preco">15,5€</span></li>
-            <li>Lasanha de Berinjela <span class="preco">11,5€</span></li>
+            <li>Lasanha à Bolonhesa <span class="preco">11,5€</span><br>
+                Massa fresca, molho à Bolonhesa, molho Bechamel e queijo gratinado
+            </li>
+            <li>Lasanha de Bacalhau <span class="preco">11,5€</span><br>
+                Massa fresca, bacalhau salteado com cebolas, salsas e azeite, molho Bechamel e queijo gratinado
+            </li>
+            <li>Lasanha de Berinjela <span class="preco">11,5€</span><br>
+                Fatias de berinjela grelhadas, molho de tomates com azeitonas e cebolas, camadas de queijo parmesão e queijo gratinado
+            </li>
         </ul>
 
         <h2>Risotos</h2>
         <ul>
-            <li>Limão e Alho Francês <span class="preco">7,5€</span> | Com Camarões <span class="preco">+3€</span></li>
-            <li>Cogumelos <span class="preco">8,7€</span> | Com Frango <span class="preco">+2€</span> | Com Camarões <span class="preco">+3€</span></li>
-            <li>Frango com Tomates <span class="preco">7,5€</span></li>
-            <li>Camarões com Tomates <span class="preco">11,7€</span></li>
-            <li>Mariscos ao Limão <span class="preco">11,7€</span></li>
-            <li>Polvo Crocante <span class="preco">13,7€</span></li>
+            <li>Limão e Alho Francês <span class="preco">7,9€</span> / Com Camarões +3€<br>
+                Com manteiga e queijo parmesão. Cítrico, aromático e crocante
+            </li>
+            <li>Cogumelos <span class="preco">8,7€</span> / Com Frango +2€<br>
+                Com manteiga e queijo parmesão
+            </li>
+            <li>Frango com Tomates <span class="preco">8,7€</span><br>
+                Com manteiga e queijo parmesão
+            </li>
+            <li>Camarões com Tomates <span class="preco">11,7€</span><br>
+                Com manteiga e queijo parmesão
+            </li>
+            <li>Mariscos ao Limão <span class="preco">10,7€</span><br>
+                Camarões, miolo de amêijoas, mini lulas e mexilhões, sumo de limão, manteiga e queijo parmesão
+            </li>
+            <li>Polvo Crocante <span class="preco">13,7€</span><br>
+                Cubos de polvo ao vinho tinto finalizado com tentáculos de polvo crocantes, manteiga e queijo parmesão
+            </li>
         </ul>
 
         <h2>Pastas</h2>
-        <div class="observacao">Escolha uma pasta: Macarrão Penne (incluso) ou Fresca/Caseira: Tagliatelle (+1€)</div>
+        <div class="observacao"><b>Escolha uma Pasta:</b> Seca: Macarrão Penne | Fresca/Caseira: Tagliatelle (+1€)</div>
         <ul>
-            <li>À Pomodoro <span class="preco">6,9€</span> | Com Camarões <span class="preco">+3€</span></li>
-            <li>Cacio e Pepe <span class="preco">7,9€</span></li>
-            <li>Pimentas Pretas Tostadas e Creme de Queijo Parmesão <span class="preco">8,7€</span></li>
-            <li>Ao Limão <span class="preco">8,7€</span> | Com Camarões <span class="preco">+3€</span></li>
-            <li>À Stracciatella <span class="preco">9,7€</span> | Com Frango <span class="preco">+2€</span> | Com Camarões <span class="preco">+3€</span></li>
-            <li>À Pollo/Salsicha Fresca Picante <span class="preco">9,7€</span></li>
-            <li>À Bolognesa <span class="preco">8,7€</span></li>
-            <li>Cogumelos e Ovo <span class="preco">8,7€</span> | Com Frango <span class="preco">+2€</span> | Com Camarões <span class="preco">+3€</span></li>
-            <li>Frango ou Queijo <span class="preco">8,7€</span></li>
-            <li>À Puttanesca <span class="preco">8,7€</span></li>
-            <li>À Milanese <span class="preco">9,7€</span></li>
-            <li>Ao Pesto de Manjericão <span class="preco">8,7€</span></li>
-            <li>À Carbonara <span class="preco">9,7€</span></li>
-            <li>À Matriciana <span class="preco">9,7€</span></li>
-            <li>Ao Mare <span class="preco">11,9€</span></li>
+            <li>À Pomodori <span class="preco">6,9€</span> / Com Camarões +3€<br>
+                Molho de tomate, manjericão, tomates em pedaços
+            </li>
+            <li>Cacio e Pepe <span class="preco">6,9€</span><br>
+                Pimentas pretas tostadas e creme de queijo parmesão
+            </li>
+            <li>Ao Limone <span class="preco">6,9€</span> / Com Camarões +3€<br>
+                Molho de queijo, suco e raspas de limão, muito perfumado
+            </li>
+            <li>À Stracciatella <span class="preco">7,9€</span> / Com Frango +2€ / Com Camarões +3€<br>
+                Molho de tomate, massa de pimentos e queijo parmesão fundido, servido com stracciatella (mozzarella fresca enriquecida com natas)
+            </li>
+            <li>À Pietro (Salsicha Fresca Picante) <span class="preco">8,7€</span><br>
+                Salsicha fresca picante em pedaços com cebola e molho de tomate
+            </li>
+            <li>À Bolonhesa <span class="preco">8,7€</span><br>
+                Carne de vitela picada ao molho de tomate
+            </li>
+            <li>Cogumelos ao Queijo <span class="preco">8,7€</span> / Com Frango +2€ / Com Camarões +3€<br>
+                Cogumelos frescos salteados no azeite e molho de queijo
+            </li>
+            <li>Frango ao Queijo <span class="preco">8,7€</span><br>
+                Tirinhas de frango alouradas e molho de queijo
+            </li>
+            <li>A Putanesca <span class="preco">8,7€</span><br>
+                Anchovas derretidas no molho de tomates com azeite, pimenta calabresa, tomates em pedaços e azeitonas pretas
+            </li>
+            <li>À Melanzane <span class="preco">8,7€</span><br>
+                Berinjela grelhada em pedaços ao molho de tomates
+            </li>
+            <li>Ao Pesto de Manjericão <span class="preco">8,7€</span><br>
+                Creme de manjericão com azeite, castanhas de caju e queijo parmesão
+            </li>
+            <li>A Carbonara <span class="preco">9,3€</span><br>
+                Bacons fritos ao creme de gemas de ovos e queijo parmesão
+            </li>
+            <li>À Matriciana <span class="preco">9,3€</span><br>
+                Bacons fritos, molho de tomate com queijo parmesão
+            </li>
+            <li>Ao Mare <span class="preco">11,9€</span><br>
+                Pasta Linguini Negra com camarões grandes e pequenos, miolo de amêijoas, mini lulas e mexilhões salteados na manteiga com alho, sumo e raspas de limão
+            </li>
         </ul>
-        <div class="observacao">* Todos os pratos acompanham pão. Pratos individuais. Pratos de massa fresca: Tagliatelle (+1€).</div>
 
         <h2>Bebidas</h2>
         <ul>
-            <li>Água sem gás 300ml <span class="preco">0,7€</span></li>
-            <li>Água sem gás 500ml <span class="preco">1,1€</span></li>
-            <li>Água Pedras 250ml <span class="preco">1,4€</span></li>
+            <li>Água sem gás 330ml <span class="preco">0,7€</span></li>
+            <li>Água sem gás 1000ml <span class="preco">1,7€</span></li>
+            <li>Água Pedras 250ml <span class="preco">1,2€</span></li>
             <li>Água Pedras com Sabores 250ml <span class="preco">1,5€</span></li>
-            <li>Refrigerantes/Sumos lata 330ml <span class="preco">1,5€</span></li>
+            <li>Refrigerantes/Sumol lata 330ml <span class="preco">1,5€</span></li>
             <li>Compal Sabores 200ml <span class="preco">1,5€</span></li>
             <li>Ice Tea Sabores 330ml <span class="preco">1,5€</span></li>
-            <li>Mini Super Bock / Sagres 200ml <span class="preco">1,9€</span></li>
-            <li>Heineken 250ml ou Corona 210ml <span class="preco">1,9€</span></li>
+            <li>Mini Super Bock / Sagres 200ml <span class="preco">1€</span></li>
+            <li>Heineken 250ml ou Corona 210ml <span class="preco">1,5€</span></li>
             <li>Franciscana 500ml <span class="preco">3,5€</span></li>
             <li>Somersby 200ml <span class="preco">1,5€</span></li>
         </ul>
 
         <h2>Drinks</h2>
         <ul>
-            <li>Aperol Spritz <span class="preco">4,5€</span> <span class="descricao">Licor Italiano de Laranja, vinho branco frisante e água gaseosa. Refrescante, levemente adocicado e um toque de amargo de laranja.</span></li>
-            <li>Limoncello (Digestivo) Shot <span class="preco">3€</span> <span class="descricao">Um shot de Licor Italiano de Limão retirado da arca frigorífica na hora de servir.</span></li>
-            <li>Caipirinha de Limão <span class="preco">4,5€</span> <span class="descricao">Cachaça Brasileira, açúcar, limão e muito gelo.</span></li>
+            <li>Aperol Spritz <span class="preco">4,5€</span><br>
+                Licor Italiano de Laranja, vinho branco frisante e água gasosa. Refrescante, levemente adocicado e um toque de amargor da laranja.
+            </li>
+            <li>Limoncello (Digestivo) Shot <span class="preco">3€</span><br>
+                Um shot de Licor Italiano de Limão retirado da arca frigorífica na hora de servir.
+            </li>
+            <li>Caipirinha de Limão <span class="preco">4,5€</span><br>
+                Cachaça Brasileira, açúcar, limão e muito gelo.
+            </li>
         </ul>
 
         <h2>Nossos Vinhos</h2>
         <ul>
-            <li>Branco Maduro: Favalos</li>
-            <li>Branco Frisante: Fasalto</li>
-            <li>Tintos: Mestre Silve (Douro), Dom Manuel (Pinhel), Cruzeiro (Póp do Canto)</li>
+            <li>Branco Maduro: Favaios</li>
+            <li>Branco Frisante: Faisão</li>
+            <li>Tintos: Mestre Silva (Douro), Dom Manuel (Pinhel), Cruzeiro (Poço do Canto)</li>
             <li>Taça pequena <span class="preco">0,7€</span></li>
             <li>Taça grande <span class="preco">1,4€</span></li>
             <li>Jarro 500ml <span class="preco">2,9€</span></li>
@@ -247,36 +301,17 @@
 
         <h2>Nosso Horário</h2>
         <ul>
-            <li>Segunda a Sexta das 8h às 18:30h</li>
+            <li>Segunda à Sexta das 8h às 18:30h</li>
             <li>Sábado das 11:30h às 14:30h</li>
             <li>Domingo Encerrado</li>
             <li>Telefone: 960 033 554</li>
         </ul>
     </section>
 
-    <!-- ENGLISH -->
-    <section id="ingles">
-        <h1>Menu</h1>
-        <!-- Tradução fiel e adaptada do cardápio para inglês, com termos gastronômicos adequados -->
-        <!-- ... (Conteúdo traduzido aqui) ... -->
-    </section>
-
-    <!-- ESPAÑOL -->
-    <section id="espanhol">
-        <h1>Menú</h1>
-        <!-- Tradução fiel e adaptada do cardápio para espanhol, com termos gastronômicos adequados -->
-        <!-- ... (Conteúdo traduzido aqui) ... -->
-    </section>
-
-    <!-- FRANÇAIS -->
-    <section id="frances">
-        <h1>Carte</h1>
-        <!-- Tradução fiel e adaptada do cardápio para francês, com termos gastronômicos adequados -->
-        <!-- ... (Conteúdo traduzido aqui) ... -->
-    </section>
+    <!-- Seções de inglês, espanhol e francês podem ser preenchidas conforme solicitado -->
 
     <footer>
-        <p>Município D'Itália &copy; 2025</p>
+        Município D'Itália &copy; 2025
     </footer>
 </body>
 </html>
