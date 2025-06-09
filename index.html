@@ -8,35 +8,85 @@
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
+            padding-top: 180px; /* Adjusted based on estimated header and nav height */
             background-color: white;
             color: #333;
             text-align: center;
+        }
+        .sticky-header-container {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #fff; /* Ensure background is white to cover content when sticky */
         }
         header {
             padding: 20px;
             background-color: #fff;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
+        }
+        header img {
+            max-width: 600px;
         }
         nav {
             background-color: #f4f4f4;
             padding: 10px;
-            position: fixed;
-            top: 100px; /* Adjust based on header height */
-            width: 100%;
-            z-index: 999;
         }
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding-top: 150px; /* Adjust based on combined header and nav height */
-            background-color: white;
-            color: #333;
-            text-align: center;
+        nav a {
+            color: #d32f2f;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
         }
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            border-bottom: 1px solid #ddd;
+        }
+        h1 { font-size: 2em; }
+        h2 { color: #d32f2f; text-transform: uppercase; font-size: 1.5em; }
+        h3 { font-size: 1.2em; }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            display: inline-block;
+        }
+        li {
+            margin: 10px 0;
+            font-style: italic;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        a { color: white; text-decoration: none; }
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+            section {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-header-container">
+        <header>
+            <img src="assets/logotipo.png" alt="Logo Município D'Itália" width="500" height="auto">
+        </header>
+        <nav>
+            <a href="#portugues">Português</a>
+            <a href="#ingles">English</a>
+            <a href="#espanhol">Español</a>
+            <a href="#frances">Français</a>
+        </nav>
+    </div>
+
+    <section id="portugues">
         <h1>Cardápio - Português</h1>
         <h2>Bebidas</h2>
         <ul>
@@ -189,10 +239,10 @@
             <li>Chicken Steak – 6,9€</li>
             <li>Veal Steak – 8,9€</li>
             <li>Breaded Fish Fillet – 7,9€</li>
-            <li>Chicken Stroganoff – 7,9€</li>
-            <li>Chicken Parmigiana – 7,9€</li>
-            <li>French Fries – 2€/unit</li>
-            <li>Salad – 2€</li>
+            <li>Strogonoff de Frango – 7,9€</li>
+            <li>Parmigiana de Frango – 7,9€</li>
+            <li>Batata Frita – 2€/unidade</li>
+            <li>Salada – 2€</li>
         </ul>
     </section>
 
@@ -296,8 +346,8 @@
         </ul>
         <h2>Apéritifs</h2>
         <ul>
-            <li>Liqueur Italienne à l'Orange – 4,5€ <i>Vin blanc avec une touche d'amertume et d'eau gazeuse. Rafraîchissant, léger et sucré ou avec une touche d'amertume et d'orange.</i></li>
-            <li>Limoncello (Digestif) Shot – 3€ <i>Shot de liqueur de citron italien pour relancer l'acidité gastrique au moment de servir.</i></li>
+            <li>Liqueur Italienne à l\'Orange – 4,5€ <i>Vin blanc avec une touche d\'amertume et d\'eau gazeuse. Rafraîchissant, léger et sucré ou avec une touche d\'amertume et d\'orange.</i></li>
+            <li>Limoncello (Digestif) Shot – 3€ <i>Shot de liqueur de citron italien pour relancer l\'acidité gastrique au moment de servir.</i></li>
         </ul>
         <h2>Caipirinha Brésilienne</h2>
         <ul>
@@ -315,7 +365,7 @@
         <h2>Plats du Jour (Déjeuner)</h2>
         <ul>
             <li><b>Lundi</b> <i>Soupe: Bouillon de Poisson et Crevette avec Pâtes – 1,5€ | Plat: Filet de Poisson Pané, Riz aux Légumes Sautés – 5,9€</i></li>
-            <li><b>Mardi</b> <i>Soupe: Bouillon de Poisson et Tomate avec Pâtes – 1,5€ | Plat: Porc à l'Alentejo, Riz à la Tomate – 5,9€</i></li>
+            <li><b>Mardi</b> <i>Soupe: Bouillon de Poisson et Tomate avec Pâtes – 1,5€ | Plat: Porc à l\'Alentejo, Riz à la Tomate – 5,9€</i></li>
         </ul>
         <h2>Entrées</h2>
         <ul>
@@ -365,3 +415,4 @@
     </footer>
 </body>
 </html>
+
