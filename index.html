@@ -19,27 +19,30 @@
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 1000;
+            z-index: 1001; /* Aumentado para garantir que fique acima de tudo */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra leve para destacar */
         }
         header img {
-            max-width: 900px;
+            max-width: 400px; /* Ajustado para manter proporção razoável */
         }
         nav {
             background-color: #f4f4f4;
             padding: 10px;
             position: fixed;
-            top: 90px; /* Ajustado para ficar logo abaixo do header */
+            top: 100px; /* Ajustado para ficar logo abaixo do header com padding */
             width: 100%;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra para separar do conteúdo */
         }
         nav a {
             color: #d32f2f;
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.1em; /* Ajuste para melhor legibilidade */
         }
         section {
-            padding: 120px 20px 20px; /* Ajustado padding-top para evitar sobreposição com o nav fixo */
+            padding: 140px 20px 20px; /* Aumentado para evitar sobreposição */
             max-width: 800px;
             margin: 0 auto;
             border-bottom: 1px solid #ddd;
@@ -70,13 +73,13 @@
                 margin: 5px 0;
             }
             section {
-                padding: 130px 10px 20px; /* Ajustado para telas menores */
+                padding: 150px 10px 20px; /* Ajustado para telas menores */
             }
             header img {
                 max-width: 300px; /* Reduzido para melhor visualização em mobile */
             }
             nav {
-                top: 80px; /* Ajuste para mobile */
+                top: 90px; /* Ajuste para mobile */
             }
         }
     </style>
