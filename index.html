@@ -1,855 +1,347 @@
-<!DOCTYPE html>
-<html lang="pt">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Município D'Itália</title>
+    <title>Menu do Restaurante</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: white;
-            color: #333;
+            font-family: 'Georgia', serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        h1 {
+            color: #34495e;
+            font-size: 2.2em;
+            margin-bottom: 30px;
             text-align: center;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 15px;
         }
-        header {
-            padding: 20px;
-            background-color: #fff;
+        h2 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin: 30px 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 300;
         }
-        header img {
-            max-width: 95%;
+        .menu-section {
+            margin-bottom: 40px;
+            display: none;
         }
-        nav {
-            background-color: #f4f4f4;
-            padding: 10px;
+        .menu-section:target {
+            display: block;
         }
-        nav a {
-            color: #d32f2f;
+        #pt {
+            display: block;
+        }
+        .menu-item {
+            margin-bottom: 25px;
+            padding: 20px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        .item-name {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #2c3e50;
+            flex: 1;
+        }
+        .item-price {
+            font-weight: 700;
+            color: #e74c3c;
+            font-size: 1.1em;
+            margin-left: 20px;
+        }
+        .item-description {
+            font-size: 0.95em;
+            color: #5d6d7e;
+            margin-top: 8px;
+            font-style: italic;
+            text-align: justify;
+        }
+        .language-switcher {
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .language-switcher a {
             margin: 0 15px;
             text-decoration: none;
-            font-weight: bold;
+            color: #3498db;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
         }
-        section {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            border-bottom: 1px solid #ddd;
-        }
-        h1 { font-size: 2em; }
-        h2 { color: #d32f2f; text-transform: uppercase; font-size: 1.5em; }
-        h3 { font-size: 1.2em; }
-        ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: left;
-            display: inline-block;
-        }
-        li {
-            margin: 10px 0;
-            font-style: italic;
-        }
-        footer {
-            background-color: #333;
+        .language-switcher a:hover {
+            background-color: #3498db;
             color: white;
-            padding: 10px;
-            margin-top: 20px;
-        }
-        a { color: white; text-decoration: none; }
-        @media (max-width: 600px) {
-            nav a {
-                display: block;
-                margin: 5px 0;
-            }
-            section {
-                padding: 10px;
-            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="assets/logotipo.png" alt="Logo Município D'Itália" width="500" height="auto">
-    </header>
-    <nav>
-        <a href="#portugues">Português</a>
-        <a href="#ingles">English</a>
-        <a href="#espanhol">Español</a>
-        <a href="#frances">Français</a>
-    </nav>
+    <div class="container">
+        <div class="language-switcher">
+            <a href="#pt">Português</a>
+            <a href="#en">English</a>
+            <a href="#es">Español</a>
+            <a href="#fr">Français</a>
+        </div>
 
-    <section id="portugues">
-        <h1>Cardápio - Português</h1>
-        <h2>Bebidas</h2>
-        <ul>
-            <li>Água com gás 300ml – 1,7€</li>
-            <li>Água sem gás 300ml – 1,7€</li>
-            <li>Água com gás 500ml – 1,7€</li>
-            <li>Água sem gás 500ml – 1,7€</li>
-            <li>Refrigerantes/Pérola Sabores 250ml – 1,5€</li>
-            <li>Refrigerantes/Sumo lata 330ml – 1,5€</li>
-            <li>Compal Sabores 250ml – 1,5€</li>
-            <li>Água Pérola/Sumo lata 330ml – 1,5€</li>
-            <li>Ice Tea Sabores 330ml – 1,5€</li>
-            <li>Mini Super Bock / Sagres 200ml – 1,9€</li>
-            <li>Heineken 250ml ou Corona 210ml – 1,9€</li>
-            <li>Fransicada 500ml – 3,5€</li>
-            <li>Somerdale 200ml – 1,5€</li>
-        </ul>
-        <h2>Aperitivos</h2>
-        <ul>
-            <li>Licor Italiano de Laranja – 4,5€ <i>Vinho branco com um toque de amargo e de água gaseificada. Refrescante, leve e adocicado ou um toque de amargo e laranja.</i></li>
-            <li>Limoncello (Digestivo) Shot – 3€ <i>Shot de licor Limão Italiano para reiniciar da acidez gástrica no hora de servir.</i></li>
-        </ul>
-        <h2>Caipirinha Brasileira</h2>
-        <ul>
-            <li>Caipirinha de Limão – 4,5€ <i>Cachaça brasileira, açúcar, limão e muito gelo.</i></li>
-        </ul>
-        <h2>Nossos Vinhos</h2>
-        <ul>
-            <li>Tinto: Falvão – 3€</li>
-            <li>Tinto: Monte Silveiro (Couro) – 3€</li>
-            <li>Tinto: Dom Manuel (Penha) – 3€</li>
-            <li>Branco: Cruzador (opção Penha) – 3€</li>
-            <li>Rosé: Tagus Grande – 3€</li>
-            <li>Jarro 500ml – 6€</li>
-        </ul>
-        <h2>Pratos do Dia (Almoço)</h2>
-        <ul>
-            <li><b>Segunda-Feira</b> <i>Sopa: Caldo de Peixe e Camarão com Massa – 1,5€ | Prato: Filé de Peixe Panado, Arroz de Legumes Salteados – 5,9€</i></li>
-            <li><b>Terça-Feira</b> <i>Sopa: Caldo de Peixe e Tomate com Massa – 1,5€ | Prato: Carne de Porco à Alentejana, Arroz de Tomate – 5,9€</i></li>
-        </ul>
-        <h2>Entradas</h2>
-        <ul>
-            <li>Rissóis de Camarão, Empadas de Frango, Coxinhas de Galinha – 1,5€/unidade</li>
-            <li>Peixinhos da Horta – 1,5€/unidade</li>
-            <li>Pão fatiado com manteiga – 1€</li>
-        </ul>
-        <h2>Lasanhas</h2>
-        <ul>
-            <li>Lasanha à Bolonhesa com Massa Fresca, Molho Bechamel e molho de tomate gratinado – 11,5€</li>
-        </ul>
-        <h2>Risotos</h2>
-        <ul>
-            <li>Limão e Alho Francês – 7,5€/unidade</li>
-            <li>Cogumelos – 7,5€/unidade</li>
-            <li>Cogumelos e Queijo – 8,5€/unidade</li>
-            <li>Cogumelos e Camarão – 9€/unidade</li>
-            <li>Frango com Tomate – 7,5€</li>
-        </ul>
-        <h2>Pastas</h2>
-        <ul>
-            <li>Macarrão com Patê – 6€ <i>Massa fresca com patê de carne</i></li>
-            <li>Macarrão com Tomate e Manjericão – 6€ <i>Massa fresca com tomate e manjericão</i></li>
-        </ul>
-        <h2>Saradas e Ferias</h2>
-        <ul>
-            <li>Lasanha à Bolonhesa com Massa Fresca, Molho Bechamel e molho de tomate gratinado – 11,5€</li>
-        </ul>
-        <h2>Todos os Dias</h2>
-        <ul>
-            <li>Bife de Frango – 6,9€</li>
-            <li>Bife de Vitela – 8,9€</li>
-            <li>Filé de Peixe Panado – 7,9€</li>
-            <li>Strogonoff de Frango – 7,9€</li>
-            <li>Parmigiana de Frango – 7,9€</li>
-            <li>Batata Frita – 2€/unidade</li>
-            <li>Salada – 2€</li>
-        </ul>
-    </section>
+        <div id="pt" class="menu-section">
+            <h1>Menu (Português)</h1>
+            
+            <h2>Entradas</h2>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Salada Fresca do Campo</span>
+                    <span class="item-price">R$ 28,00</span>
+                </div>
+                <p class="item-description">Uma seleção vibrante de folhas verdes orgânicas, tomates cereja, pepino crocante e rabanetes fatiados, regados com nosso vinagrete de ervas frescas. Uma explosão de frescor e sabor.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Bruschetta de Tomate e Manjericão</span>
+                    <span class="item-price">R$ 32,00</span>
+                </div>
+                <p class="item-description">Fatias de pão artesanal tostado, cobertas com tomates maduros picados, manjericão fresco, alho e um fio de azeite extra virgem. Um clássico italiano que encanta o paladar.</p>
+            </div>
 
-    <section id="ingles">
-        <h1>Menu - English</h1>
-        <h2>Drinks</h2>
-        <ul>
-            <li>Sparkling water 300ml – 1,7€</li>
-            <li>Still water 300ml – 1,7€</li>
-            <li>Sparkling water 500ml – 1,7€</li>
-            <li>Still water 500ml – 1,7€</li>
-            <li>Soft drinks/Pérola Flavors 250ml – 1,5€</li>
-            <li>Soft drinks/Juice can 330ml – 1,5€</li>
-            <li>Compal Flavors 250ml – 1,5€</li>
-            <li>Pérola Water/Juice can 330ml – 1,5€</li>
-            <li>Ice Tea Flavors 330ml – 1,5€</li>
-            <li>Mini Super Bock / Sagres 200ml – 1,9€</li>
-            <li>Heineken 250ml or Corona 210ml – 1,9€</li>
-            <li>Fransicada 500ml – 3,5€</li>
-            <li>Somerdale 200ml – 1,5€</li>
-        </ul>
-        <h2>Appetizers</h2>
-        <ul>
-            <li>Italian Orange Liqueur – 4,5€ <i>White wine with a touch of bitterness and sparkling water. Refreshing, light and sweet or with a touch of bitterness and orange.</i></li>
-            <li>Limoncello (Digestif) Shot – 3€ <i>Shot of Italian lemon liqueur to restart from stomach acidity when serving.</i></li>
-        </ul>
-        <h2>Brazilian Caipirinha</h2>
-        <ul>
-            <li>Lemon Caipirinha – 4,5€ <i>Brazilian cachaça, sugar, lemon and lots of ice.</i></li>
-        </ul>
-        <h2>Our Wines</h2>
-        <ul>
-            <li>Red: Falvão – 3€</li>
-            <li>Red: Monte Silveiro (Couro) – 3€</li>
-            <li>Red: Dom Manuel (Penha) – 3€</li>
-            <li>White: Cruzador (Penha option) – 3€</li>
-            <li>Rosé: Tagus Grande – 3€</li>
-            <li>Jar 500ml – 6€</li>
-        </ul>
-        <h2>Daily Dishes (Lunch)</h2>
-        <ul>
-            <li><b>Monday</b> <i>Soup: Fish and Shrimp Broth with Pasta – 1,5€ | Dish: Breaded Fish Fillet, Sautéed Vegetable Rice – 5,9€</i></li>
-            <li><b>Tuesday</b> <i>Soup: Fish and Tomato Broth with Pasta – 1,5€ | Dish: Alentejo Pork, Tomato Rice – 5,9€</i></li>
-        </ul>
-        <h2>Starters</h2>
-        <ul>
-            <li>Shrimp Rissóis, Chicken Empanadas, Chicken Croquettes – 1,5€/unit</li>
-            <li>Fried Green Beans – 1,5€/unit</li>
-            <li>Sliced bread with butter – 1€</li>
-        </ul>
-        <h2>Lasagnas</h2>
-        <ul>
-            <li>Lasagna Bolognese with Fresh Pasta, Bechamel Sauce and grated tomato sauce – 11,5€</li>
-        </ul>
-        <h2>Risottos</h2>
-        <ul>
-            <li>Lemon and Leek – 7,5€/unit</li>
-            <li>Mushrooms – 7,5€/unit</li>
-            <li>Mushrooms and Cheese – 8,5€/unit</li>
-            <li>Mushrooms and Shrimp – 9€/unit</li>
-            <li>Chicken with Tomato – 7,5€</li>
-        </ul>
-        <h2>Pastas</h2>
-        <ul>
-            <li>Pasta with Pâté – 6€ <i>Fresh pasta with meat pâté</i></li>
-            <li>Pasta with Tomato and Basil – 6€ <i>Fresh pasta with tomato and basil</i></li>
-        </ul>
-        <h2>Salads and Ferias</h2>
-        <ul>
-            <li>Lasagna Bolognese with Fresh Pasta, Bechamel Sauce and grated tomato sauce – 11,5€</li>
-        </ul>
-        <h2>Every Day</h2>
-        <ul>
-            <li>Chicken Steak – 6,9€</li>
-            <li>Veal Steak – 8,9€</li>
-            <li>Breaded Fish Fillet – 7,9€</li>
-            <li>Chicken Stroganoff – 7,9€</li>
-            <li>Chicken Parmigiana – 7,9€</li>
-            <li>French Fries – 2€/unit</li>
-            <li>Salad – 2€</li>
-        </ul>
-    </section>
+            <h2>Pratos Principais</h2>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Filé Mignon Grelhado com Risoto de Cogumelos</span>
+                    <span class="item-price">R$ 85,00</span>
+                </div>
+                <p class="item-description">Tenro filé mignon grelhado no ponto perfeito, acompanhado de um cremoso risoto arbóreo com uma seleção de cogumelos frescos e um toque de queijo parmesão. Uma combinação sublime de texturas e sabores.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Salmão ao Molho de Maracujá com Purê de Batatas Doces</span>
+                    <span class="item-price">R$ 78,00</span>
+                </div>
+                <p class="item-description">Suculento filé de salmão assado, servido com um exótico molho de maracujá e um suave purê de batatas doces. Uma opção leve e cheia de personalidade.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Lasanha à Bolonhesa Artesanal</span>
+                    <span class="item-price">R$ 62,00</span>
+                </div>
+                <p class="item-description">Camadas de massa fresca, molho bolonhesa rico e saboroso, bechamel cremoso e queijo mussarela gratinado. Preparada com carinho, como a da nonna.</p>
+            </div>
 
-    <section id="espanhol">
-        <h1>Menú - Español</h1>
-        <h2>Bebidas</h2>
-        <ul>
-            <li>Agua con gas 300ml – 1,7€</li>
-            <li>Agua sin gas 300ml – 1,7€</li>
-            <li>Agua con gas 500ml – 1,7€</li>
-            <li>Agua sin gas 500ml – 1,7€</li>
-            <li>Refrescos/Pérola Sabores 250ml – 1,5€</li>
-            <li>Refrescos/Jugo lata 330ml – 1,5€</li>
-            <li>Compal Sabores 250ml – 1,5€</li>
-            <li>Agua Pérola/Jugo lata 330ml – 1,5€</li>
-            <li>Té helado Sabores 330ml – 1,5€</li>
-            <li>Mini Super Bock / Sagres 200ml – 1,9€</li>
-            <li>Heineken 250ml o Corona 210ml – 1,9€</li>
-            <li>Fransicada 500ml – 3,5€</li>
-            <li>Somerdale 200ml – 1,5€</li>
-        </ul>
-        <h2>Aperitivos</h2>
-        <ul>
-            <li>Licor Italiano de Naranja – 4,5€ <i>Vino blanco con un toque de amargura y agua con gas. Refrescante, ligero y dulce o con un toque de amargura y naranja.</i></li>
-            <li>Limoncello (Digestivo) Shot – 3€ <i>Chupito de licor de limón italiano para reiniciar la acidez gástrica al servir.</i></li>
-        </ul>
-        <h2>Caipirinha Brasileña</h2>
-        <ul>
-            <li>Caipirinha de Limón – 4,5€ <i>Cachaça brasileña, azúcar, limón y mucho hielo.</i></li>
-        </ul>
-        <h2>Nuestros Vinos</h2>
-        <ul>
-            <li>Tinto: Falvão – 3€</li>
-            <li>Tinto: Monte Silveiro (Couro) – 3€</li>
-            <li>Tinto: Dom Manuel (Penha) – 3€</li>
-            <li>Blanco: Cruzador (opción Penha) – 3€</li>
-            <li>Rosado: Tagus Grande – 3€</li>
-            <li>Jarra 500ml – 6€</li>
-        </ul>
-        <h2>Platos del Día (Almuerzo)</h2>
-        <ul>
-            <li><b>Lunes</b> <i>Sopa: Caldo de Pescado y Camarón con Pasta – 1,5€ | Plato: Filete de Pescado Empanado, Arroz de Verduras Salteadas – 5,9€</i></li>
-            <li><b>Martes</b> <i>Sopa: Caldo de Pescado y Tomate con Pasta – 1,5€ | Plato: Cerdo al Estilo Alentejo, Arroz con Tomate – 5,9€</i></li>
-        </ul>
-        <h2>Entrantes</h2>
-        <ul>
-            <li>Rissoles de Camarón, Empanadas de Pollo, Croquetas de Pollo – 1,5€/unidad</li>
-            <li>Judías Verdes Fritas – 1,5€/unidad</li>
-            <li>Pan en rebanadas con mantequilla – 1€</li>
-        </ul>
-        <h2>Lasañas</h2>
-        <ul>
-            <li>Lasaña a la Bolonesa con Pasta Fresca, Salsa Bechamel y salsa de tomate gratinada – 11,5€</li>
-        </ul>
-        <h2>Risottos</h2>
-        <ul>
-            <li>Limón y Puerro – 7,5€/unidad</li>
-            <li>Setas – 7,5€/unidad</li>
-            <li>Setas y Queso – 8,5€/unidad</li>
-            <li>Setas y Camarones – 9€/unidad</li>
-            <li>Pollo con Tomate – 7,5€</li>
-        </ul>
-        <h2>Pastas</h2>
-        <ul>
-            <li>Pasta con Pâté – 6€ <i>Pasta fresca con paté de carne</i></li>
-            <li>Pasta con Tomate y Albahaca – 6€ <i>Pasta fresca con tomate y albahaca</i></li>
-        </ul>
-        <h2>Ensaladas y Ferias</h2>
-        <ul>
-            <li>Lasaña a la Bolonesa con Pasta Fresca, Salsa Bechamel y salsa de tomate gratinada – 11,5€</li>
-        </ul>
-        <h2>Todos los Días</h2>
-        <ul>
-            <li>Chuleta de Pollo – 6,9€</li>
-            <li>Chuleta de Ternera – 8,9€</li>
-            <li>Filete de Pescado Empanado – 7,9€</li>
-            <li>Strogonoff de Pollo – 7,9€</li>
-            <li>Parmigiana de Pollo – 7,9€</li>
-            <li>Patatas Fritas – 2€/unidad</li>
-            <li>Ensalada – 2€</li>
-        </ul>
-    </section>
+            <h2>Sobremesas</h2>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Torta de Limão Siciliano com Merengue Suíço</span>
+                    <span class="item-price">R$ 25,00</span>
+                </div>
+                <p class="item-description">Uma base crocante, recheio cítrico e refrescante de limão siciliano, coberta com um merengue suíço levemente tostado. O equilíbrio perfeito entre doçura e acidez.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Brownie de Chocolate com Sorvete de Baunilha e Calda de Caramelo</span>
+                    <span class="item-price">R$ 29,00</span>
+                </div>
+                <p class="item-description">Nosso famoso brownie de chocolate, denso e úmido, servido quente com uma bola de sorvete de baunilha e finalizado com calda de caramelo caseira. Uma tentação irresistível.</p>
+            </div>
+        </div>
 
-    <section id="frances">
-        <h1>Menu - Français</h1>
-        <h2>Boissons</h2>
-        <ul>
-            <li>Eau gazeuse 300ml – 1,7€</li>
-            <li>Eau plate 300ml – 1,7€</li>
-            <li>Eau gazeuse 500ml – 1,7€</li>
-            <li>Eau plate 500ml – 1,7€</li>
-            <li>Boissons gazeuses/Pérola Saveurs 250ml – 1,5€</li>
-            <li>Boissons gazeuses/Jus en canette 330ml – 1,5€</li>
-            <li>Compal Saveurs 250ml – 1,5€</li>
-            <li>Eau Pérola/Jus en canette 330ml – 1,5€</li>
-            <li>Thé glacé Saveurs 330ml – 1,5€</li>
-            <li>Mini Super Bock / Sagres 200ml – 1,9€</li>
-            <li>Heineken 250ml ou Corona 210ml – 1,9€</li>
-            <li>Fransicada 500ml – 3,5€</li>
-            <li>Somerdale 200ml – 1,5€</li>
-        </ul>
-        <h2>Apéritifs</h2>
-        <ul>
-            <li>Liqueur Italienne à l'Orange – 4,5€ <i>Vin blanc avec une touche d'amertume et d'eau gazeuse. Rafraîchissant, léger et sucré ou avec une touche d'amertume et d'orange.</i></li>
-            <li>Limoncello (Digestif) Shot – 3€ <i>Shot de liqueur de citron italien pour relancer l'acidité gastrique au moment de servir.</i></li>
-        </ul>
-        <h2>Caipirinha Brésilienne</h2>
-        <ul>
-            <li>Caipirinha au Citron – 4,5€ <i>Cachaça brésilienne, sucre, citron et beaucoup de glace.</i></li>
-        </ul>
-        <h2>Nos Vins</h2>
-        <ul>
-            <li>Rouge: Falvão – 3€</li>
-            <li>Rouge: Monte Silveiro (Couro) – 3€</li>
-            <li>Rouge: Dom Manuel (Penha) – 3€</li>
-            <li>Blanc: Cruzador (option Penha) – 3€</li>
-            <li>Rosé: Tagus Grande – 3€</li>
-            <li>Pichet 500ml – 6€</li>
-        </ul>
-        <h2>Plats du Jour (Déjeuner)</h2>
-        <ul>
-            <li><b>Lundi</b> <i>Soupe: Bouillon de Poisson et Crevette avec Pâtes – 1,5€ | Plat: Filet de Poisson Pané, Riz aux Légumes Sautés – 5,9€</i></li>
-            <li><b>Mardi</b> <i>Soupe: Bouillon de Poisson et Tomate avec Pâtes – 1,5€ | Plat: Porc à l'Alentejo, Riz à la Tomate – 5,9€</i></li>
-        </ul>
-        <h2>Entrées</h2>
-        <ul>
-            <li>Rissoles aux Crevettes, Empanadas au Poulet, Croquettes de Poulet – 1,5€/unité</li>
-            <li>Haricots Verts Frit – 1,5€/unité</li>
-            <li>Pain tranché avec beurre – 1€</li>
-        </ul>
-        <h2>Lasagnes</h2>
-        <ul>
-            <li>Lasagne à la Bolonaise avec Pâtes Fraîches, Sauce Bechamel et sauce tomate gratinée – 11,5€</li>
-        </ul>
-        <h2>Risottos</h2>
-        <ul>
-            <li>Citron et Poireau – 7,5€/unité</li>
-            <li>Champignons – 7,5€/unité</li>
-            <li>Champignons et Fromage – 8,5€/unité</li>
-            <li>Champignons et Crevettes – 9€/unité</li>
-            <li>Poulet avec Tomate – 7,5€</li>
-        </ul>
-        <h2>Pâtes</h2>
-        <ul>
-            <li>Pâtes avec Pâté – 6€ <i>Pâtes fraîches avec pâté de viande</i></li>
-            <li>Pâtes avec Tomate et Basilic – 6€ <i>Pâtes fraîches avec tomate et basilic</i></li>
-        </ul>
-        <h2>Salades et Ferias</h2>
-        <ul>
-            <li>Lasagne à la Bolonaise avec Pâtes Fr<!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Município D'Itália</title>
-  <style>
-    /* Variável para ajustar o tamanho do logotipo */
-    :root {
-      --logo-width: 500px; /* Altere esse valor para modificar o tamanho da imagem do topo */
-    }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: white;
-      color: #333;
-      text-align: center;
-      line-height: 1.6;
-    }
-    header {
-      padding: 20px;
-      background-color: #fff;
-    }
-    header img {
-      width: var(--logo-width);
-      max-width: 100%;
-      height: auto;
-    }
-    nav {
-      background-color: #f4f4f4;
-      padding: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    nav a {
-      color: #d32f2f;
-      margin: 5px 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 20px;
-      max-width: 800px;
-      width: 95%;
-      margin: 0 auto;
-      border-bottom: 1px solid #ddd;
-      text-align: left;
-    }
-    h1 {
-      font-size: 2em;
-      text-align: center;
-    }
-    h2 {
-      color: #d32f2f;
-      text-transform: uppercase;
-      font-size: 1.5em;
-    }
-    h3 {
-      font-size: 1.2em;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    li {
-      margin: 10px 0;
-      font-style: italic;
-    }
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      margin-top: 20px;
-      text-align: center;
-      font-size: 0.9em;
-    }
-    footer a {
-      color: #fff;
-      text-decoration: none;
-    }
-    /* Ajustes para dispositivos móveis */
-    @media (max-width: 768px) {
-      header {
-        padding: 15px;
-      }
-      nav {
-        padding: 8px;
-      }
-      nav a {
-        margin: 10px;
-        font-size: 1em;
-      }
-      section {
-        padding: 15px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-      h2 {
-        font-size: 1.3em;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="assets/logotipo2.png" alt="Logo Município D'Itália">
-  </header>
-  <nav>
-    <a href="#portugues">Português</a>
-    <a href="#ingles">English</a>
-    <a href="#espanhol">Español</a>
-    <a href="#frances">Français</a>
-  </nav>
+        <div id="en" class="menu-section">
+            <h1>Menu (English)</h1>
+            
+            <h2>Appetizers</h2>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Fresh Field Salad</span>
+                    <span class="item-price">$28.00</span>
+                </div>
+                <p class="item-description">A vibrant selection of organic green leaves, cherry tomatoes, crispy cucumber, and sliced radishes, drizzled with our fresh herb vinaigrette. An explosion of freshness and flavor.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Tomato and Basil Bruschetta</span>
+                    <span class="item-price">$32.00</span>
+                </div>
+                <p class="item-description">Toasted slices of artisanal bread, topped with diced ripe tomatoes, fresh basil, garlic, and a drizzle of extra virgin olive oil. A classic Italian delight.</p>
+            </div>
 
-  <section id="portugues">
-    <h1>Cardápio - Português</h1>
-    <h2>Bebidas</h2>
-    <ul>
-      <li>Água com gás 300ml – 1,7€</li>
-      <li>Água sem gás 300ml – 1,7€</li>
-      <li>Água com gás 500ml – 1,7€</li>
-      <li>Água sem gás 500ml – 1,7€</li>
-      <li>Refrigerantes/Pérola Sabores 250ml – 1,5€</li>
-      <li>Refrigerantes/Sumo lata 330ml – 1,5€</li>
-      <li>Compal Sabores 250ml – 1,5€</li>
-      <li>Água Pérola/Sumo lata 330ml – 1,5€</li>
-      <li>Ice Tea Sabores 330ml – 1,5€</li>
-      <li>Mini Super Bock / Sagres 200ml – 1,9€</li>
-      <li>Heineken 250ml ou Corona 210ml – 1,9€</li>
-      <li>Fransicada 500ml – 3,5€</li>
-      <li>Somerdale 200ml – 1,5€</li>
-    </ul>
-    <h2>Aperitivos</h2>
-    <ul>
-      <li>Licor Italiano de Laranja – 4,5€ <i>Vinho branco com um toque de amargo e de água gaseificada. Refrescante, leve e adocicado ou um toque de amargo e laranja.</i></li>
-      <li>Limoncello (Digestivo) Shot – 3€ <i>Shot de licor Limão Italiano para reiniciar da acidez gástrica no hora de servir.</i></li>
-    </ul>
-    <h2>Caipirinha Brasileira</h2>
-    <ul>
-      <li>Caipirinha de Limão – 4,5€ <i>Cachaça brasileira, açúcar, limão e muito gelo.</i></li>
-    </ul>
-    <h2>Nossos Vinhos</h2>
-    <ul>
-      <li>Tinto: Falvão – 3€</li>
-      <li>Tinto: Monte Silveiro (Couro) – 3€</li>
-      <li>Tinto: Dom Manuel (Penha) – 3€</li>
-      <li>Branco: Cruzador (opção Penha) – 3€</li>
-      <li>Rosé: Tagus Grande – 3€</li>
-      <li>Jarro 500ml – 6€</li>
-    </ul>
-    <h2>Pratos do Dia (Almoço)</h2>
-    <ul>
-      <li><b>Segunda-Feira</b> <i>Sopa: Caldo de Peixe e Camarão com Massa – 1,5€ | Prato: Filé de Peixe Panado, Arroz de Legumes Salteados – 5,9€</i></li>
-      <li><b>Terça-Feira</b> <i>Sopa: Caldo de Peixe e Tomate com Massa – 1,5€ | Prato: Carne de Porco à Alentejana, Arroz de Tomate – 5,9€</i></li>
-    </ul>
-    <h2>Entradas</h2>
-    <ul>
-      <li>Rissóis de Camarão, Empadas de Frango, Coxinhas de Galinha – 1,5€/unidade</li>
-      <li>Peixinhos da Horta – 1,5€/unidade</li>
-      <li>Pão fatiado com manteiga – 1€</li>
-    </ul>
-    <h2>Lasanhas</h2>
-    <ul>
-      <li>Lasanha à Bolonhesa com Massa Fresca, Molho Bechamel e molho de tomate gratinado – 11,5€</li>
-    </ul>
-    <h2>Risotos</h2>
-    <ul>
-      <li>Limão e Alho Francês – 7,5€/unidade</li>
-      <li>Cogumelos – 7,5€/unidade</li>
-      <li>Cogumelos e Queijo – 8,5€/unidade</li>
-      <li>Cogumelos e Camarão – 9€/unidade</li>
-      <li>Frango com Tomate – 7,5€</li>
-    </ul>
-    <h2>Pastas</h2>
-    <ul>
-      <li>Macarrão com Patê – 6€ <i>Massa fresca com patê de carne</i></li>
-      <li>Macarrão com Tomate e Manjericão – 6€ <i>Massa fresca com tomate e manjericão</i></li>
-    </ul>
-    <h2>Saradas e Ferias</h2>
-    <ul>
-      <li>Lasanha à Bolonhesa com Massa Fresca, Molho Bechamel e molho de tomate gratinado – 11,5€</li>
-    </ul>
-    <h2>Todos os Dias</h2>
-    <ul>
-      <li>Bife de Frango – 6,9€</li>
-      <li>Bife de Vitela – 8,9€</li>
-      <li>Filé de Peixe Panado – 7,9€</li>
-      <li>Strogonoff de Frango – 7,9€</li>
-      <li>Parmigiana de Frango – 7,9€</li>
-      <li>Batata Frita – 2€/unidade</li>
-      <li>Salada – 2€</li>
-    </ul>
-  </section>
+            <h2>Main Courses</h2>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Grilled Filet Mignon with Mushroom Risotto</span>
+                    <span class="item-price">$85.00</span>
+                </div>
+                <p class="item-description">Tender filet mignon grilled to perfection, accompanied by a creamy arborio risotto with a selection of fresh mushrooms and a touch of Parmesan cheese. A sublime combination of textures and flavors.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Salmon with Passion Fruit Sauce and Sweet Potato Puree</span>
+                    <span class="item-price">$78.00</span>
+                </div>
+                <p class="item-description">Succulent baked salmon fillet, served with an exotic passion fruit sauce and a smooth sweet potato puree. A light option full of character.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Handmade Bolognese Lasagna</span>
+                    <span class="item-price">$62.00</span>
+                </div>
+                <p class="item-description">Layers of fresh pasta, rich and flavorful Bolognese sauce, creamy béchamel, and gratinated mozzarella cheese. Prepared with love, just like grandma's.</p>
+            </div>
 
-  <section id="ingles">
-    <h1>Menu - English</h1>
-    <h2>Drinks</h2>
-    <ul>
-      <li>Sparkling water 300ml – 1,7€</li>
-      <li>Still water 300ml – 1,7€</li>
-      <li>Sparkling water 500ml – 1,7€</li>
-      <li>Still water 500ml – 1,7€</li>
-      <li>Soft drinks/Pérola Flavors 250ml – 1,5€</li>
-      <li>Soft drinks/Juice can 330ml – 1,5€</li>
-      <li>Compal Flavors 250ml – 1,5€</li>
-      <li>Pérola Water/Juice can 330ml – 1,5€</li>
-      <li>Ice Tea Flavors 330ml – 1,5€</li>
-      <li>Mini Super Bock / Sagres 200ml – 1,9€</li>
-      <li>Heineken 250ml or Corona 210ml – 1,9€</li>
-      <li>Fransicada 500ml – 3,5€</li>
-      <li>Somerdale 200ml – 1,5€</li>
-    </ul>
-    <h2>Appetizers</h2>
-    <ul>
-      <li>Italian Orange Liqueur – 4,5€ <i>White wine with a touch of bitterness and sparkling water. Refreshing, light and sweet or with a touch of bitterness and orange.</i></li>
-      <li>Limoncello (Digestif) Shot – 3€ <i>Shot of Italian lemon liqueur to restart from stomach acidity when serving.</i></li>
-    </ul>
-    <h2>Brazilian Caipirinha</h2>
-    <ul>
-      <li>Lemon Caipirinha – 4,5€ <i>Brazilian cachaça, sugar, lemon and lots of ice.</i></li>
-    </ul>
-    <h2>Our Wines</h2>
-    <ul>
-      <li>Red: Falvão – 3€</li>
-      <li>Red: Monte Silveiro (Couro) – 3€</li>
-      <li>Red: Dom Manuel (Penha) – 3€</li>
-      <li>White: Cruzador (Penha option) – 3€</li>
-      <li>Rosé: Tagus Grande – 3€</li>
-      <li>Jar 500ml – 6€</li>
-    </ul>
-    <h2>Daily Dishes (Lunch)</h2>
-    <ul>
-      <li><b>Monday</b> <i>Soup: Fish and Shrimp Broth with Pasta – 1,5€ | Dish: Breaded Fish Fillet, Sautéed Vegetable Rice – 5,9€</i></li>
-      <li><b>Tuesday</b> <i>Soup: Fish and Tomato Broth with Pasta – 1,5€ | Dish: Alentejo Pork, Tomato Rice – 5,9€</i></li>
-    </ul>
-    <h2>Starters</h2>
-    <ul>
-      <li>Shrimp Rissóis, Chicken Empanadas, Chicken Croquettes – 1,5€/unit</li>
-      <li>Fried Green Beans – 1,5€/unit</li>
-      <li>Sliced bread with butter – 1€</li>
-    </ul>
-    <h2>Lasagnas</h2>
-    <ul>
-      <li>Lasagna Bolognese with Fresh Pasta, Bechamel Sauce and grated tomato sauce – 11,5€</li>
-    </ul>
-    <h2>Risottos</h2>
-    <ul>
-      <li>Lemon and Leek – 7,5€/unit</li>
-      <li>Mushrooms – 7,5€/unit</li>
-      <li>Mushrooms and Cheese – 8,5€/unit</li>
-      <li>Mushrooms and Shrimp – 9€/unit</li>
-      <li>Chicken with Tomato – 7,5€</li>
-    </ul>
-    <h2>Pastas</h2>
-    <ul>
-      <li>Pasta with Pâté – 6€ <i>Fresh pasta with meat pâté</i></li>
-      <li>Pasta with Tomato and Basil – 6€ <i>Fresh pasta with tomato and basil</i></li>
-    </ul>
-    <h2>Salads and Ferias</h2>
-    <ul>
-      <li>Lasagna Bolognese with Fresh Pasta, Bechamel Sauce and grated tomato sauce – 11,5€</li>
-    </ul>
-    <h2>Every Day</h2>
-    <ul>
-      <li>Chicken Steak – 6,9€</li>
-      <li>Veal Steak – 8,9€</li>
-      <li>Breaded Fish Fillet – 7,9€</li>
-      <li>Chicken Stroganoff – 7,9€</li>
-      <li>Chicken Parmigiana – 7,9€</li>
-      <li>French Fries – 2€/unit</li>
-      <li>Salad – 2€</li>
-    </ul>
-  </section>
+            <h2>Desserts</h2>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Sicilian Lemon Tart with Swiss Meringue</span>
+                    <span class="item-price">$25.00</span>
+                </div>
+                <p class="item-description">A crispy base, a zesty and refreshing Sicilian lemon filling, topped with lightly toasted Swiss meringue. The perfect balance of sweetness and acidity.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Chocolate Brownie with Vanilla Ice Cream and Caramel Sauce</span>
+                    <span class="item-price">$29.00</span>
+                </div>
+                <p class="item-description">Our famous dense and moist chocolate brownie, served warm with a scoop of vanilla ice cream and finished with homemade caramel sauce. An irresistible temptation.</p>
+            </div>
+        </div>
 
-  <section id="espanhol">
-    <h1>Menú - Español</h1>
-    <h2>Bebidas</h2>
-    <ul>
-      <li>Agua con gas 300ml – 1,7€</li>
-      <li>Agua sin gas 300ml – 1,7€</li>
-      <li>Agua con gas 500ml – 1,7€</li>
-      <li>Agua sin gas 500ml – 1,7€</li>
-      <li>Refrescos/Pérola Sabores 250ml – 1,5€</li>
-      <li>Refrescos/Jugo lata 330ml – 1,5€</li>
-      <li>Compal Sabores 250ml – 1,5€</li>
-      <li>Agua Pérola/Jugo lata 330ml – 1,5€</li>
-      <li>Té helado Sabores 330ml – 1,5€</li>
-      <li>Mini Super Bock / Sagres 200ml – 1,9€</li>
-      <li>Heineken 250ml o Corona 210ml – 1,9€</li>
-      <li>Fransicada 500ml – 3,5€</li>
-      <li>Somerdale 200ml – 1,5€</li>
-    </ul>
-    <h2>Aperitivos</h2>
-    <ul>
-      <li>Licor Italiano de Naranja – 4,5€ <i>Vino blanco con un toque de amargura y agua con gas. Refrescante, ligero y dulce o con un toque de amargura y naranja.</i></li>
-      <li>Limoncello (Digestivo) Shot – 3€ <i>Chupito de licor de limón italiano para reiniciar la acidez gástrica al servir.</i></li>
-    </ul>
-    <h2>Caipirinha Brasileña</h2>
-    <ul>
-      <li>Caipirinha de Limón – 4,5€ <i>Cachaça brasileña, azúcar, limón y mucho hielo.</i></li>
-    </ul>
-    <h2>Nuestros Vinos</h2>
-    <ul>
-      <li>Tinto: Falvão – 3€</li>
-      <li>Tinto: Monte Silveiro (Couro) – 3€</li>
-      <li>Tinto: Dom Manuel (Penha) – 3€</li>
-      <li>Blanco: Cruzador (opción Penha) – 3€</li>
-      <li>Rosado: Tagus Grande – 3€</li>
-      <li>Jarra 500ml – 6€</li>
-    </ul>
-    <h2>Platos del Día (Almuerzo)</h2>
-    <ul>
-      <li><b>Lunes</b> <i>Sopa: Caldo de Pescado y Camarón con Pasta – 1,5€ | Plato: Filete de Pescado Empanado, Arroz de Verduras Salteadas – 5,9€</i></li>
-      <li><b>Martes</b> <i>Sopa: Caldo de Pescado y Tomate con Pasta – 1,5€ | Plato: Cerdo al Estilo Alentejo, Arroz con Tomate – 5,9€</i></li>
-    </ul>
-    <h2>Entrantes</h2>
-    <ul>
-      <li>Rissoles de Camarón, Empanadas de Pollo, Croquetas de Pollo – 1,5€/unidad</li>
-      <li>Judías Verdes Fritas – 1,5€/unidad</li>
-      <li>Pan en rebanadas con mantequilla – 1€</li>
-    </ul>
-    <h2>Lasañas</h2>
-    <ul>
-      <li>Lasaña a la Bolonesa con Pasta Fresca, Salsa Bechamel y salsa de tomate gratinada – 11,5€</li>
-    </ul>
-    <h2>Risottos</h2>
-    <ul>
-      <li>Limón y Puerro – 7,5€/unidad</li>
-      <li>Setas – 7,5€/unidad</li>
-      <li>Setas y Queso – 8,5€/unidad</li>
-      <li>Setas y Camarones – 9€/unidad</li>
-      <li>Pollo con Tomate – 7,5€</li>
-    </ul>
-    <h2>Pastas</h2>
-    <ul>
-      <li>Pasta con Pâté – 6€ <i>Pasta fresca con paté de carne</i></li>
-      <li>Pasta con Tomate y Albahaca – 6€ <i>Pasta fresca con tomate y albahaca</i></li>
-    </ul>
-    <h2>Ensaladas y Ferias</h2>
-    <ul>
-      <li>Lasaña a la Bolonesa con Pasta Fresca, Salsa Bechamel y salsa de tomate gratinada – 11,5€</li>
-    </ul>
-    <h2>Todos los Días</h2>
-    <ul>
-      <li>Chuleta de Pollo – 6,9€</li>
-      <li>Chuleta de Ternera – 8,9€</li>
-      <li>Filete de Pescado Empanado – 7,9€</li>
-      <li>Strogonoff de Pollo – 7,9€</li>
-      <li>Parmigiana de Pollo – 7,9€</li>
-      <li>Patatas Fritas – 2€/unidad</li>
-      <li>Ensalada – 2€</li>
-    </ul>
-  </section>
+        <div id="es" class="menu-section">
+            <h1>Menú (Español)</h1>
+            
+            <h2>Entradas</h2>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Ensalada Fresca del Campo</span>
+                    <span class="item-price">€28,00</span>
+                </div>
+                <p class="item-description">Una vibrante selección de hojas verdes orgánicas, tomates cherry, pepino crujiente y rábanos en rodajas, aderezada con nuestra vinagreta de hierbas frescas. Una explosión de frescura y sabor.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Bruschetta de Tomate y Albahaca</span>
+                    <span class="item-price">€32,00</span>
+                </div>
+                <p class="item-description">Rebanadas de pan artesanal tostado, cubiertas con tomates maduros picados, albahaca fresca, ajo y un chorrito de aceite de oliva virgen extra. Un clásico italiano que deleita el paladar.</p>
+            </div>
 
-  <section id="frances">
-    <h1>Menu - Français</h1>
-    <h2>Boissons</h2>
-    <ul>
-      <li>Eau gazeuse 300ml – 1,7€</li>
-      <li>Eau plate 300ml – 1,7€</li>
-      <li>Eau gazeuse 500ml – 1,7€</li>
-      <li>Eau plate 500ml – 1,7€</li>
-      <li>Boissons gazeuses/Pérola Saveurs 250ml – 1,5€</li>
-      <li>Boissons gazeuses/Jus en canette 330ml – 1,5€</li>
-      <li>Compal Saveurs 250ml – 1,5€</li>
-      <li>Eau Pérola/Jus en canette 330ml – 1,5€</li>
-      <li>Thé glacé Saveurs 330ml – 1,5€</li>
-      <li>Mini Super Bock / Sagres 200ml – 1,9€</li>
-      <li>Heineken 250ml ou Corona 210ml – 1,9€</li>
-      <li>Fransicada 500ml – 3,5€</li>
-      <li>Somerdale 200ml – 1,5€</li>
-    </ul>
-    <h2>Apéritifs</h2>
-    <ul>
-      <li>Liqueur Italienne à l'Orange – 4,5€ <i>Vin blanc avec une touche d'amertume et d'eau gazeuse. Rafraîchissant, léger et sucré ou avec une touche d'amertume et d'orange.</i></li>
-      <li>Limoncello (Digestif) Shot – 3€ <i>Shot de liqueur de citron italien pour relancer l'acidité gastrique au moment de servir.</i></li>
-    </ul>
-    <h2>Caipirinha Brésilienne</h2>
-    <ul>
-      <li>Caipirinha au Citron – 4,5€ <i>Cachaça brésilienne, sucre, citron et beaucoup de glace.</i></li>
-    </ul>
-    <h2>Nos Vins</h2>
-    <ul>
-      <li>Rouge: Falvão – 3€</li>
-      <li>Rouge: Monte Silveiro (Couro) – 3€</li>
-      <li>Rouge: Dom Manuel (Penha) – 3€</li>
-      <li>Blanc: Cruzador (option Penha) – 3€</li>
-      <li>Rosé: Tagus Grande – 3€</li>
-      <li>Pichet 500ml – 6€</li>
-    </ul>
-    <h2>Plats du Jour (Déjeuner)</h2>
-    <ul>
-      <li><b>Lundi</b> <i>Soupe: Bouillon de Poisson et Crevette avec Pâtes – 1,5€ | Plat: Filet de Poisson Pané, Riz aux Légumes Sautés – 5,9€</i></li>
-      <li><b>Mardi</b> <i>Soupe: Bouillon de Poisson et Tomate avec Pâtes – 1,5€ | Plat: Porc à l'Alentejo, Riz à la Tomate – 5,9€</i></li>
-    </ul>
-    <h2>Entrées</h2>
-    <ul>
-      <li>Rissoles aux Crevettes, Empanadas au Poulet, Croquettes de Poulet – 1,5€/unité</li>
-      <li>Haricots Verts Frit – 1,5€/unité</li>
-      <li>Pain tranché avec beurre – 1€</li>
-    </ul>
-    <h2>Lasagnes</h2>
-    <ul>
-      <li>Lasagne à la Bolonaise avec Pâtes Fraîches, Sauce Bechamel et sauce tomate gratinée – 11,5€</li>
-    </ul>
-    <h2>Risottos</h2>
-    <ul>
-      <li>Citron et Poireau – 7,5€/unité</li>
-      <li>Champignons – 7,5€/unité</li>
-      <li>Champignons et Fromage – 8,5€/unité</li>
-      <li>Champignons et Crevettes – 9€/unité</li>
-      <li>Poulet avec Tomate – 7,5€</li>
-    </ul>
-    <h2>Pâtes</h2>
-    <ul>
-      <li>Pâtes avec Pâté – 6€ <i>Pâtes fraîches avec pâté de viande</i></li>
-      <li>Pâtes avec Tomate et Basilic – 6€ <i>Pâtes fraîches avec tomate et basilic</i></li>
-    </ul>
-    <h2>Salades et Ferias</h2>
-    <ul>
-      <li>Lasagne à la Bolonaise avec Pâtes Fraîches, Sauce Bechamel et sauce tomate gratinée – 11,5€</li>
-    </ul>
-    <h2>Tous les Jours</h2>
-    <ul>
-      <li>Bifteck de Poulet – 6,9€</li>
-      <li>Bifteck de Veau – 8,9€</li>
-      <li>Filet de Poisson Pané – 7,9€</li>
-      <li>Strogonoff de Poulet – 7,9€</li>
-      <li>Parmigiana de Poulet – 7,9€</li>
-      <li>Frites – 2€/unité</li>
-      <li>Salade – 2€</li>
-    </ul>
-  </section>
+            <h2>Platos Principales</h2>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Filete Mignon a la Parrilla con Risotto de Champiñones</span>
+                    <span class="item-price">€85,00</span>
+                </div>
+                <p class="item-description">Tierno filete mignon a la parrilla en su punto perfecto, acompañado de un cremoso risotto arbóreo con una selección de champiñones frescos y un toque de queso parmesano. Una combinación sublime de texturas y sabores.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Salmón con Salsa de Maracuyá y Puré de Batatas Dulces</span>
+                    <span class="item-price">€78,00</span>
+                </div>
+                <p class="item-description">Suculento filete de salmón asado, servido con una exótica salsa de maracuyá y un suave puré de batatas dulces. Una opción ligera y llena de personalidad.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Lasaña Boloñesa Artesanal</span>
+                    <span class="item-price">€62,00</span>
+                </div>
+                <p class="item-description">Capas de pasta fresca, salsa boloñesa rica y sabrosa, bechamel cremosa y queso mozzarella gratinado. Preparada con cariño, como la de la nonna.</p>
+            </div>
 
-  <footer>
-    <h3>Contato e Localização</h3>
-    <p>Endereço: Rua Balha e Melo, Guarda (em frente à Câmara Municipal)</p>
-    <p>Telefone: Tel. 960 033 554</p>
-    <p>Horários: Segunda a Sexta, das 08h00 às 14h00 / Sábado, das 11h30 às 14h30</p>
-    <p>Redes sociais: <a href="https://facebook.com/municipioditalia">Facebook</a> | <a href="https://instagram.com/municipioditalia">Instagram</a></p>
-  </footer>
-</body>
-</html>aîches, Sauce Bechamel et sauce tomate gratinée – 11,5€</li>
-        </ul>
-        <h2>Tous les Jours</h2>
-        <ul>
-            <li>Bifteck de Poulet – 6,9€</li>
-            <li>Bifteck de Veau – 8,9€</li>
-            <li>Filet de Poisson Pané – 7,9€</li>
-            <li>Strogonoff de Poulet – 7,9€</li>
-            <li>Parmigiana de Poulet – 7,9€</li>
-            <li>Frites – 2€/unité</li>
-            <li>Salade – 2€</li>
-        </ul>
-    </section>
+            <h2>Postres</h2>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Tarta de Limón Siciliano con Merengue Suizo</span>
+                    <span class="item-price">€25,00</span>
+                </div>
+                <p class="item-description">Una base crujiente, relleno cítrico y refrescante de limón siciliano, cubierto con un merengue suizo ligeramente tostado. El equilibrio perfecto entre dulzura y acidez.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Brownie de Chocolate con Helado de Vainilla y Salsa de Caramelo</span>
+                    <span class="item-price">€29,00</span>
+                </div>
+                <p class="item-description">Nuestro famoso brownie de chocolate, denso y húmedo, servido caliente con una bola de helado de vainilla y terminado con salsa de caramelo casera. Una tentación irresistible.</p>
+            </div>
+        </div>
 
-    <footer>
-        <h3>Contato e Localização</h3>
-        <p>Endereço: Rua Balha e Melo, Guarda (em frente à Câmara Municipal)</p>
-        <p>Telefone: 960 033 554</p>
-        <p>Horários: Segunda a Sexta, das 08h00 às 14h00 / Sábado, das 11h30 às 14h30</p>
-        <p>Redes sociais: <a href="https://facebook.com/profile.php?id=61551017726503">Facebook</a> | <a href="https://instagram.com/municipioditalia">Instagram</a></p>
-    </footer>
+        <div id="fr" class="menu-section">
+            <h1>Menu (Français)</h1>
+            
+            <h2>Entrées</h2>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Salade Fraîche des Champs</span>
+                    <span class="item-price">€28,00</span>
+                </div>
+                <p class="item-description">Une sélection vibrante de feuilles vertes biologiques, tomates cerises, concombre croquant et radis tranchés, arrosée de notre vinaigrette aux herbes fraîches. Une explosion de fraîcheur et de saveur.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Bruschetta Tomate et Basilic</span>
+                    <span class="item-price">€32,00</span>
+                </div>
+                <p class="item-description">Tranches de pain artisanal grillé, garnies de tomates mûres coupées en dés, de basilic frais, d'ail et d'un filet d'huile d'olive extra vierge. Un classique italien qui enchante le palais.</p>
+            </div>
+
+            <h2>Plats Principaux</h2>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Filet Mignon Grillé avec Risotto aux Champignons</span>
+                    <span class="item-price">€85,00</span>
+                </div>
+                <p class="item-description">Tendre filet mignon grillé à la perfection, accompagné d'un risotto crémeux à l'arborio avec une sélection de champignons frais et une touche de parmesan. Une combinaison sublime de textures et de saveurs.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Saumon Sauce Fruit de la Passion et Purée de Patates Douces</span>
+                    <span class="item-price">€78,00</span>
+                </div>
+                <p class="item-description">Succulent filet de saumon rôti, servi avec une sauce exotique au fruit de la passion et une purée onctueuse de patates douces. Une option légère et pleine de caractère.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Lasagne Bolognaise Artisanale</span>
+                    <span class="item-price">€62,00</span>
+                </div>
+                <p class="item-description">Couches de pâtes fraîches, sauce bolognaise riche et savoureuse, béchamel crémeuse et fromage mozzarella gratiné. Préparée avec amour, comme celle de la nonna.</p>
+            </div>
+
+            <h2>Desserts</h2>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Tarte au Citron Sicilien avec Meringue Suisse</span>
+                    <span class="item-price">€25,00</span>
+                </div>
+                <p class="item-description">Une base croustillante, une garniture citronnée et rafraîchissante au citron sicilien, recouverte d'une meringue suisse légèrement dorée. L'équilibre parfait entre douceur et acidité.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Brownie au Chocolat avec Glace Vanille et Sauce Caramel</span>
+                    <span class="item-price">€29,00</span>
+                </div>
+                <p class="item-description">Notre célèbre brownie au chocolat, dense et moelleux, servi chaud avec une boule de glace vanille et une sauce caramel maison. Une tentation irrésistible.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
