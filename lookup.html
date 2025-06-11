@@ -61,7 +61,71 @@
 <body>
 
 
- <!-- PORTUGUÊS -->
+ 
+
+  <!-- Campo de busca -->
+  <input type="text" id="search" placeholder="Buscar prato ou bebida…" />
+
+  <!-- Tabela com wrapper para scroll -->
+  <div class="table-responsive">
+    <table id="lookup">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>PT</th>
+          <th>EN</th>
+          <th>ES</th>
+          <th>FR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Linhas geradas por JavaScript -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Extrai descrições de cada idioma
+      const extract = id => Array.from(
+        document.querySelectorAll(`#${id} li.linha-prato .descricao-prato`)
+      ).map(el => el.textContent.trim());
+
+      const listaPT = extract('portugues');
+      const listaEN = extract('english');
+      const listaES = extract('espanol');
+      const listaFR = extract('francais');
+
+      const count = Math.min(listaPT.length, listaEN.length, listaES.length, listaFR.length);
+      const tbody = document.querySelector('#lookup tbody');
+
+      for (let i = 0; i < count; i++) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td data-label="#">${i+1}</td>
+          <td data-label="PT">${listaPT[i]}</td>
+          <td data-label="EN">${listaEN[i]}</td>
+          <td data-label="ES">${listaES[i]}</td>
+          <td data-label="FR">${listaFR[i]}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+
+      const filterTable = () => {
+        const term = input.value.toLowerCase();
+        tbody.querySelectorAll('tr').forEach(tr => {
+          const text = tr.textContent.toLowerCase();
+          tr.classList.toggle('hidden', !text.includes(term));
+        });
+      };
+
+      // Filtro de busca
+      const input = document.getElementById('search');
+      input.addEventListener('input', filterTable);
+      input.addEventListener('keyup', (e) => { if (e.key === 'Enter') filterTable(); });
+    });
+  </script>
+  <!-- PORTUGUÊS -->
  <section id="portugues">
 
     <h1>Cardápio</h1>
@@ -1110,68 +1174,5 @@
             <p><b>Téléphone: 960 033 554</b></p>
     </div>
 </section>
-
-  <!-- Campo de busca -->
-  <input type="text" id="search" placeholder="Buscar prato ou bebida…" />
-
-  <!-- Tabela com wrapper para scroll -->
-  <div class="table-responsive">
-    <table id="lookup">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>PT</th>
-          <th>EN</th>
-          <th>ES</th>
-          <th>FR</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Linhas geradas por JavaScript -->
-      </tbody>
-    </table>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Extrai descrições de cada idioma
-      const extract = id => Array.from(
-        document.querySelectorAll(`#${id} li.linha-prato .descricao-prato`)
-      ).map(el => el.textContent.trim());
-
-      const listaPT = extract('portugues');
-      const listaEN = extract('english');
-      const listaES = extract('espanol');
-      const listaFR = extract('francais');
-
-      const count = Math.min(listaPT.length, listaEN.length, listaES.length, listaFR.length);
-      const tbody = document.querySelector('#lookup tbody');
-
-      for (let i = 0; i < count; i++) {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td data-label="#">${i+1}</td>
-          <td data-label="PT">${listaPT[i]}</td>
-          <td data-label="EN">${listaEN[i]}</td>
-          <td data-label="ES">${listaES[i]}</td>
-          <td data-label="FR">${listaFR[i]}</td>
-        `;
-        tbody.appendChild(tr);
-      }
-
-      const filterTable = () => {
-        const term = input.value.toLowerCase();
-        tbody.querySelectorAll('tr').forEach(tr => {
-          const text = tr.textContent.toLowerCase();
-          tr.classList.toggle('hidden', !text.includes(term));
-        });
-      };
-
-      // Filtro de busca
-      const input = document.getElementById('search');
-      input.addEventListener('input', filterTable);
-      input.addEventListener('keyup', (e) => { if (e.key === 'Enter') filterTable(); });
-    });
-  </script>
 </body>
 </html>
