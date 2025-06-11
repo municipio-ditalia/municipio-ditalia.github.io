@@ -80,26 +80,28 @@
 
     /* Layout em cards para telas estreitas */
     @media (max-width: 600px) {
-      #lookup thead { display: none; }
-      #lookup tbody tr {
-        display: block;
-        margin-bottom: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 0.5rem;
-      }
-      #lookup tbody td {
-        display: block;
-        padding: 0.3rem 0;
-        position: relative;
-        text-align: right;
-      }
-      #lookup tbody td::before {
-        content: attr(data-label) ":";
-        float: left;
-        font-weight: bold;
-      }
-    }
+  #lookup thead { display: none; }
+  #lookup tbody tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.5rem;
+  }
+  #lookup tbody td {
+    display: block;
+    padding: 0.3rem 0;
+    position: relative;
+    text-align: left; /* <-- alterado aqui */
+  }
+  #lookup tbody td::before {
+    content: attr(data-label) ":";
+    float: left;
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+}
+
   </style>
 </head>
 <body>
