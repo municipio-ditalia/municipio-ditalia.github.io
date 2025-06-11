@@ -5,6 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lookup Multilíngue</title>
   <style>
+  body {
+    margin: 0;
+    padding: 10px;
+    font-family: sans-serif;
+    overflow-x: hidden;
+  }
+
+  section {
+    max-width: 100%;
+    text-align: left;
+    word-wrap: break-word;
+  }
+
+  .linha-prato {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 4px 0;
+  }
+
+  .descricao-prato {
+    flex: 1 1 auto;
+    min-width: 200px;
+  }
+
+  .preco {
+    white-space: nowrap;
+    margin-left: auto;
+  }
+
+  @media (max-width: 600px) {
+    .linha-prato {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .preco {
+      margin-left: 0;
+    }
+  }
+</style>
+
+  <style>
     body { font-family: sans-serif; padding: 1rem; margin:0; }
     #search { margin-bottom: 1rem; padding: 0.5rem; width: 100%; max-width: 400px; box-sizing: border-box; }
 
@@ -64,7 +108,9 @@
  
 
   <!-- Campo de busca -->
-  <input type="text" id="search" placeholder="Buscar prato ou bebida…" />
+  <form id="searchForm">
+      <input type="text" id="search" placeholder="Digite para buscar..." />
+  </form>
 
   <!-- Tabela com wrapper para scroll -->
   <div class="table-responsive">
@@ -85,46 +131,63 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Extrai descrições de cada idioma
-      const extract = id => Array.from(
-        document.querySelectorAll(`#${id} li.linha-prato .descricao-prato`)
-      ).map(el => el.textContent.trim());
+  document.addEventListener('DOMContentLoaded', () => {
+    // Extrai descrições de cada idioma
+    const extract = id => Array.from(
+      document.querySelectorAll(`#${id} li.linha-prato .descricao-prato`)
+    ).map(el => el.textContent.trim());
 
-      const listaPT = extract('portugues');
-      const listaEN = extract('english');
-      const listaES = extract('espanol');
-      const listaFR = extract('francais');
+    const listaPT = extract('portugues');
+    const listaEN = extract('english');
+    const listaES = extract('espanol');
+    const listaFR = extract('francais');
 
-      const count = Math.min(listaPT.length, listaEN.length, listaES.length, listaFR.length);
-      const tbody = document.querySelector('#lookup tbody');
+    const count = Math.min(listaPT.length, listaEN.length, listaES.length, listaFR.length);
+    const tbody = document.querySelector('#lookup tbody');
 
-      for (let i = 0; i < count; i++) {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td data-label="#">${i+1}</td>
-          <td data-label="PT">${listaPT[i]}</td>
-          <td data-label="EN">${listaEN[i]}</td>
-          <td data-label="ES">${listaES[i]}</td>
-          <td data-label="FR">${listaFR[i]}</td>
-        `;
-        tbody.appendChild(tr);
+    for (let i = 0; i < count; i++) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td data-label="#">${i + 1}</td>
+        <td data-label="PT">${listaPT[i]}</td>
+        <td data-label="EN">${listaEN[i]}</td>
+        <td data-label="ES">${listaES[i]}</td>
+        <td data-label="FR">${listaFR[i]}</td>
+      `;
+      tbody.appendChild(tr);
+    }
+
+    // Campo de busca
+    const input = document.getElementById('search');
+
+    const filterTable = () => {
+      const term = input.value.toLowerCase();
+      tbody.querySelectorAll('tr').forEach(tr => {
+        const text = tr.textContent.toLowerCase();
+        tr.classList.toggle('hidden', !text.includes(term));
+      });
+    };
+
+    input.addEventListener('input', filterTable);
+    input.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        filterTable();
+        input.blur(); // oculta o teclado virtual no celular
       }
-
-      const filterTable = () => {
-        const term = input.value.toLowerCase();
-        tbody.querySelectorAll('tr').forEach(tr => {
-          const text = tr.textContent.toLowerCase();
-          tr.classList.toggle('hidden', !text.includes(term));
-        });
-      };
-
-      // Filtro de busca
-      const input = document.getElementById('search');
-      input.addEventListener('input', filterTable);
-      input.addEventListener('keyup', (e) => { if (e.key === 'Enter') filterTable(); });
     });
-  </script>
+
+    // Previne reload ao pressionar Enter no celular
+    const form = document.getElementById('searchForm');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        filterTable();
+        input.blur(); // esconde o teclado após buscar
+      });
+    }
+  });
+</script>
+
   <!-- PORTUGUÊS -->
  <section id="portugues">
 
