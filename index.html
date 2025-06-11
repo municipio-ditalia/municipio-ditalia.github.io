@@ -2,814 +2,1240 @@
 <html lang="pt">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Município D'Itália</title>
-    <style>
-        :root {
-            --logo-width: 400px;
-        }
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Município D'Itália</title>
+        <style>
+                :root {
+                        --logo-width: 400px;
+                }
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fff;
-            color: #222;
-            text-align: center;
-        }
+                body {
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                        padding: 0;
+                        background-color: #fff;
+                        color: #222;
+                        text-align: center;
+                }
 
-        header {
-            padding: 20px;
-            background-color: #fff;
-        }
+                header {
+                        padding: 20px;
+                        background-color: #fff;
+                }
 
-        header img {
-            width: var(--logo-width);
-            max-width: 95%;
-            height: auto;
-        }
+                header img {
+                        width: var(--logo-width);
+                        max-width: 95%;
+                        height: auto;
+                }
 
-        nav {
-            background-color: #f4f4f4;
-            padding: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+                nav {
+                        background-color: #f4f4f4;
+                        padding: 10px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        position: sticky;
+                        top: 0;
+                        z-index: 10;
+                }
 
-        nav a {
-            color: #d32f2f;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            white-space: nowrap;
-            transition: color 0.2s;
-        }
+                nav a {
+                        color: #d32f2f;
+                        margin: 0 15px;
+                        text-decoration: none;
+                        font-weight: bold;
+                        white-space: nowrap;
+                        transition: color 0.2s;
+                }
 
-        nav a:hover,
-        nav a.active {
-            color: #333;
-            text-decoration: underline;
-        }
+                nav a:hover,
+                nav a.active {
+                        color: #333;
+                        text-decoration: underline;
+                }
 
-        section {
-            padding: 20px;
-            max-width: 900px;
-            margin: 0 auto;
-            border-bottom: 1px solid #ddd;
-            text-align: left;
-        }
+                section {
+                        padding: 20px;
+                        max-width: 900px;
+                        margin: 0 auto;
+                        border-bottom: 1px solid #ddd;
+                        text-align: left;
+                }
 
-        h1 {
-            font-size: 2em;
-            text-align: center;
-        }
+                h1 {
+                        font-size: 2em;
+                        text-align: center;
+                }
 
-        h2 {
-            color: #d32f2f;
-            text-transform: uppercase;
-            font-size: 1.5em;
-            margin-top: 32px;
-        }
+                h2 {
+                        color: #d32f2f;
+                        text-transform: uppercase;
+                        font-size: 1.5em;
+                        margin-top: 32px;
+                }
 
-        h3 {
-            font-size: 1.2em;
-        }
+                h3 {
+                        font-size: 1.2em;
+                }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+                ul {
+                        list-style-type: none;
+                        padding: 0;
+                }
 
-        .subtitulo {
-            font-weight: bold;
-            color: #222;
-            margin-top: 18px;
-            margin-bottom: 2px;
-        }
+                .subtitulo {
+                        font-weight: bold;
+                        color: #222;
+                        margin-top: 18px;
+                        margin-bottom: 2px;
+                }
 
-        .observacao {
-            font-size: 0.95em;
-            color: #222;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
+                .observacao {
+                        font-size: 0.95em;
+                        color: #222;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                }
 
-        .acompanhamentos {
-            font-size: 0.98em;
-            color: #444;
-            margin: 6px 0 12px 0;
-        }
+                .acompanhamentos {
+                        font-size: 0.98em;
+                        color: #444;
+                        margin: 6px 0 12px 0;
+                }
 
-        .linha-prato {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 6px;
-            flex-wrap: wrap;
-        }
+                .linha-prato {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        gap: 10px;
+                        margin-bottom: 6px;
+                        flex-wrap: wrap;
+                }
 
-        .linha-prato .descricao-prato {
-            flex: 1 1 70%;
-            min-width: 180px;
-            word-break: break-word;
-        }
+                .linha-prato .descricao-prato {
+                        flex: 1 1 70%;
+                        min-width: 180px;
+                        word-break: break-word;
+                }
 
-        .linha-prato .preco {
-            flex: 0 0 auto;
-            font-weight: bold;
-            margin-left: 10px;
-            white-space: nowrap;
-        }
+                .linha-prato .preco {
+                        flex: 0 0 auto;
+                        font-weight: bold;
+                        margin-left: 10px;
+                        white-space: nowrap;
+                }
 
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            margin-top: 20px;
-            text-align: center;
-        }
+                footer {
+                        background-color: #333;
+                        color: white;
+                        padding: 10px;
+                        margin-top: 20px;
+                        text-align: center;
+                }
 
-        footer a {
-            color: white;
-            text-decoration: none;
-        }
+                footer a {
+                        color: white;
+                        text-decoration: none;
+                }
 
-        @media (max-width: 600px) {
-            nav {
-                flex-wrap: wrap;
-            }
+                @media (max-width: 600px) {
+                        nav {
+                                flex-wrap: wrap;
+                        }
 
-            nav a {
-                margin: 5px 10px;
-                font-size: 1em;
-            }
+                        nav a {
+                                margin: 5px 10px;
+                                font-size: 1em;
+                        }
 
-            section {
-                padding: 10px;
-            }
+                        section {
+                                padding: 10px;
+                        }
 
-            .linha-prato .descricao-prato {
-                min-width: 120px;
-            }
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            function setActiveLink() {
-                var hash = window.location.hash || "#portugues";
-                document.querySelectorAll('nav a').forEach(function (link) {
-                    if (link.getAttribute('href') === hash) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
+                        .linha-prato .descricao-prato {
+                                min-width: 120px;
+                        }
+                }
+        </style>
+        <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                        function setActiveLink() {
+                                var hash = window.location.hash || "#portugues";
+                                document.querySelectorAll('nav a').forEach(function (link) {
+                                        if (link.getAttribute('href') === hash) {
+                                                link.classList.add('active');
+                                        } else {
+                                                link.classList.remove('active');
+                                        }
+                                });
+                        }
+                        setActiveLink();
+                        window.addEventListener('hashchange', setActiveLink);
                 });
-            }
-            setActiveLink();
-            window.addEventListener('hashchange', setActiveLink);
-        });
-    </script>
+        </script>
 </head>
 
 <body>
-    <header>
-        <img src="assets/logotipo3.jpg" alt="Logo Município D'Itália">
-    </header>
-    <nav>
-        <a href="#portugues">Português</a>
-        <a href="#english">English</a>
-        <a href="#espanol">Español</a>
-        <a href="#francais">Français</a>
-    </nav>
+        <header>
+                <img src="assets/logotipo3.jpg" alt="Logo Município D'Itália">
+        </header>
+        <nav>
+                <a href="#portugues">Português</a>
+                <a href="#english">English</a>
+                <a href="#espanol">Español</a>
+                <a href="#francais">Français</a>
+        </nav>
 
-    <!-- PORTUGUÊS -->
-    <section id="portugues">
-        <h1>Cardápio</h1>
-        <h2><b>Pratos do Dia (Almoço)</b></h2>
-        <div class="subtitulo"><b>SEGUNDA-FEIRA</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Canja com Cenoura e Massinha</span><span
-                    class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Filet de Peixe Panado</b>, Arroz e Legumes
-                    Salteados</span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Macarrão ao Molho de Queijo</b> com Cogumelos e
-                    Frango</span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>TERÇA-FEIRA</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Caldo de Peixe com Tomates e
-                    Massinha</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Carne de Porco Alentejana</b> com Batatas, Picles e
-                    Amêijoas</span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Macarrão à Bolonhesa</b> com Queijo Parmesão</span><span
-                    class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>QUARTA-FEIRA</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Caldinho de Feijão com Feijões Verdes <span style="color: green;"><b>(Veg)</b></span>
-                    </span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Perninhas de Frango ao Forno</b>, Arroz, Batatas Fritas e
-                    Salada</span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Massa Linguini Negra à Mariscada</b></span><span
-                    class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>QUINTA-FEIRA</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Creme de Cenouras com
-                    Espinafres <span style="color: green;"><b>(Veg)</b></span></span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Bacalhau à Brás</b></span><span class="preco">5,9€</span>
-            </li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Macarrão à Stracciatella (Mussarela Fresca com Natas)</b>,
-                    com molho de tomates, massa de pimentos e parmesão fundido <span style="color: green;"><b>(Veg)</b></span></span><span class="preco">5,9€</span>
-            </li>
-        </ul>
-        <div class="subtitulo"><b>SEXTA-FEIRA</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Creme de Ervilhas <span style="color: green;"><b>(Veg)</b></span></span><span
-                    class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Feijoada Brasileira</b> com Arroz, Vinagrete, Torresmo,
-                    Couve, Farinha de Mandioca e Fatia de Laranja</span><span class="preco">6,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Macarrão à Pietro</b> (Salsicha fresca picante, cebolas, e
-                    molho de tomate) com queijo Parmesão</span><span class="preco">6,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>SÁBADOS E FERIADOS</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasanha à Bolonhesa</b> com Massa Fresca, Molho à
-                    Bolonhesa, Molho Bechamel e queijo gratinado</span><span class="preco">9,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>TODOS OS DIAS</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Bife de Frango</b></span><span class="preco">6,9€</span>
-            </li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Bifanas</b></span><span class="preco">6,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Bife de Vitela</b></span><span class="preco">8,9€</span>
-            </li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Filet de Peixe Panado</b></span><span
-                    class="preco">7,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Strogonoff de Frango</b></span><span
-                    class="preco">7,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Parmegiana de Frango</b></span><span
-                    class="preco">8,9€</span></li>
-        </ul>
-        <div class="acompanhamentos">
-            <b>Escolha 2 Acompanhamentos:</b> Arroz, Batata Frita, Batata Palha, Salada, Legumes<br>
-            (Acompanhamento Extra em qualquer prato - <b>0,5€</b>)
-        </div>
-        <div class="observacao">
-            <b>Observações:</b><br><br>
-            <b>1- Take Away</b> - Alumínio <b>0,35€</b> | Cx Papel <b>0,20€</b> | Embal. Sopa peq <b>0,25€</b> / gr <b>0,35€</b>.<br>
-            <b>2-</b> Os valores aplicados nesta ementa já estão com os devidos IVAs incluídos.<br>
-            <b>3-</b> Nenhum produto destes pode ser cobrado se não for solicitado (art. 135 10/2015).
-        </div>
-        <h2><b>Entradas</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Salgados</b></span><span class="preco">1,3€</span>
-            </li>
-            <li>Rissóis de Carne, Rissóis de Camarão, Empadas de Frango, Coxinhas de Frango, Bolas de Queijo <span style="color: green;"><b>(Veg)</b></span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pequeno Antepasto</b> / Com Creme Queijo da Serra + 0,8€<br>Pão (4 fatias), manteiga e azeitonas<br><span style="color: green;"><b>(Veg)</b></span></span><span class="preco">1,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Salada Simples <span style="color: green;">(Veg)</span> / Com Atum +2€</b><br>Alface, Tomates e Cebolas</span><span class="preco">2,5€</span></li>
-        </ul>
-        <h2><b>Lasanhas</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasanha à Bolonhesa</b><br>Massa fresca, molho à
-                    Bolonhesa, molho Bechamel e queijo gratinado</span><span class="preco">11,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasanha de Bacalhau</b><br>Massa fresca, bacalhau
-                    salteado com cebolas, salsas e azeite, molho Bechamel e queijo gratinado</span><span
-                    class="preco">11,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasanha de Berinjela</b><br>Fatias de berinjela
-                    grelhadas, molho de tomates com azeitonas e cebolas, camadas de queijo parmesão e queijo
-                    gratinado</span><span style="color: green;"><b>(Veg)</b></span><span class="preco">11,5€</span></li>
-        </ul>
-        <h2><b>Risotos</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Limão e Alho Francês <span style="color: green;">(Veg)</span> / Com Camarões +3€</b><br>Com
-                    manteiga e queijo parmesão. Cítrico, aromático e crocante</span><span class="preco">7,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Cogumelos<span style="color: green;">(Veg)</span> / Com Frango +2€</b><br>Com manteiga e
-                    queijo parmesão</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Frango com Tomates</b><br>Com manteiga e queijo
-                    parmesão</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Camarões com Tomates</b><br>Com manteiga e queijo
-                    parmesão</span><span class="preco">11,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Mariscos ao Limão</b><br>Camarões, miolo de
-                    amêijoas, mini lulas e mexilhões, sumo de limão, manteiga e queijo parmesão</span><span
-                    class="preco">10,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Polvo Crocante</b><br>Cubos de polvo ao vinho tinto
-                    finalizado com tentáculos de polvo crocantes, manteiga e queijo parmesão</span><span
-                    class="preco">13,7€</span></li><br>
-        </ul>
-        <h2><b>Pastas</b></h2>
-        <div class="observacao"><b>Escolha uma Pasta:</b><br><br> 
-                <b>Seca:</b> Macarrão Penne <img src="assets/penne.jpeg" alt="Penne">  <br>
-                <b>Fresca/Caseira:</b> Tagliatelle  <b>(+1€) </b><img src="assets/tagliatelle.jpeg" alt="Tagliatelle"></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>À Pomodori <span style="color: green;">(Veg)</span> / Com Camarões +3€</b><br>Molho de
-                    tomate, manjericão, tomates em pedaços</span><span class="preco">6,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Cacio e Pepe <span style="color: green;">(Veg)</span></b><br>Pimentas pretas tostadas e
-                    creme de queijo parmesão</span><span class="preco">6,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Ao Limone <span style="color: green;">(Veg)</span> / Com Camarões +3€</b><br>Molho de
-                    queijo, suco e raspas de limão, muito perfumado</span><span class="preco">6,9€</span></li> <br>
-            <li class="linha-prato"><span class="descricao-prato"><b>À Stracciatella <span style="color: green;">(Veg)</span> / Com Frango +2€ / Com Camarões
-                    +3€</b><br>Molho de tomate, massa de pimentos e queijo parmesão fundido, servido com stracciatella
-                    (mozzarella fresca enriquecida com natas)</span><span class="preco">7,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>À Pietro (Salsicha Fresca Picante)</b><br>Salsicha
-                    fresca picante em pedaços com cebola e molho de tomate</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>À Bolonhesa</b><br>Carne de vitela picada ao molho
-                    de tomate</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Cogumelos ao Queijo <span style="color: green;">(Veg)</span> / Com Frango +2€ / Com
-                    Camarões +3€</b><br>Cogumelos frescos salteados no azeite e molho de queijo</span><span
-                    class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Frango ao Queijo</b><br>Tirinhas de frango
-                    alouradas e molho de queijo</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>A Putanesca</b><br>Anchovas derretidas no molho de
-                    tomates com azeite, pimenta calabresa, tomates em pedaços e azeitonas pretas</span><span
-                    class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>À Melanzane <span style="color: green;">(Veg)</span></b><br>Berinjela grelhada em pedaços ao
-                    molho de tomates</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Ao Pesto de Manjericão <span style="color: green;">(Veg)</span></b><br>Creme de manjericão
-                    com azeite, castanhas de caju e queijo parmesão</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>A Carbonara</b><br>Bacons fritos ao creme de gemas
-                    de ovos e queijo parmesão</span><span class="preco">9,3€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>À Matriciana</b><br>Bacons fritos, molho de tomate
-                    com queijo parmesão</span><span class="preco">9,3€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Ao Mare</b><br>Pasta Linguini Negra com camarões
-                    grandes e pequenos, miolo de amêijoas, mini lulas e mexilhões salteados na manteiga com alho, sumo e
-                    raspas de limão</span><span class="preco">11,9€</span></li><br>
-        </ul>
-        <h2><b>Bebidas</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato">Água sem gás 330ml</span><span
-                    class="preco">0,7€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Água sem gás 1000ml</span><span
-                    class="preco">1,7€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Água Pedras 250ml</span><span
-                    class="preco">1,2€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Água Pedras com Sabores 250ml</span><span
-                    class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Refrigerantes/Sumol lata 330ml</span><span
-                    class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Compal Sabores 200ml</span><span
-                    class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Ice Tea Sabores 330ml</span><span
-                    class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Mini Super Bock / Sagres 200ml</span><span
-                    class="preco">1€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Heineken 250ml ou Corona 210ml</span><span
-                    class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Franciscana 500ml</span><span
-                    class="preco">3,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Somersby 200ml</span><span class="preco">1,5€</span>
-            </li>
-        </ul>
-        <h2><b>Drinks</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Aperol Spritz</b><br>Licor Italiano de Laranja,
-                    vinho branco frizante e água gasosa. Refrescante, levemente adocicado e um toque de amargor de
-                    laranja</span><span class="preco">4,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Limoncello (Digestivo) Shot</b><br>Um shot de Licor
-                    Italiano de Limão retirado da arca frigorífica na hora de servir</span><span class="preco">3€</span>
-            </li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Caipirinha de Limão</b><br>Cachaça Brasileira,
-                    açúcar, limão e muito gelo.</span><span class="preco">4,5€</span></li>
-        </ul>
-        <h2><b>Nossos Vinhos</b></h2>
-        <ul>
-            <li><b>Branco Maduro: <span style="color: #d32f2f;">Favaios</span></b></li><br>
-            <li><b>Branco Frisante:<span style="color: #d32f2f;">Faisão</span></b></li><br>
-            <li><b>Tintos:<span style="color: #d32f2f;"> Mestre Silva</span></b><span style="color: #d32f2f;"> (Douro)</span></li>
-            <li style="margin-left: 56px;"><span style="color: #d32f2f;"><b>Dom Manuel</b></span></b><span style="color: #d32f2f;"> (Pinhel)</span></li>
-            <li style="margin-left: 56px;"><span style="color: #d32f2f;"><b>Cruzeiro</b></span></b><span style="color: #d32f2f;"> (Poço do Canto)</span></li>
-        </ul>
-        <div class="observacao">
-            Taça pequena <b>0,7€</b> - Taça Grande <b>1,4€</b> - Jarro 500ml <b>2,8€</b></b>
-        </div>
-        <div style="text-align: center; margin-top: 30px; padding: 20px; border: 2px solid #333;">
-            <h3><b>Nosso Horário</b></h3>
-            <p><b>Segunda à Sexta das 9h às 18:30h / Sábado das 11:30h às 14:30h</b></p>
-            <p><b>Domingo Encerrado</b></p>
-            <p><b>Telefone: 960 033 554</b></p>
-        </div>
-    </section>
+        <!-- PORTUGUÊS -->
+        <section id="portugues">
+                <h1>Cardápio</h1>
+                <h2><b>Pratos do Dia (Almoço)</b></h2>
+                <div class="subtitulo"><b>SEGUNDA-FEIRA</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Canja com Cenoura e
+                                        Massinha</span><span class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Filet de Peixe Panado</b>, Arroz e
+                                        Legumes
+                                        Salteados</span><span class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Macarrão ao Molho de Queijo</b> com
+                                        Cogumelos e
+                                        Frango</span><span class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>TERÇA-FEIRA</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Caldo de Peixe com Tomates e
+                                        Massinha</span><span class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Carne de Porco Alentejana</b> com
+                                        Batatas, Picles e
+                                        Amêijoas</span><span class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Macarrão à Bolonhesa</b> com Queijo
+                                        Parmesão</span><span class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>QUARTA-FEIRA</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Caldinho de Feijão com
+                                        Feijões Verdes <span style="color: green;"><b>(Veg)</b></span>
+                                </span><span class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Perninhas de Frango ao Forno</b>,
+                                        Arroz, Batatas Fritas e
+                                        Salada</span><span class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Massa Linguini Negra à
+                                                Mariscada</b></span><span class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>QUINTA-FEIRA</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Creme de Cenouras com
+                                        Espinafres <span style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Bacalhau à Brás</b></span><span
+                                        class="preco">5,9€</span>
+                        </li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Macarrão à Stracciatella (Mussarela
+                                                Fresca com Natas)</b>,
+                                        com molho de tomates, massa de pimentos e parmesão fundido <span
+                                                style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">5,9€</span>
+                        </li>
+                </ul>
+                <div class="subtitulo"><b>SEXTA-FEIRA</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Creme de Ervilhas <span
+                                                style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Feijoada Brasileira</b> com Arroz,
+                                        Vinagrete, Torresmo,
+                                        Couve, Farinha de Mandioca e Fatia de Laranja</span><span
+                                        class="preco">6,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Macarrão à Pietro</b> (Salsicha fresca
+                                        picante, cebolas, e
+                                        molho de tomate) com queijo Parmesão</span><span class="preco">6,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>SÁBADOS E FERIADOS</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasanha à Bolonhesa</b> com Massa
+                                        Fresca, Molho à
+                                        Bolonhesa, Molho Bechamel e queijo gratinado</span><span
+                                        class="preco">9,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>TODOS OS DIAS</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Bife de Frango</b></span><span
+                                        class="preco">6,9€</span>
+                        </li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Bifanas</b></span><span
+                                        class="preco">6,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Bife de Vitela</b></span><span
+                                        class="preco">8,9€</span>
+                        </li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Filet de Peixe Panado</b></span><span
+                                        class="preco">7,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Strogonoff de Frango</b></span><span
+                                        class="preco">7,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Parmegiana de Frango</b></span><span
+                                        class="preco">8,9€</span></li>
+                </ul>
+                <div class="acompanhamentos">
+                        <b>Escolha 2 Acompanhamentos:</b> Arroz, Batata Frita, Batata Palha, Salada, Legumes<br>
+                        (Acompanhamento Extra em qualquer prato - <b>0,5€</b>)
+                </div>
+                <div class="observacao">
+                        <b>Observações:</b><br><br>
+                        <b>1- Take Away</b> - Alumínio <b>0,35€</b> | Cx Papel <b>0,20€</b> | Embal. Sopa peq
+                        <b>0,25€</b> / gr <b>0,35€</b>.<br>
+                        <b>2-</b> Os valores aplicados nesta ementa já estão com os devidos IVAs incluídos.<br>
+                        <b>3-</b> Nenhum produto destes pode ser cobrado se não for solicitado (art. 135 10/2015).
+                </div>
+                <h2><b>Entradas</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Salgados</b></span><span
+                                        class="preco">1,3€</span>
+                        </li>
+                        <li>Rissóis de Carne, Rissóis de Camarão, Empadas de Frango, Coxinhas de Frango, Bolas de Queijo
+                                <span style="color: green;"><b>(Veg)</b></span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pequeno Antepasto <span style="color: green;"><b>(Veg)</b></span></b> / Com Creme
+                                        Queijo da Serra + 0,8€ <span style="color: green;"><b>(Veg)</b></span><br>Pão(4 fatias), manteiga e azeitonas<br></span><span
+                                        class="preco">1,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Salada Simples <span
+                                                        style="color: green;">(Veg)</span> / Com Atum +2€</b><br>Alface,
+                                        Tomates e Cebolas</span><span class="preco">2,5€</span></li>
+                </ul>
+                <h2><b>Lasanhas</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasanha à Bolonhesa</b><br>Massa
+                                        fresca, molho à
+                                        Bolonhesa, molho Bechamel e queijo gratinado</span><span
+                                        class="preco">11,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasanha de Bacalhau</b><br>Massa
+                                        fresca, bacalhau
+                                        salteado com cebolas, salsas e azeite, molho Bechamel e queijo
+                                        gratinado</span><span class="preco">11,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasanha de Berinjela <span style="color: green;"><b>(Veg)</b></span></b><br>Fatias de
+                                        berinjela
+                                        grelhadas, molho de tomates com azeitonas e cebolas, camadas de queijo parmesão
+                                        e queijo
+                                        gratinado</span><span
+                                        class="preco">11,5€</span></li>
+                </ul>
+                <h2><b>Risotos</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Limão e Alho Francês <span
+                                                        style="color: green;">(Veg)</span> / Com Camarões +3€</b><br>Com
+                                        manteiga e queijo parmesão. Cítrico, aromático e crocante</span><span
+                                        class="preco">7,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Cogumelos<span
+                                                        style="color: green;">(Veg)</span> / Com Frango +2€</b><br>Com
+                                        manteiga e
+                                        queijo parmesão</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Frango com Tomates</b><br>Com manteiga
+                                        e queijo
+                                        parmesão</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Camarões com Tomates</b><br>Com
+                                        manteiga e queijo
+                                        parmesão</span><span class="preco">11,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Mariscos ao Limão</b><br>Camarões,
+                                        miolo de
+                                        amêijoas, mini lulas e mexilhões, sumo de limão, manteiga e queijo
+                                        parmesão</span><span class="preco">10,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Polvo Crocante</b><br>Cubos de polvo ao
+                                        vinho tinto
+                                        finalizado com tentáculos de polvo crocantes, manteiga e queijo
+                                        parmesão</span><span class="preco">13,7€</span></li><br>
+                </ul>
+                <h2><b>Pastas</b></h2>
 
-    <!-- ENGLISH -->
-    <section id="english">
-        <h1>Menu</h1>
-        <h2><b>Daily Dishes (Lunch)</b></h2>
-        <div class="subtitulo"><b>MONDAY</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Soup:</b> Chicken Soup with Carrot and Pasta</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Breaded Fish Fillet</b>, Rice and Sautéed Vegetables</span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pasta with Cheese Sauce</b>, Mushrooms and Chicken</span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>TUESDAY</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Soup:</b> Fish Broth with Tomatoes and Pasta</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Alentejo Pork</b> with Potatoes, Pickles and Clams</span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pasta Bolognese</b> with Parmesan Cheese</span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>WEDNESDAY</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Soup:</b> Bean Broth with Green Beans</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Baked Chicken Drumsticks</b>, Rice, French Fries and Salad</span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Black Linguini Pasta with Seafood</b></span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>THURSDAY</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Soup:</b> Carrot Cream with Spinach</span><span style="color: green;"><b>(Veg)</b></span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Codfish à Brás</b></span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pasta à Stracciatella (Fresh Mozzarella with Cream)</b>, with tomato sauce, pepper paste and melted parmesan <span style="color: green;"><b>(Veg)</b></span></span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>FRIDAY</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Soup:</b> Pea Cream</span><span style="color: green;"><b>(Veg)</b></span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Brazilian Feijoada</b> with Rice, Vinaigrette, Pork Crackling, Kale, Cassava Flour and Orange Slice</span><span class="preco">6,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pasta à Pietro</b> (Spicy fresh sausage, onions, and tomato sauce) with Parmesan cheese</span><span class="preco">6,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>SATURDAYS AND HOLIDAYS</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasagna Bolognese</b> with Fresh Pasta, Bolognese Sauce, Bechamel Sauce and gratinated cheese</span><span class="preco">9,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>EVERY DAY</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Chicken Steak</b></span><span class="preco">6,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pork Steaks</b></span><span class="preco">6,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Veal Steak</b></span><span class="preco">8,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Breaded Fish Fillet</b></span><span class="preco">7,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Chicken Stroganoff</b></span><span class="preco">7,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Chicken Parmigiana</b></span><span class="preco">8,9€</span></li>
-        </ul>
-        <div class="acompanhamentos">
-            <b>Choose 2 Side Dishes:</b> Rice, French Fries, Potato Sticks, Salad, Vegetables<br>
-            (Extra Side Dish on any plate - <b>0,5€</b>)
-        </div>
-        <div class="observacao">
-            <b>Notes:</b><br><br>
-            <b>1- Take Away</b> - Aluminum <b>0,35€</b> | Paper Box <b>0,20€</b> | Small Soup Pack <b>0,25€</b> / Large <b>0,35€</b><br>
-            <b>2-</b> The prices applied in this menu already include the respective VAT
-        </div>
-        <h2><b>Starters</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Savory Snacks</b></span><span class="preco">1,3€</span></li>
-            <li>Meat Rissoles, Shrimp Rissoles, Chicken Pies, Chicken Coxinhas, Cheese Balls <span style="color: green;"><b>(Veg)</b></span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Small Appetizer</b> / With Serra Cheese Cream + 0,8€<br>Bread (4 slices), butter and olives<br><span style="color: green;"><b>(Veg)</b></span></span><span class="preco">1,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Simple Salad <span style="color: green;">(Veg)</span> / With Tuna +2€</b><br>Lettuce, Tomatoes and Onions</span><span class="preco">2,5€</span></li>
-        </ul>
-        <h2><b>Lasagnas</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasagna Bolognese</b><br>Fresh pasta, Bolognese sauce, Bechamel sauce and gratinated cheese</span><span class="preco">11,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Codfish Lasagna</b><br>Fresh pasta, codfish sautéed with onions, parsley and olive oil, Bechamel sauce and gratinated cheese</span><span class="preco">11,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Eggplant Lasagna</b><br>Grilled eggplant slices, tomato sauce with olives and onions, layers of parmesan cheese and gratinated cheese <span style="color: green;"><b>(Veg)</b></span></span><span class="preco">11,5€</span></li>
-        </ul>
-        <h2><b>Risottos</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lemon and Leek <span style="color: green;">(Veg)</span> / With Shrimp +3€</b><br>With butter and parmesan cheese. Citric, aromatic and crunchy</span><span class="preco">7,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Mushrooms<span style="color: green;">(Veg)</span> / With Chicken +2€</b><br>With butter and parmesan cheese</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Chicken with Tomatoes</b><br>With butter and parmesan cheese</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Shrimp with Tomatoes</b><br>With butter and parmesan cheese</span><span class="preco">11,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Seafood with Lemon</b><br>Shrimp, clam meat, mini squid and mussels, lemon juice, butter and parmesan cheese</span><span class="preco">10,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Crispy Octopus</b><br>Octopus cubes in red wine finished with crispy octopus tentacles, butter and parmesan cheese</span><span class="preco">13,7€</span></li><br>
-        </ul>
-        <h2><b>Pastas</b></h2>
-        <div class="observacao"><b>Choose a Pasta:</b><br><br> 
-            <b>Dry:</b> Penne Pasta <img src="assets/penne.jpeg" alt="Penne">  <br>
-            <b>Fresh/Homemade:</b> Tagliatelle  <b>(+1€) </b><img src="assets/tagliatelle.jpeg" alt="Tagliatelle"></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pomodori <span style="color: green;">(Veg)</span> / With Shrimp +3€</b><br>Tomato sauce, basil, tomato pieces</span><span class="preco">6,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Cacio e Pepe <span style="color: green;">(Veg)</span></b><br>Toasted black pepper and parmesan cheese cream</span><span class="preco">6,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Limone <span style="color: green;">(Veg)</span> / With Shrimp +3€</b><br>Cheese sauce, lemon juice and zest, very fragrant</span><span class="preco">6,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Stracciatella <span style="color: green;">(Veg)</span> / With Chicken +2€ / With Shrimp +3€</b><br>Tomato sauce, pepper paste and melted parmesan cheese, served with stracciatella (fresh mozzarella enriched with cream)</span><span class="preco">7,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pietro (Spicy Fresh Sausage)</b><br>Spicy fresh sausage pieces with onion and tomato sauce</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Bolognese</b><br>Minced veal in tomato sauce</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Mushrooms with Cheese <span style="color: green;">(Veg)</span> / With Chicken +2€ / With Shrimp +3€</b><br>Fresh mushrooms sautéed in olive oil and cheese sauce</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Chicken with Cheese</b><br>Golden chicken strips and cheese sauce</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Puttanesca</b><br>Anchovies melted in tomato sauce with olive oil, Calabrian pepper, tomato pieces and black olives</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Melanzane <span style="color: green;">(Veg)</span></b><br>Grilled eggplant pieces in tomato sauce</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Basil Pesto <span style="color: green;">(Veg)</span></b><br>Basil cream with olive oil, cashews and parmesan cheese</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Carbonara</b><br>Fried bacon with egg yolk cream and parmesan cheese</span><span class="preco">9,3€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Matriciana</b><br>Fried bacon, tomato sauce with parmesan cheese</span><span class="preco">9,3€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Mare</b><br>Black Linguini Pasta with large and small shrimp, clam meat, mini squid and mussels sautéed in butter with garlic, lemon juice and zest</span><span class="preco">11,9€</span></li><br>
-        </ul>
-        <h2><b>Beverages</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato">Still water 330ml</span><span class="preco">0,7€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Still water 1000ml</span><span class="preco">1,7€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Sparkling water 250ml</span><span class="preco">1,2€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Flavored sparkling water 250ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Soft drinks/Sumol can 330ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Compal Flavors 200ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Ice Tea Flavors 330ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Mini Super Bock / Sagres 200ml</span><span class="preco">1€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Heineken 250ml or Corona 210ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Franciscana 500ml</span><span class="preco">3,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Somersby 200ml</span><span class="preco">1,5€</span></li>
-        </ul>
-        <h2><b>Drinks</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Aperol Spritz</b><br>Italian Orange Liqueur, sparkling white wine and sparkling water. Refreshing, slightly sweet with a touch of orange bitterness</span><span class="preco">4,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Limoncello (Digestive) Shot</b><br>A shot of Italian Lemon Liqueur taken from the freezer at serving time</span><span class="preco">3€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lime Caipirinha</b><br>Brazilian Cachaça, sugar, lime and lots of ice.</span><span class="preco">4,5€</span></li>
-        </ul>
-        <h2><b>Our Wines</b></h2>
-        <ul>
-            <li><b>Mature White: <span style="color: #d32f2f;">Favelos</span></b></li><br>
-            <li><b>Sparkling White: <span style="color: #d32f2f;">Faisão</span></b></li><br>
-            <li><b>Reds: <span style="color: #d32f2f;">Mestre Silva</span></b><span style="color: #d32f2f;"> (Douro)</span></li>
-            <li style="margin-left: 56px;"><span style="color: #d32f2f;"><b>Dom Manuel</b></span><span style="color: #d32f2f;"> (Pinhel)</span></li>
-            <li style="margin-left: 56px;"><span style="color: #d32f2f;"><b>Cruzeiro</b></span><span style="color: #d32f2f;"> (Poço do Canto)</span></li>
-        </ul>
-        <div class="observacao">
-            Small glass <b>0,7€</b> - Large glass <b>1,4€</b> - Pitcher 500ml <b>2,8€</b>
-        </div>
-        <div style="text-align: center; margin-top: 30px; padding: 20px; border: 2px solid #333;">
-            <h3><b>Our Schedule</b></h3>
-            <p><b>Monday to Friday from 9am to 6:30pm / Saturday from 11:30am to 2:30pm</b></p>
-            <p><b>Sunday Closed</b></p>
-            <p><b>Phone: 960 033 554</b></p>
-        </div>
-    </section>
+                <div class="observacao"><b>Escolha uma Pasta:</b><br><br>
 
-    <!-- ESPAÑOL -->
-    <section id="espanol">
-        <h1>Menú</h1>
-        <h2><b>Platos del Día (Almuerzo)</b></h2>
-        <div class="subtitulo"><b>LUNES</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Caldo de Pollo con Zanahoria y Pasta</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Filete de Pescado Empanado</b>, Arroz y Verduras Salteadas</span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pasta con Salsa de Queso</b>, Champiñones y Pollo</span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>MARTES</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Caldo de Pescado con Tomates y Pasta</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Cerdo Alentejano</b> con Patatas, Encurtidos y Almejas</span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pasta Boloñesa</b> con Queso Parmesano</span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>MIÉRCOLES</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Caldo de Frijoles con Judías Verdes</span><span style="color: green;"><b>(Veg)</b></span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Muslos de Pollo al Horno</b>, Arroz, Patatas Fritas y Ensalada</span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pasta Linguini Negra con Mariscos</b></span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>JUEVES</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Crema de Zanahorias con Espinacas</span><span style="color: green;"><b>(Veg)</b></span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Bacalao à Brás</b></span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pasta à Stracciatella (Mozzarella Fresca con Nata)</b>, con salsa de tomate, pasta de pimientos y parmesano fundido <span style="color: green;"><b>(Veg)</b></span></span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>VIERNES</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Crema de Guisantes</span><span style="color: green;"><b>(Veg)</b></span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Feijoada Brasileña</b> con Arroz, Vinagreta, Chicharrón, Col, Harina de Mandioca y Rodaja de Naranja</span><span class="preco">6,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pasta à Pietro</b> (Salchicha fresca picante, cebollas y salsa de tomate) con queso Parmesano</span><span class="preco">6,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>SÁBADOS Y FESTIVOS</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasaña Boloñesa</b> con Pasta Fresca, Salsa Boloñesa, Salsa Bechamel y queso gratinado</span><span class="preco">9,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>TODOS LOS DÍAS</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Filete de Pollo</b></span><span class="preco">6,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Filetes de Cerdo</b></span><span class="preco">6,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Filete de Ternera</b></span><span class="preco">8,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Filete de Pescado Empanado</b></span><span class="preco">7,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Stroganoff de Pollo</b></span><span class="preco">7,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Parmigiana de Pollo</b></span><span class="preco">8,9€</span></li>
-        </ul>
-        <div class="acompanhamentos">
-            <b>Elija 2 Acompañamientos:</b> Arroz, Patatas Fritas, Patatas Paja, Ensalada, Verduras<br>
-            (Acompañamiento Extra en cualquier plato - <b>0,5€</b>)
-        </div>
-        <div class="observacao">
-            <b>Observaciones:</b><br><br>
-            <b>1- Para Llevar</b> - Aluminio <b>0,35€</b> | Caja Papel <b>0,20€</b> | Envase Sopa peq <b>0,25€</b> / gr <b>0,35€</b><br>
-            <b>2-</b> Los precios aplicados en este menú ya incluyen el IVA correspondiente
-        </div>
-        <h2><b>Entrantes</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Aperitivos Salados</b></span><span class="preco">1,3€</span></li>
-            <li>Croquetas de Carne, Croquetas de Camarón, Empanadas de Pollo, Coxinhas de Pollo, Bolas de Queso <span style="color: green;"><b>(Veg)</b></span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pequeño Aperitivo</b> / Con Crema de Queso de Serra + 0,8€<br>Pan (4 rebanadas), mantequilla y aceitunas<br><span style="color: green;"><b>(Veg)</b></span></span><span class="preco">1,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Ensalada Simple <span style="color: green;">(Veg)</span> / Con Atún +2€</b><br>Lechuga, Tomates y Cebolas</span><span class="preco">2,5€</span></li>
-        </ul>
-        <h2><b>Lasañas</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasaña Boloñesa</b><br>Pasta fresca, salsa boloñesa, salsa bechamel y queso gratinado</span><span class="preco">11,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasaña de Bacalao</b><br>Pasta fresca, bacalao salteado con cebollas, perejil y aceite de oliva, salsa bechamel y queso gratinado</span><span class="preco">11,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasaña de Berenjena</b><br>Rodajas de berenjena a la parrilla, salsa de tomate con aceitunas y cebollas, capas de queso parmesano y queso gratinado <span style="color: green;"><b>(Veg)</b></span></span><span class="preco">11,5€</span></li>
-        </ul>
-        <h2><b>Risottos</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Limón y Puerro <span style="color: green;">(Veg)</span> / Con Camarones +3€</b><br>Con mantequilla y queso parmesano. Cítrico, aromático y crujiente</span><span class="preco">7,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Champiñones<span style="color: green;">(Veg)</span> / Con Pollo +2€</b><br>Con mantequilla y queso parmesanox</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pollo con Tomates</b><br>Con mantequilla y queso parmesano</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Camarones con Tomates</b><br>Con mantequilla y queso parmesano</span><span class="preco">11,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Mariscos al Limón</b><br>Camarones, carne de almejas, mini calamares y mejillones, jugo de limón, mantequilla y queso parmesano</span><span class="preco">10,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pulpo Crujiente</b><br>Cubos de pulpo al vino tinto terminado con tentáculos de pulpo crujientes, mantequilla y queso parmesano</span><span class="preco">13,7€</span></li><br>
-        </ul>
-        <h2><b>Pastas</b></h2>
-        <div class="observacao"><b>Elija una Pasta:</b><br><br> 
-            <b>Seca:</b> Pasta Penne <img src="assets/penne.jpeg" alt="Penne">  <br>
-            <b>Fresca/Casera:</b> Tagliatelle  <b>(+1€) </b><img src="assets/tagliatelle.jpeg" alt="Tagliatelle"></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pomodori <span style="color: green;">(Veg)</span> / Con Camarones +3€</b><br>Salsa de tomate, albahaca, trozos de tomate</span><span class="preco">6,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Cacio e Pepe <span style="color: green;">(Veg)</span></b><br>Pimienta negra tostada y crema de queso parmesano</span><span class="preco">6,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Limone <span style="color: green;">(Veg)</span> / Con Camarones +3€</b><br>Salsa de queso, jugo y ralladura de limón, muy perfumado</span><span class="preco">6,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Stracciatella <span style="color: green;">(Veg)</span> / Con Pollo +2€ / Con Camarones +3€</b><br>Salsa de tomate, pasta de pimientos y queso parmesano fundido, servido con stracciatella (mozzarella fresca enriquecida con nata)</span><span class="preco">7,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pietro (Salchicha Fresca Picante)</b><br>Trozos de salchicha fresca picante con cebolla y salsa de tomate</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Boloñesa</b><br>Carne de ternera picada en salsa de tomate</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Champiñones al Queso <span style="color: green;">(Veg)</span> / Con Pollo +2€ / Con Camarones +3€</b><br>Champiñones frescos salteados en aceite de oliva y salsa de queso</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pollo al Queso</b><br>Tiras de pollo doradas y salsa de queso</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Puttanesca</b><br>Anchoas derretidas en salsa de tomate con aceite de oliva, pimienta calabresa, trozos de tomate y aceitunas negras</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Melanzane <span style="color: green;">(Veg)</span></b><br>Trozos de berenjena a la parrilla en salsa de tomate</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pesto de Albahaca <span style="color: green;">(Veg)</span></b><br>Crema de albahaca con aceite de oliva, anacardos y queso parmesano</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Carbonara</b><br>Tocino frito con crema de yemas de huevo y queso parmesano</span><span class="preco">9,3€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Matriciana</b><br>Tocino frito, salsa de tomate con queso parmesano</span><span class="preco">9,3€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Mare</b><br>Pasta Linguini Negra con camarones grandes y pequeños, carne de almejas, mini calamares y mejillones salteados en mantequilla con ajo, jugo y ralladura de limón</span><span class="preco">11,9€</span></li><br>
-        </ul>
-        <h2><b>Bebidas</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato">Agua sin gas 330ml</span><span class="preco">0,7€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Agua sin gas 1000ml</span><span class="preco">1,7€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Agua con gas 250ml</span><span class="preco">1,2€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Agua con gas con sabores 250ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Refrescos/Sumol lata 330ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Compal Sabores 200ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Ice Tea Sabores 330ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Mini Super Bock / Sagres 200ml</span><span class="preco">1€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Heineken 250ml o Corona 210ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Franciscana 500ml</span><span class="preco">3,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Somersby 200ml</span><span class="preco">1,5€</span></li>
-        </ul>
-        <h2><b>Cócteles</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Aperol Spritz</b><br>Licor Italiano de Naranja, vino blanco espumoso y agua con gas. Refrescante, ligeramente dulce con un toque de amargura de naranja</span><span class="preco">4,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Limoncello (Digestivo) Shot</b><br>Un shot de Licor Italiano de Limón sacado del congelador en el momento de servir</span><span class="preco">3€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Caipirinha de Lima</b><br>Cachaça Brasileña, azúcar, lima y mucho hielo.</span><span class="preco">4,5€</span></li>
-        </ul>
-        <h2><b>Nuestros Vinos</b></h2>
-        <ul>
-            <li><b>Blanco Maduro: <span style="color: #d32f2f;">Favelos</span></b></li><br>
-            <li><b>Blanco Espumoso: <span style="color: #d32f2f;">Faisão</span></b></li><br>
-            <li><b>Tintos: <span style="color: #d32f2f;">Mestre Silva</span></b><span style="color: #d32f2f;"> (Douro)</span></li>
-            <li style="margin-left: 56px;"><span style="color: #d32f2f;"><b>Dom Manuel</b></span><span style="color: #d32f2f;"> (Pinhel)</span></li>
-            <li style="margin-left: 56px;"><span style="color: #d32f2f;"><b>Cruzeiro</b></span><span style="color: #d32f2f;"> (Poço do Canto)</span></li>
-        </ul>
-        <div class="observacao">
-            Copa pequeña <b>0,7€</b> - Copa grande <b>1,4€</b> - Jarra 500ml <b>2,8€</b>
-        </div>
-        <div style="text-align: center; margin-top: 30px; padding: 20px; border: 2px solid #333;">
-            <h3><b>Nuestro Horario</b></h3>
-            <p><b>Lunes a Viernes de 9h a 18:30h / Sábado de 11:30h a 14:30h</b></p>
-            <p><b>Domingo Cerrado</b></p>
-            <p><b>Teléfono: 960 033 554</b></p>
-        </div>
-    </section>
+                        <b>Seca:</b> Macarrão Penne <img src="assets/penne.jpeg" alt="Penne" width="120" height="80"> <br>
+                        <b>Fresca/Caseira:</b> Tagliatelle <b>(+1€) <img src="assets/tagliatelle2.jpeg" alt="Tagliatelle" width="120"
+                                        height="80">
+                </div>
 
-    <!-- FRANÇAIS -->
-    <section id="francais">
-        <h1>Menu</h1>
-        <h2><b>Plats du Jour (Déjeuner)</b></h2>
-        <div class="subtitulo"><b>LUNDI</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Soupe:</b> Bouillon de Poulet aux Carottes et Pâtes</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Filet de Poisson Pané</b>, Riz et Légumes Sautés</span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pâtes à la Sauce Fromage</b>, Champignons et Poulet</span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>MARDI</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Soupe:</b> Bouillon de Poisson aux Tomates et Pâtes</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Porc Alentejano</b> aux Pommes de Terre, Cornichons et Palourdes</span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pâtes Bolognaise</b> au Fromage Parmesan</span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>MERCREDI</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Soupe:</b> Bouillon de Haricots aux Haricots Verts</span><span style="color: green;"><b>(Veg)</b></span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Cuisses de Poulet au Four</b>, Riz, Frites et Salade</span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pâtes Linguini Noires aux Fruits de Mer</b></span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>JEUDI</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Soupe:</b> Crème de Carottes aux Épinards</span><span style="color: green;"><b>(Veg)</b></span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Morue à Brás</b></span><span class="preco">5,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pâtes à la Stracciatella (Mozzarella Fraîche à la Crème)</b>, avec sauce tomate, pâte de poivrons et parmesan fondu <span style="color: green;"><b>(Veg)</b></span></span><span class="preco">5,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>VENDREDI</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Soupe:</b> Crème de Petits Pois</span><span style="color: green;"><b>(Veg)</b></span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Feijoada Brésilienne</b> avec Riz, Vinaigrette, Lard Grillé, Chou, Farine de Manioc et Tranche d'Orange</span><span class="preco">6,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pâtes à Pietro</b> (Saucisse fraîche épicée, oignons et sauce tomate) au fromage Parmesan</span><span class="preco">6,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>SAMEDIS ET JOURS FÉRIÉS</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasagne Bolognaise</b> aux Pâtes Fraîches, Sauce Bolognaise, Sauce Béchamel et fromage gratiné</span><span class="preco">9,9€</span></li>
-        </ul>
-        <div class="subtitulo"><b>TOUS LES JOURS</b></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Escalope de Poulet</b></span><span class="preco">6,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Escalopes de Porc</b></span><span class="preco">6,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Escalope de Veau</b></span><span class="preco">8,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Filet de Poisson Pané</b></span><span class="preco">7,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Stroganoff de Poulet</b></span><span class="preco">7,9€</span></li>
-            <li class="linha-prato"><span class="descricao-prato"><b>Parmigiana de Poulet</b></span><span class="preco">8,9€</span></li>
-        </ul>
-        <div class="acompanhamentos">
-            <b>Choisissez 2 Accompagnements:</b> Riz, Frites, Pommes Paille, Salade, Légumes<br>
-            (Accompagnement Supplémentaire sur n'importe quel plat - <b>0,5€</b>)
-        </div>
-        <div class="observacao">
-            <b>Observations:</b><br><br>
-            <b>1- À Emporter</b> - Aluminium <b>0,35€</b> | Boîte Papel <b>0,20€</b> | Emballage Soupe petit <b>0,25€</b> / grand <b>0,35€</b><br>
-            <b>2-</b> Les prix appliqués dans ce menu incluent déjà la TVA correspondante
-        </div>
-        <h2><b>Entrées</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Amuse-bouches Salés</b></span><span class="preco">1,3€</span></li>
-            <li>Rissoles de Viande, Rissoles de Crevettes, Chaussons au Poulet, Coxinhas de Poulet, Boulettes de Fromage <span style="color: green;"><b>(Veg)</b></span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Petit Apéritif</b> / Avec Crème de Fromage de Serra + 0,8€<br>Pain (4 tranches), beurre et olives<br><span style="color: green;"><b>(Veg)</b></span></span><span class="preco">1,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Salade Simple <span style="color: green;">(Veg)</span> / Avec Thon +2€</b><br>Laitue, Tomates et Oignons</span><span class="preco">2,5€</span></li>
-        </ul>
-        <h2><b>Lasagnes</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasagne Bolognaise</b><br>Pâtes fraîches, sauce bolognaise, sauce béchamel et fromage gratiné</span><span class="preco">11,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasagne de Morue</b><br>Pâtes fraîches, morue sautée aux oignons, persil et huile d'olive, sauce béchamel et fromage gratiné</span><span class="preco">11,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Lasagne d'Aubergine</b><br>Tranches d'aubergine grillées, sauce tomate aux olives et oignons, couches de fromage parmesan et fromage gratiné <span style="color: green;"><b>(Veg)</b></span></span><span class="preco">11,5€</span></li>
-        </ul>
-        <h2><b>Risottos</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Citron et Poireau <span style="color: green;">(Veg)</span> / Avec Crevettes +3€</b><br>Avec beurre et fromage parmesan. Citrique, aromatique et croquant</span><span class="preco">7,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Champignons<span style="color: green;">(Veg)</span> / Avec Poulet +2€</b><br>Avec beurre et fromage parmesan</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Poulet aux Tomates</b><br>Avec beurre et fromage parmesan</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Crevettes aux Tomates</b><br>Avec beurre et fromage parmesan</span><span class="preco">11,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Fruits de Mer au Citron</b><br>Crevettes, chair de palourdes, mini calmars et moules, jus de citron, beurre et fromage parmesan</span><span class="preco">10,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Poulpe Croustillant</b><br>Cubes de poulpe au vin rouge fini avec tentacules de poulpe croustillants, beurre et fromage parmesan</span><span class="preco">13,7€</span></li><br>
-        </ul>
-        <h2><b>Pâtes</b></h2>
-        <div class="observacao"><b>Choisissez une Pâte:</b><br><br> 
-            <b>Sèche:</b> Pâtes Penne <img src="assets/penne.jpeg" alt="Penne">  <br>
-            <b>Fraîche/Maison:</b> Tagliatelle  <b>(+1€) </b><img src="assets/tagliatelle.jpeg" alt="Tagliatelle"></div>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pomodori <span style="color: green;">(Veg)</span> / Avec Crevettes +3€</b><br>Sauce tomate, basilic, morceaux de tomate</span><span class="preco">6,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Cacio e Pepe <span style="color: green;">(Veg)</span></b><br>Poivre noir grillé et crème de fromage parmesan</span><span class="preco">6,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Limone <span style="color: green;">(Veg)</span> / Avec Crevettes +3€</b><br>Sauce fromage, jus et zeste de citron, très parfumé</span><span class="preco">6,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Stracciatella <span style="color: green;">(Veg)</span> / Avec Poulet +2€ / Avec Crevettes +3€</b><br>Sauce tomate, pâte de poivrons et fromage parmesan fondu, servi avec stracciatella (mozzarella fraîche enrichie à la crème)</span><span class="preco">7,9€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pietro (Saucisse Fraîche Épicée)</b><br>Morceaux de saucisse fraîche épicée avec oignon et sauce tomate</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Bolognaise</b><br>Viande de veau hachée à la sauce tomate</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Champignons au Fromage <span style="color: green;">(Veg)</span> / Avec Poulet +2€ / Avec Crevettes +3€</b><br>Champignons frais sautés à l'huile d'olive et sauce fromage</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Poulet au Fromage</b><br>Lamelles de poulet dorées et sauce fromage</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Puttanesca</b><br>Anchois fondus dans la sauce tomate avec huile d'olive, piment calabrais, morceaux de tomate et olives noires</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Melanzane <span style="color: green;">(Veg)</span></b><br>Morceaux d'aubergine grillée à la sauce tomate</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Pesto de Basilic <span style="color: green;">(Veg)</span></b><br>Crème de basilic avec huile d'olive, noix de cajou et fromage parmesan</span><span class="preco">8,7€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Carbonara</b><br>Lard frit à la crème de jaunes d'œufs et fromage parmesan</span><span class="preco">9,3€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Matriciana</b><br>Lard frit, sauce tomate au fromage parmesan</span><span class="preco">9,3€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Mare</b><br>Pâtes Linguini Noires avec grosses et petites crevettes, chair de palourdes, mini calmars et moules sautés au beurre avec ail, jus et zeste de citron</span><span class="preco">11,9€</span></li><br>
-        </ul>
-        <h2><b>Boissons</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato">Eau plate 330ml</span><span class="preco">0,7€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Eau plate 1000ml</span><span class="preco">1,7€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Eau gazeuse 250ml</span><span class="preco">1,2€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Eau gazeuse aromatisée 250ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Sodas/Sumol canette 330ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Compal Saveurs 200ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Ice Tea Saveurs 330ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Mini Super Bock / Sagres 200ml</span><span class="preco">1€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Heineken 250ml ou Corona 210ml</span><span class="preco">1,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Franciscana 500ml</span><span class="preco">3,5€</span></li>
-            <li class="linha-prato"><span class="descricao-prato">Somersby 200ml</span><span class="preco">1,5€</span></li>
-        </ul>
-        <h2><b>Cocktails</b></h2>
-        <ul>
-            <li class="linha-prato"><span class="descricao-prato"><b>Aperol Spritz</b><br>Liqueur Italienne d'Orange, vin blanc pétillant et eau gazeuse. Rafraîchissant, légèrement sucré avec une pointe d'amertume d'orange</span><span class="preco">4,5€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Limoncello (Digestif) Shot</b><br>Un shot de Liqueur Italienne de Citron sorti du congélateur au moment de servir</span><span class="preco">3€</span></li><br>
-            <li class="linha-prato"><span class="descricao-prato"><b>Caipirinha de Citron Vert</b><br>Cachaça Brésilienne, sucre, citron vert et beaucoup de glace.</span><span class="preco">4,5€</span></li>
-        </ul>
-        <h2><b>Nos Vins</b></h2>
-        <ul>
-            <li><b>Blanc Mature: <span style="color: #d32f2f;">Favelos</span></b></li><br>
-            <li><b>Blanc Pétillant: <span style="color: #d32f2f;">Faisão</span></b></li><br>
-            <li><b>Rouges: <span style="color: #d32f2f;">Mestre Silva</span></b><span style="color: #d32f2f;"> (Douro)</span></li>
-            <li style="margin-left: 56px;"><span style="color: #d32f2f;"><b>Dom Manuel</b></span><span style="color: #d32f2f;"> (Pinhel)</span></li>
-            <li style="margin-left: 56px;"><span style="color: #d32f2f;"><b>Cruzeiro</b></span><span style="color: #d32f2f;"> (Poço do Canto)</span></li>
-        </ul>
-        <div class="observacao">
-            Petit verre <b>0,7€</b> - Grand verre <b>1,4€</b> - Pichet 500ml <b>2,8€</b>
-        </div>
-        <div style="text-align: center; margin-top: 30px; padding: 20px; border: 2px solid #333;">
-            <h3><b>Nos Horaires</b></h3>
-            <p><b>Lundi au Vendredi de 9h à 18h30 / Samedi de 11h30 à 14h30</b></p>
-            <p><b>Dimanche Fermé</b></p>
-            <p><b>Téléphone: 960 033 554</b></p>
-        </div>
-    </section>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>À Pomodori <span
+                                                        style="color: green;">(Veg)</span> / Com Camarões
+                                                +3€</b><br>Molho de
+                                        tomate, manjericão, tomates em pedaços</span><span class="preco">6,9€</span>
+                        </li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Cacio e Pepe <span
+                                                        style="color: green;">(Veg)</span></b><br>Pimentas pretas
+                                        tostadas e
+                                        creme de queijo parmesão</span><span class="preco">6,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Ao Limone <span
+                                                        style="color: green;">(Veg)</span> / Com Camarões
+                                                +3€</b><br>Molho de
+                                        queijo, suco e raspas de limão, muito perfumado</span><span
+                                        class="preco">6,9€</span></li> <br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>À Stracciatella <span
+                                                        style="color: green;">(Veg)</span> / Com Frango +2€ / Com
+                                                Camarões
+                                                +3€</b><br>Molho de tomate, massa de pimentos e queijo parmesão fundido,
+                                        servido com stracciatella
+                                        (mozzarella fresca enriquecida com natas)</span><span class="preco">7,9€</span>
+                        </li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>À Pietro (Salsicha Fresca
+                                                Picante)</b><br>Salsicha
+                                        fresca picante em pedaços com cebola e molho de tomate</span><span
+                                        class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>À Bolonhesa</b><br>Carne de vitela
+                                        picada ao molho
+                                        de tomate</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Cogumelos ao Queijo <span
+                                                        style="color: green;">(Veg)</span> / Com Frango +2€ / Com
+                                                Camarões +3€</b><br>Cogumelos frescos salteados no azeite e molho de
+                                        queijo</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Frango ao Queijo</b><br>Tirinhas de
+                                        frango
+                                        alouradas e molho de queijo</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>A Putanesca</b><br>Anchovas derretidas
+                                        no molho de
+                                        tomates com azeite, pimenta calabresa, tomates em pedaços e azeitonas
+                                        pretas</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>À Melanzane <span
+                                                        style="color: green;">(Veg)</span></b><br>Berinjela grelhada em
+                                        pedaços ao
+                                        molho de tomates</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Ao Pesto de Manjericão <span
+                                                        style="color: green;">(Veg)</span></b><br>Creme de manjericão
+                                        com azeite, castanhas de caju e queijo parmesão</span><span
+                                        class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>A Carbonara</b><br>Bacons fritos ao
+                                        creme de gemas
+                                        de ovos e queijo parmesão</span><span class="preco">9,3€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>À Matriciana</b><br>Bacons fritos,
+                                        molho de tomate
+                                        com queijo parmesão</span><span class="preco">9,3€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Ao Mare</b><br>Pasta Linguini Negra com
+                                        camarões
+                                        grandes e pequenos, miolo de amêijoas, mini lulas e mexilhões salteados na
+                                        manteiga com alho, sumo e
+                                        raspas de limão</span><span class="preco">11,9€</span></li><br>
+                </ul>
+                <h2><b>Bebidas</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato">Água sem gás 330ml</span><span
+                                        class="preco">0,7€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Água sem gás 1000ml</span><span
+                                        class="preco">1,7€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Água Pedras 250ml</span><span
+                                        class="preco">1,2€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Água Pedras com Sabores 250ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Refrigerantes/Sumol lata 330ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Compal Sabores 200ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Ice Tea Sabores 330ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Mini Super Bock / Sagres 200ml</span><span
+                                        class="preco">1€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Heineken 250ml ou Corona 210ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Franciscana 500ml</span><span
+                                        class="preco">3,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Somersby 200ml</span><span
+                                        class="preco">1,5€</span>
+                        </li>
+                </ul>
+                <h2><b>Drinks</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Aperol Spritz</b><br>Licor Italiano de
+                                        Laranja,
+                                        vinho branco frizante e água gasosa. Refrescante, levemente adocicado e um toque
+                                        de amargor de
+                                        laranja</span><span class="preco">4,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Limoncello (Digestivo) Shot</b><br>Um
+                                        shot de Licor
+                                        Italiano de Limão retirado da arca frigorífica na hora de servir</span><span
+                                        class="preco">3€</span>
+                        </li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Caipirinha de Limão</b><br>Cachaça
+                                        Brasileira,
+                                        açúcar, limão e muito gelo.</span><span class="preco">4,5€</span></li>
+                </ul>
+                <h2><b>Nossos Vinhos</b></h2>
+                <ul>
+                        <li><b>Branco Maduro: <span style="color: #d32f2f;">Favaios</span></b></li><br>
+                        <li><b>Branco Frisante:<span style="color: #d32f2f;">Faisão</span></b></li><br>
+                        <li><b>Tintos:<span style="color: #d32f2f;"> Mestre Silva</span></b><span
+                                        style="color: #d32f2f;"> (Douro)</span></li>
+                        <li style="margin-left: 56px;"><span style="color: #d32f2f;"><b>Dom Manuel</b></span></b><span
+                                        style="color: #d32f2f;"> (Pinhel)</span></li>
+                        <li style="margin-left: 56px;"><span style="color: #d32f2f;"><b>Cruzeiro</b></span></b><span
+                                        style="color: #d32f2f;"> (Poço do Canto)</span></li>
+                </ul>
+                <div class="observacao">
+                        Taça pequena <b>0,7€</b> - Taça Grande <b>1,4€</b> - Jarro 500ml <b>2,8€</b></b>
+                </div>
+                <div style="text-align: center; margin-top: 30px; padding: 20px; border: 2px solid #333;">
+                        <h3><b>Nosso Horário</b></h3>
+                        <p><b>Segunda à Sexta das 9h às 18:30h / Sábado das 11:30h às 14:30h</b></p>
+                        <p><b>Domingo Encerrado</b></p>
+                        <p><b>Telefone: 960 033 554</b></p>
+                </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2024 Município D'Itália. Todos os direitos reservados.</p>
-    </footer>
+        <!-- ENGLISH -->
+        <section id="english">
+                <h1>Menu</h1>
+                <h2><b>Daily Dishes (Lunch)</b></h2>
+                <div class="subtitulo"><b>MONDAY</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Soup:</b> Chicken Soup with Carrot and
+                                        Pasta</span><span class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Breaded Fish Fillet</b>, Rice and
+                                        Sautéed Vegetables</span><span class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pasta with Cheese Sauce</b>, Mushrooms
+                                        and Chicken</span><span class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>TUESDAY</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Soup:</b> Fish Broth with Tomatoes and
+                                        Pasta</span><span class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Alentejo Pork</b> with Potatoes,
+                                        Pickles and Clams</span><span class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pasta Bolognese</b> with Parmesan
+                                        Cheese</span><span class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>WEDNESDAY</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Soup:</b> Bean Broth with Green
+                                        Beans <span style="color: green;"><b>(Veg)</b></span></span>
+                                        <span class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Baked Chicken Drumsticks</b>, Rice,
+                                        French Fries and Salad</span><span class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Black Linguini Pasta with
+                                                Seafood</b></span><span class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>THURSDAY</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Soup:</b> Carrot Cream with
+                                        Spinach <span style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Codfish à Brás</b></span><span
+                                        class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pasta à Stracciatella (Fresh Mozzarella
+                                                with Cream)</b>, with tomato sauce, pepper paste and melted parmesan
+                                        <span style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>FRIDAY</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Soup:</b> Pea Cream <span style="color: green;"><b>(Veg)</b></span></span>
+                        <span class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Brazilian Feijoada</b> with Rice,
+                                        Vinaigrette, Pork Crackling, Kale, Cassava Flour and Orange Slice</span><span
+                                        class="preco">6,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pasta à Pietro</b> (Spicy fresh
+                                        sausage, onions, and tomato sauce) with Parmesan cheese</span><span
+                                        class="preco">6,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>SATURDAYS AND HOLIDAYS</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasagna Bolognese</b> with Fresh Pasta,
+                                        Bolognese Sauce, Bechamel Sauce and gratinated cheese</span><span
+                                        class="preco">9,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>EVERY DAY</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Chicken Steak</b></span><span
+                                        class="preco">6,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pork Steaks</b></span><span
+                                        class="preco">6,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Veal Steak</b></span><span
+                                        class="preco">8,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Breaded Fish Fillet</b></span><span
+                                        class="preco">7,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Chicken Stroganoff</b></span><span
+                                        class="preco">7,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Chicken Parmigiana</b></span><span
+                                        class="preco">8,9€</span></li>
+                </ul>
+                <div class="acompanhamentos">
+                        <b>Choose 2 Side Dishes:</b> Rice, French Fries, Potato Sticks, Salad, Vegetables<br>
+                        (Extra Side Dish on any plate - <b>0,5€</b>)
+                </div>
+                <div class="observacao">
+                        <b>Notes:</b><br><br>
+                        <b>1- Take Away</b> - Aluminum <b>0,35€</b> | Paper Box <b>0,20€</b> | Small Soup Pack
+                        <b>0,25€</b> / Large <b>0,35€</b><br>
+                        <b>2-</b> The prices applied in this menu already include the respective VAT
+                </div>
+                <h2><b>Starters</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Savory Snacks</b></span><span
+                                        class="preco">1,3€</span></li>
+                        <li>Meat Rissoles, Shrimp Rissoles, Chicken Pies, Chicken Coxinhas, Cheese Balls <span
+                                        style="color: green;"><b>(Veg)</b></span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Small Appetizer <span style="color: green;"><b>(Veg)</b></span></b> / With Serra Cheese
+                                        Cream + 0,8€ <span style="color: green;"><b>(Veg)</b></span><br>Bread (4 slices), butter and olives<br></span><span
+                                        class="preco">1,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Simple Salad <span
+                                                        style="color: green;">(Veg)</span> / With Tuna
+                                                +2€</b><br>Lettuce, Tomatoes and Onions</span><span
+                                        class="preco">2,5€</span></li>
+                </ul>
+                <h2><b>Lasagnas</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasagna Bolognese</b><br>Fresh pasta,
+                                        Bolognese sauce, Bechamel sauce and gratinated cheese</span><span
+                                        class="preco">11,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Codfish Lasagna</b><br>Fresh pasta,
+                                        codfish sautéed with onions, parsley and olive oil, Bechamel sauce and
+                                        gratinated cheese</span><span class="preco">11,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Eggplant Lasagna</b><br>Grilled
+                                        eggplant slices, tomato sauce with olives and onions, layers of parmesan cheese
+                                        and gratinated cheese <span
+                                                style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">11,5€</span></li>
+                </ul>
+                <h2><b>Risottos</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lemon and Leek <span
+                                                        style="color: green;">(Veg)</span> / With Shrimp +3€</b><br>With
+                                        butter and parmesan cheese. Citric, aromatic and crunchy</span><span
+                                        class="preco">7,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Mushrooms<span
+                                                        style="color: green;">(Veg)</span> / With Chicken
+                                                +2€</b><br>With butter and parmesan cheese</span><span
+                                        class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Chicken with Tomatoes</b><br>With
+                                        butter and parmesan cheese</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Shrimp with Tomatoes</b><br>With butter
+                                        and parmesan cheese</span><span class="preco">11,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Seafood with Lemon</b><br>Shrimp, clam
+                                        meat, mini squid and mussels, lemon juice, butter and parmesan
+                                        cheese</span><span class="preco">10,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Crispy Octopus</b><br>Octopus cubes in
+                                        red wine finished with crispy octopus tentacles, butter and parmesan
+                                        cheese</span><span class="preco">13,7€</span></li><br>
+                </ul>
+                <h2><b>Pastas</b></h2>
+
+                <div class="observacao"><b>Choose a Pasta:</b><br><br>
+                        <b>Dry:</b> Penne Pasta <img src="assets/penne.jpeg" alt="Penne" width="120" height="80"> <br>
+                        <b>Fresh/Homemade:</b> Tagliatelle <b>(+1€) </b><img src="assets/tagliatelle2.jpeg" alt="Tagliatelle" width="120" height="80">
+                </div>
+
+            
+
+
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pomodori <span
+                                                        style="color: green;">(Veg)</span> / With Shrimp
+                                                +3€</b><br>Tomato sauce, basil, tomato pieces</span><span
+                                        class="preco">6,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Cacio e Pepe <span
+                                                        style="color: green;">(Veg)</span></b><br>Toasted black pepper
+                                        and parmesan cheese cream</span><span class="preco">6,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Limone <span
+                                                        style="color: green;">(Veg)</span> / With Shrimp
+                                                +3€</b><br>Cheese sauce, lemon juice and zest, very fragrant</span><span
+                                        class="preco">6,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Stracciatella <span
+                                                        style="color: green;">(Veg)</span> / With Chicken +2€ / With
+                                                Shrimp +3€</b><br>Tomato sauce, pepper paste and melted parmesan cheese,
+                                        served with stracciatella (fresh mozzarella enriched with cream)</span><span
+                                        class="preco">7,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pietro (Spicy Fresh
+                                                Sausage)</b><br>Spicy fresh sausage pieces with onion and tomato
+                                        sauce</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Bolognese</b><br>Minced veal in tomato
+                                        sauce</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Mushrooms with Cheese <span
+                                                        style="color: green;">(Veg)</span> / With Chicken +2€ / With
+                                                Shrimp +3€</b><br>Fresh mushrooms sautéed in olive oil and cheese
+                                        sauce</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Chicken with Cheese</b><br>Golden
+                                        chicken strips and cheese sauce</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Puttanesca</b><br>Anchovies melted in
+                                        tomato sauce with olive oil, Calabrian pepper, tomato pieces and black
+                                        olives</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Melanzane <span
+                                                        style="color: green;">(Veg)</span></b><br>Grilled eggplant
+                                        pieces in tomato sauce</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Basil Pesto <span
+                                                        style="color: green;">(Veg)</span></b><br>Basil cream with olive
+                                        oil, cashews and parmesan cheese</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Carbonara</b><br>Fried bacon with egg
+                                        yolk cream and parmesan cheese</span><span class="preco">9,3€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Matriciana</b><br>Fried bacon, tomato
+                                        sauce with parmesan cheese</span><span class="preco">9,3€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Mare</b><br>Black Linguini Pasta with
+                                        large and small shrimp, clam meat, mini squid and mussels sautéed in butter with
+                                        garlic, lemon juice and zest</span><span class="preco">11,9€</span></li><br>
+                </ul>
+                <h2><b>Beverages</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato">Still water 330ml</span><span
+                                        class="preco">0,7€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Still water 1000ml</span><span
+                                        class="preco">1,7€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Sparkling water 250ml</span><span
+                                        class="preco">1,2€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Flavored sparkling water 250ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Soft drinks/Sumol can 330ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Compal Flavors 200ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Ice Tea Flavors 330ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Mini Super Bock / Sagres 200ml</span><span
+                                        class="preco">1€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Heineken 250ml or Corona 210ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Franciscana 500ml</span><span
+                                        class="preco">3,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Somersby 200ml</span><span
+                                        class="preco">1,5€</span></li>
+                </ul>
+                <h2><b>Drinks</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Aperol Spritz</b><br>Italian Orange
+                                        Liqueur, sparkling white wine and sparkling water. Refreshing, slightly sweet
+                                        with a touch of orange bitterness</span><span class="preco">4,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Limoncello (Digestive) Shot</b><br>A
+                                        shot of Italian Lemon Liqueur taken from the freezer at serving time</span><span
+                                        class="preco">3€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lime Caipirinha</b><br>Brazilian
+                                        Cachaça, sugar, lime and lots of ice.</span><span class="preco">4,5€</span></li>
+                </ul>
+                <h2><b>Our Wines</b></h2>
+                <ul>
+                        <li><b>Mature White: <span style="color: #d32f2f;">Favelos</span></b></li><br>
+                        <li><b>Sparkling White: <span style="color: #d32f2f;">Faisão</span></b></li><br>
+                        <li><b>Reds: <span style="color: #d32f2f;">Mestre Silva</span></b><span style="color: #d32f2f;">
+                                        (Douro)</span></li>
+                        <li style="margin-left: 50px;"><span style="color: #d32f2f;"><b>Dom Manuel</b></span><span
+                                        style="color: #d32f2f;"> (Pinhel)</span></li>
+                        <li style="margin-left: 50px;"><span style="color: #d32f2f;"><b>Cruzeiro</b></span><span
+                                        style="color: #d32f2f;"> (Poço do Canto)</span></li>
+                </ul>
+                <div class="observacao">
+                        Small glass <b>0,7€</b> - Large glass <b>1,4€</b> - Pitcher 500ml <b>2,8€</b>
+                </div>
+                <div style="text-align: center; margin-top: 30px; padding: 20px; border: 2px solid #333;">
+                        <h3><b>Our Schedule</b></h3>
+                        <p><b>Monday to Friday from 9am to 6:30pm / Saturday from 11:30am to 2:30pm</b></p>
+                        <p><b>Sunday Closed</b></p>
+                        <p><b>Phone: 960 033 554</b></p>
+                </div>
+        </section>
+
+        <!-- ESPAÑOL -->
+        <section id="espanol">
+                <h1>Menú</h1>
+                <h2><b>Platos del Día (Almuerzo)</b></h2>
+                <div class="subtitulo"><b>LUNES</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Caldo de Pollo con Zanahoria
+                                        y Pasta</span><span class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Filete de Pescado Empanado</b>, Arroz y
+                                        Verduras Salteadas</span><span class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pasta con Salsa de Queso</b>,
+                                        Champiñones y Pollo</span><span class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>MARTES</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Caldo de Pescado con Tomates
+                                        y Pasta</span><span class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Cerdo Alentejano</b> con Patatas,
+                                        Encurtidos y Almejas</span><span class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pasta Boloñesa</b> con Queso
+                                        Parmesano</span><span class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>MIÉRCOLES</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Caldo de Frijoles con Judías
+                                        Verdes <span style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Muslos de Pollo al Horno</b>, Arroz,
+                                        Patatas Fritas y Ensalada</span><span class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pasta Linguini Negra con
+                                                Mariscos</b></span><span class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>JUEVES</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Crema de Zanahorias con
+                                        Espinacas <span style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Bacalao à Brás</b></span><span
+                                        class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pasta à Stracciatella (Mozzarella
+                                                Fresca con Nata)</b>, con salsa de tomate, pasta de pimientos y
+                                        parmesano fundido <span style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>VIERNES</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Sopa:</b> Crema de
+                                        Guisantes <span style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Feijoada Brasileña</b> con Arroz,
+                                        Vinagreta, Chicharrón, Col, Harina de Mandioca y Rodaja de Naranja</span><span
+                                        class="preco">6,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pasta à Pietro</b> (Salchicha fresca
+                                        picante, cebollas y salsa de tomate) con queso Parmesano</span><span
+                                        class="preco">6,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>SÁBADOS Y FESTIVOS</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasaña Boloñesa</b> con Pasta Fresca,
+                                        Salsa Boloñesa, Salsa Bechamel y queso gratinado</span><span
+                                        class="preco">9,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>TODOS LOS DÍAS</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Filete de Pollo</b></span><span
+                                        class="preco">6,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Filetes de Cerdo</b></span><span
+                                        class="preco">6,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Filete de Ternera</b></span><span
+                                        class="preco">8,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Filete de Pescado
+                                                Empanado</b></span><span class="preco">7,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Stroganoff de Pollo</b></span><span
+                                        class="preco">7,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Parmigiana de Pollo</b></span><span
+                                        class="preco">8,9€</span></li>
+                </ul>
+                <div class="acompanhamentos">
+                        <b>Elija 2 Acompañamientos:</b> Arroz, Patatas Fritas, Patatas Paja, Ensalada, Verduras<br>
+                        (Acompañamiento Extra en cualquier plato - <b>0,5€</b>)
+                </div>
+                <div class="observacao">
+                        <b>Observaciones:</b><br><br>
+                        <b>1- Para Llevar</b> - Aluminio <b>0,35€</b> | Caja Papel <b>0,20€</b> | Envase Sopa peq
+                        <b>0,25€</b> / gr <b>0,35€</b><br>
+                        <b>2-</b> Los precios aplicados en este menú ya incluyen el IVA correspondiente
+                </div>
+                <h2><b>Entrantes</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Aperitivos Salados</b></span><span
+                                        class="preco">1,3€</span></li>
+                        <li>Croquetas de Carne, Croquetas de Camarón, Empanadas de Pollo, Coxinhas de Pollo, Bolas de
+                                Queso <span style="color: green;"><b>(Veg)</b></span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pequeño Aperitivo <span style="color: green;"><b>(Veg)</b></span></b> / Con Crema de
+                                        Queso de Serra + 0,8€ <span style="color: green;"><b>(Veg)</b></span><br>Pan(4 rebanadas), mantequilla y aceitunas<br></span><span
+                                        class="preco">1,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Ensalada Simple <span
+                                                        style="color: green;">(Veg)</span> / Con Atún
+                                                +2€</b><br>Lechuga, Tomates y Cebolas</span><span
+                                        class="preco">2,5€</span></li>
+                </ul>
+                <h2><b>Lasañas</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasaña Boloñesa</b><br>Pasta fresca,
+                                        salsa boloñesa, salsa bechamel y queso gratinado</span><span
+                                        class="preco">11,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasaña de Bacalao</b><br>Pasta fresca,
+                                        bacalao salteado con cebollas, perejil y aceite de oliva, salsa bechamel y queso
+                                        gratinado</span><span class="preco">11,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasaña de Berenjena</b><br>Rodajas de
+                                        berenjena a la parrilla, salsa de tomate con aceitunas y cebollas, capas de
+                                        queso parmesano y queso gratinado <span
+                                                style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">11,5€</span></li>
+                </ul>
+                <h2><b>Risottos</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Limón y Puerro <span
+                                                        style="color: green;">(Veg)</span> / Con Camarones
+                                                +3€</b><br>Con mantequilla y queso parmesano. Cítrico, aromático y
+                                        crujiente</span><span class="preco">7,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Champiñones<span
+                                                        style="color: green;">(Veg)</span> / Con Pollo +2€</b><br>Con
+                                        mantequilla y queso parmesanox</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pollo con Tomates</b><br>Con
+                                        mantequilla y queso parmesano</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Camarones con Tomates</b><br>Con
+                                        mantequilla y queso parmesano</span><span class="preco">11,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Mariscos al Limón</b><br>Camarones,
+                                        carne de almejas, mini calamares y mejillones, jugo de limón, mantequilla y
+                                        queso parmesano</span><span class="preco">10,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pulpo Crujiente</b><br>Cubos de pulpo
+                                        al vino tinto terminado con tentáculos de pulpo crujientes, mantequilla y queso
+                                        parmesano</span><span class="preco">13,7€</span></li><br>
+                </ul>
+                <h2><b>Pastas</b></h2>
+
+                <div class="observacao"><b>Elija una Pasta:</b><br><br>
+
+                        <b>Seca:</b> Pasta Penne <img src="assets/penne.jpeg" alt="Penne" width="120" height="80"> <br>
+                        <b>Fresca/Casera:</b> Tagliatelle <b>(+1€) </b><img src="assets/tagliatelle2.jpeg" alt="Tagliatelle" width="120" height="80">
+                </div>
+
+             
+                </div>
+
+
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pomodori <span
+                                                        style="color: green;">(Veg)</span> / Con Camarones
+                                                +3€</b><br>Salsa de tomate, albahaca, trozos de tomate</span><span
+                                        class="preco">6,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Cacio e Pepe <span
+                                                        style="color: green;">(Veg)</span></b><br>Pimienta negra tostada
+                                        y crema de queso parmesano</span><span class="preco">6,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Limone <span
+                                                        style="color: green;">(Veg)</span> / Con Camarones
+                                                +3€</b><br>Salsa de queso, jugo y ralladura de limón, muy
+                                        perfumado</span><span class="preco">6,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Stracciatella <span
+                                                        style="color: green;">(Veg)</span> / Con Pollo +2€ / Con
+                                                Camarones +3€</b><br>Salsa de tomate, pasta de pimientos y queso
+                                        parmesano fundido, servido con stracciatella (mozzarella fresca enriquecida con
+                                        nata)</span><span class="preco">7,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pietro (Salchicha Fresca
+                                                Picante)</b><br>Trozos de salchicha fresca picante con cebolla y salsa
+                                        de tomate</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Boloñesa</b><br>Carne de ternera picada
+                                        en salsa de tomate</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Champiñones al Queso <span
+                                                        style="color: green;">(Veg)</span> / Con Pollo +2€ / Con
+                                                Camarones +3€</b><br>Champiñones frescos salteados en aceite de oliva y
+                                        salsa de queso</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pollo al Queso</b><br>Tiras de pollo
+                                        doradas y salsa de queso</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Puttanesca</b><br>Anchoas derretidas en
+                                        salsa de tomate con aceite de oliva, pimienta calabresa, trozos de tomate y
+                                        aceitunas negras</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Melanzane <span
+                                                        style="color: green;">(Veg)</span></b><br>Trozos de berenjena a
+                                        la parrilla en salsa de tomate</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pesto de Albahaca <span
+                                                        style="color: green;">(Veg)</span></b><br>Crema de albahaca con
+                                        aceite de oliva, anacardos y queso parmesano</span><span
+                                        class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Carbonara</b><br>Tocino frito con crema
+                                        de yemas de huevo y queso parmesano</span><span class="preco">9,3€</span></li>
+                        <br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Matriciana</b><br>Tocino frito, salsa
+                                        de tomate con queso parmesano</span><span class="preco">9,3€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Mare</b><br>Pasta Linguini Negra con
+                                        camarones grandes y pequeños, carne de almejas, mini calamares y mejillones
+                                        salteados en mantequilla con ajo, jugo y ralladura de limón</span><span
+                                        class="preco">11,9€</span></li><br>
+                </ul>
+                <h2><b>Bebidas</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato">Agua sin gas 330ml</span><span
+                                        class="preco">0,7€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Agua sin gas 1000ml</span><span
+                                        class="preco">1,7€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Agua con gas 250ml</span><span
+                                        class="preco">1,2€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Agua con gas con sabores 250ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Refrescos/Sumol lata 330ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Compal Sabores 200ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Ice Tea Sabores 330ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Mini Super Bock / Sagres 200ml</span><span
+                                        class="preco">1€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Heineken 250ml o Corona 210ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Franciscana 500ml</span><span
+                                        class="preco">3,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Somersby 200ml</span><span
+                                        class="preco">1,5€</span></li>
+                </ul>
+                <h2><b>Cócteles</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Aperol Spritz</b><br>Licor Italiano de
+                                        Naranja, vino blanco espumoso y agua con gas. Refrescante, ligeramente dulce con
+                                        un toque de amargura de naranja</span><span class="preco">4,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Limoncello (Digestivo) Shot</b><br>Un
+                                        shot de Licor Italiano de Limón sacado del congelador en el momento de
+                                        servir</span><span class="preco">3€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Caipirinha de Lima</b><br>Cachaça
+                                        Brasileña, azúcar, lima y mucho hielo.</span><span class="preco">4,5€</span>
+                        </li>
+                </ul>
+                <h2><b>Nuestros Vinos</b></h2>
+                <ul>
+                        <li><b>Blanco Maduro: <span style="color: #d32f2f;">Favelos</span></b></li><br>
+                        <li><b>Blanco Espumoso: <span style="color: #d32f2f;">Faisão</span></b></li><br>
+                        <li><b>Tintos: <span style="color: #d32f2f;">Mestre Silva</span></b><span
+                                        style="color: #d32f2f;"> (Douro)</span></li>
+                        <li style="margin-left: 56px;"><span style="color: #d32f2f;"><b>Dom Manuel</b></span><span
+                                        style="color: #d32f2f;"> (Pinhel)</span></li>
+                        <li style="margin-left: 56px;"><span style="color: #d32f2f;"><b>Cruzeiro</b></span><span
+                                        style="color: #d32f2f;"> (Poço do Canto)</span></li>
+                </ul>
+                <div class="observacao">
+                        Copa pequeña <b>0,7€</b> - Copa grande <b>1,4€</b> - Jarra 500ml <b>2,8€</b>
+                </div>
+                <div style="text-align: center; margin-top: 30px; padding: 20px; border: 2px solid #333;">
+                        <h3><b>Nuestro Horario</b></h3>
+                        <p><b>Lunes a Viernes de 9h a 18:30h / Sábado de 11:30h a 14:30h</b></p>
+                        <p><b>Domingo Cerrado</b></p>
+                        <p><b>Teléfono: 960 033 554</b></p>
+                </div>
+        </section>
+
+        <!-- FRANÇAIS -->
+        <section id="francais">
+                <h1>Menu</h1>
+                <h2><b>Plats du Jour (Déjeuner)</b></h2>
+                <div class="subtitulo"><b>LUNDI</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Soupe:</b> Bouillon de Poulet aux
+                                        Carottes et Pâtes</span><span class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Filet de Poisson Pané</b>, Riz et
+                                        Légumes Sautés</span><span class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pâtes à la Sauce Fromage</b>,
+                                        Champignons et Poulet</span><span class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>MARDI</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Soupe:</b> Bouillon de Poisson aux
+                                        Tomates et Pâtes</span><span class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Porc Alentejano</b> aux Pommes de
+                                        Terre, Cornichons et Palourdes</span><span class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pâtes Bolognaise</b> au Fromage
+                                        Parmesan</span><span class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>MERCREDI</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Soupe:</b> Bouillon de Haricots aux
+                                        Haricots Verts <span style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Cuisses de Poulet au Four</b>, Riz,
+                                        Frites et Salade</span><span class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pâtes Linguini Noires aux Fruits de
+                                                Mer</b></span><span class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>JEUDI</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Soupe:</b> Crème de Carottes aux
+                                        Épinards <span style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Morue à Brás</b></span><span
+                                        class="preco">5,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pâtes à la Stracciatella (Mozzarella
+                                                Fraîche à la Crème)</b>, avec sauce tomate, pâte de poivrons et parmesan
+                                        fondu <span style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">5,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>VENDREDI</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Soupe:</b> Crème de Petits
+                                        Pois <span style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Feijoada Brésilienne</b> avec Riz,
+                                        Vinaigrette, Lard Grillé, Chou, Farine de Manioc et Tranche d'Orange</span><span
+                                        class="preco">6,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pâtes à Pietro</b> (Saucisse fraîche
+                                        épicée, oignons et sauce tomate) au fromage Parmesan</span><span
+                                        class="preco">6,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>SAMEDIS ET JOURS FÉRIÉS</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasagne Bolognaise</b> aux Pâtes
+                                        Fraîches, Sauce Bolognaise, Sauce Béchamel et fromage gratiné</span><span
+                                        class="preco">9,9€</span></li>
+                </ul>
+                <div class="subtitulo"><b>TOUS LES JOURS</b></div>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Escalope de Poulet</b></span><span
+                                        class="preco">6,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Escalopes de Porc</b></span><span
+                                        class="preco">6,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Escalope de Veau</b></span><span
+                                        class="preco">8,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Filet de Poisson Pané</b></span><span
+                                        class="preco">7,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Stroganoff de Poulet</b></span><span
+                                        class="preco">7,9€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Parmigiana de Poulet</b></span><span
+                                        class="preco">8,9€</span></li>
+                </ul>
+                <div class="acompanhamentos">
+                        <b>Choisissez 2 Accompagnements:</b> Riz, Frites, Pommes Paille, Salade, Légumes<br>
+                        (Accompagnement Supplémentaire sur n'importe quel plat - <b>0,5€</b>)
+                </div>
+                <div class="observacao">
+                        <b>Observations:</b><br><br>
+                        <b>1- À Emporter</b> - Aluminium <b>0,35€</b> | Boîte Papel <b>0,20€</b> | Emballage Soupe petit
+                        <b>0,25€</b> / grand <b>0,35€</b><br>
+                        <b>2-</b> Les prix appliqués dans ce menu incluent déjà la TVA correspondante
+                </div>
+                <h2><b>Entrées</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Amuse-bouches Salés</b></span><span
+                                        class="preco">1,3€</span></li>
+                        <li>Rissoles de Viande, Rissoles de Crevettes, Chaussons au Poulet, Coxinhas de Poulet,
+                                Boulettes de Fromage <span style="color: green;"><b>(Veg)</b></span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Petit Apéritif <span style="color: green;"><b>(Veg)</b></span></b> / Avec Crème de
+                                        Fromage de Serra + 0,8€ <span style="color: green;"><b>(Veg)</b></span><br>Pain (4 tranches), beurre et olives<br></span><span
+                                        class="preco">1,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Salade Simple <span
+                                                        style="color: green;">(Veg)</span> / Avec Thon
+                                                +2€</b><br>Laitue, Tomates et Oignons</span><span
+                                        class="preco">2,5€</span></li>
+                </ul>
+                <h2><b>Lasagnes</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasagne Bolognaise</b><br>Pâtes
+                                        fraîches, sauce bolognaise, sauce béchamel et fromage gratiné</span><span
+                                        class="preco">11,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasagne de Morue</b><br>Pâtes fraîches,
+                                        morue sautée aux oignons, persil et huile d'olive, sauce béchamel et fromage
+                                        gratiné</span><span class="preco">11,5€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Lasagne d'Aubergine</b><br>Tranches
+                                        d'aubergine grillées, sauce tomate aux olives et oignons, couches de fromage
+                                        parmesan et fromage gratiné <span
+                                                style="color: green;"><b>(Veg)</b></span></span><span
+                                        class="preco">11,5€</span></li>
+                </ul>
+                <h2><b>Risottos</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Citron et Poireau <span
+                                                        style="color: green;">(Veg)</span> / Avec Crevettes
+                                                +3€</b><br>Avec beurre et fromage parmesan. Citrique, aromatique et
+                                        croquant</span><span class="preco">7,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Champignons<span
+                                                        style="color: green;">(Veg)</span> / Avec Poulet +2€</b><br>Avec
+                                        beurre et fromage parmesan</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Poulet aux Tomates</b><br>Avec beurre
+                                        et fromage parmesan</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Crevettes aux Tomates</b><br>Avec
+                                        beurre et fromage parmesan</span><span class="preco">11,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Fruits de Mer au
+                                                Citron</b><br>Crevettes, chair de palourdes, mini calmars et moules, jus
+                                        de citron, beurre et fromage parmesan</span><span class="preco">10,7€</span>
+                        </li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Poulpe Croustillant</b><br>Cubes de
+                                        poulpe au vin rouge fini avec tentacules de poulpe croustillants, beurre et
+                                        fromage parmesan</span><span class="preco">13,7€</span></li><br>
+                </ul>
+                <h2><b>Pâtes</b></h2>
+
+                <div class="observacao"><b>Choisissez une Pâte:</b><br><br>
+
+                        <b>Sèche:</b> Pâtes Penne <img src="assets/penne.jpeg" alt="Penne" width="120" height="80"> <br>
+                        <b>Fraîche/Maison:</b> Tagliatelle <b>(+1€) </b><img src="assets/tagliatelle2.jpeg" alt="Tagliatelle" width="120" height="80">
+                </div>
+
+              
+
+
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pomodori <span
+                                                        style="color: green;">(Veg)</span> / Avec Crevettes
+                                                +3€</b><br>Sauce tomate, basilic, morceaux de tomate</span><span
+                                        class="preco">6,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Cacio e Pepe <span
+                                                        style="color: green;">(Veg)</span></b><br>Poivre noir grillé et
+                                        crème de fromage parmesan</span><span class="preco">6,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Limone <span
+                                                        style="color: green;">(Veg)</span> / Avec Crevettes
+                                                +3€</b><br>Sauce fromage, jus et zeste de citron, très
+                                        parfumé</span><span class="preco">6,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Stracciatella <span
+                                                        style="color: green;">(Veg)</span> / Avec Poulet +2€ / Avec
+                                                Crevettes +3€</b><br>Sauce tomate, pâte de poivrons et fromage parmesan
+                                        fondu, servi avec stracciatella (mozzarella fraîche enrichie à la
+                                        crème)</span><span class="preco">7,9€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pietro (Saucisse Fraîche
+                                                Épicée)</b><br>Morceaux de saucisse fraîche épicée avec oignon et sauce
+                                        tomate</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Bolognaise</b><br>Viande de veau hachée
+                                        à la sauce tomate</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Champignons au Fromage <span
+                                                        style="color: green;">(Veg)</span> / Avec Poulet +2€ / Avec
+                                                Crevettes +3€</b><br>Champignons frais sautés à l'huile d'olive et sauce
+                                        fromage</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Poulet au Fromage</b><br>Lamelles de
+                                        poulet dorées et sauce fromage</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Puttanesca</b><br>Anchois fondus dans
+                                        la sauce tomate avec huile d'olive, piment calabrais, morceaux de tomate et
+                                        olives noires</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Melanzane <span
+                                                        style="color: green;">(Veg)</span></b><br>Morceaux d'aubergine
+                                        grillée à la sauce tomate</span><span class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Pesto de Basilic <span
+                                                        style="color: green;">(Veg)</span></b><br>Crème de basilic avec
+                                        huile d'olive, noix de cajou et fromage parmesan</span><span
+                                        class="preco">8,7€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Carbonara</b><br>Lard frit à la crème
+                                        de jaunes d'œufs et fromage parmesan</span><span class="preco">9,3€</span></li>
+                        <br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Matriciana</b><br>Lard frit, sauce
+                                        tomate au fromage parmesan</span><span class="preco">9,3€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Mare</b><br>Pâtes Linguini Noires avec
+                                        grosses et petites crevettes, chair de palourdes, mini calmars et moules sautés
+                                        au beurre avec ail, jus et zeste de citron</span><span
+                                        class="preco">11,9€</span></li><br>
+                </ul>
+                <h2><b>Boissons</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato">Eau plate 330ml</span><span
+                                        class="preco">0,7€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Eau plate 1000ml</span><span
+                                        class="preco">1,7€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Eau gazeuse 250ml</span><span
+                                        class="preco">1,2€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Eau gazeuse aromatisée 250ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Sodas/Sumol canette 330ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Compal Saveurs 200ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Ice Tea Saveurs 330ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Mini Super Bock / Sagres 200ml</span><span
+                                        class="preco">1€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Heineken 250ml ou Corona 210ml</span><span
+                                        class="preco">1,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Franciscana 500ml</span><span
+                                        class="preco">3,5€</span></li>
+                        <li class="linha-prato"><span class="descricao-prato">Somersby 200ml</span><span
+                                        class="preco">1,5€</span></li>
+                </ul>
+                <h2><b>Cocktails</b></h2>
+                <ul>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Aperol Spritz</b><br>Liqueur Italienne
+                                        d'Orange, vin blanc pétillant et eau gazeuse. Rafraîchissant, légèrement sucré
+                                        avec une pointe d'amertume d'orange</span><span class="preco">4,5€</span></li>
+                        <br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Limoncello (Digestif) Shot</b><br>Un
+                                        shot de Liqueur Italienne de Citron sorti du congélateur au moment de
+                                        servir</span><span class="preco">3€</span></li><br>
+                        <li class="linha-prato"><span class="descricao-prato"><b>Caipirinha de Citron
+                                                Vert</b><br>Cachaça Brésilienne, sucre, citron vert et beaucoup de
+                                        glace.</span><span class="preco">4,5€</span></li>
+                </ul>
+                <h2><b>Nos Vins</b></h2>
+                <ul>
+                        <li><b>Blanc Mature: <span style="color: #d32f2f;">Favelos</span></b></li><br>
+                        <li><b>Blanc Pétillant: <span style="color: #d32f2f;">Faisão</span></b></li><br>
+                        <li><b>Rouges: <span style="color: #d32f2f;">Mestre Silva</span></b><span
+                                        style="color: #d32f2f;"> (Douro)</span></li>
+                        <li style="margin-left: 68px;"><span style="color: #d32f2f;"><b>Dom Manuel</b></span><span
+                                        style="color: #d32f2f;"> (Pinhel)</span></li>
+                        <li style="margin-left: 68px;"><span style="color: #d32f2f;"><b>Cruzeiro</b></span><span
+                                        style="color: #d32f2f;"> (Poço do Canto)</span></li>
+                </ul>
+                <div class="observacao">
+                        Petit verre <b>0,7€</b> - Grand verre <b>1,4€</b> - Pichet 500ml <b>2,8€</b>
+                </div>
+                <div style="text-align: center; margin-top: 30px; padding: 20px; border: 2px solid #333;">
+                        <h3><b>Nos Horaires</b></h3>
+                        <p><b>Lundi au Vendredi de 9h à 18h30 / Samedi de 11h30 à 14h30</b></p>
+                        <p><b>Dimanche Fermé</b></p>
+                        <p><b>Téléphone: 960 033 554</b></p>
+                </div>
+        </section>
+
+        <footer>
+                <p>&copy; 2024 Município D'Itália. Todos os direitos reservados.</p>
+        </footer>
 </body>
 
 </html>
